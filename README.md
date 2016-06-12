@@ -26,7 +26,8 @@ Setup the first project:
 - `sudo npm install`
 
 Run the program:
-- `nodejs app.js`
+- `npm start` (express > 3.x)
+- `nodejs app.js` (express version 2.x)
 
 Test whether it is running or not:
 - `sudo apt-get install curl`
