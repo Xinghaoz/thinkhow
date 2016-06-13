@@ -1,4 +1,4 @@
-# thinkhow
+## thinkhow
 
 ## Setup the environment
 - `sudo apt-get install nodejs`
