@@ -11,4 +11,7 @@ import scrapy
 class ThinkhowItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    team1 = scrapy.Field()
+    team2 = scrapy.Field()
+    result = scrapy.Field()
     pass
