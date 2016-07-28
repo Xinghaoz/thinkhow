@@ -37,3 +37,22 @@ TEMPLATES = [
     },
 ]
 `
+
+## 07/27/2016
+### Post a form
+views.py
+`python
+def <method_name>(request):
+    form = <FormName>(request.post or None) # Get the form from POST method
+    form.save(commit=False) # Don't save the form to the database
+    form.save() # Save the form to the database
+`
+
+### Check whether a form is valid or not
+forms.py
+`python
+class FormName():
+    def clean_<data_name>(self): # valid data here
+    <parameter_name> = self.cleaned_data.get('<parameter_name>') # get the data
+    # Do some validation
+'
