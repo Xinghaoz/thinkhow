@@ -55,4 +55,36 @@ class FormName():
     def clean_<data_name>(self): # valid data here
     <parameter_name> = self.cleaned_data.get('<parameter_name>') # get the data
     # Do some validation
-'
+``
+
+## 07/28/2016
+### static file
+STATICFILES_DIRS: Where your static files from
+STATIC_ROOT: Where your static files to (When running collectstatic)
+
+MEDIA_URL and MEDIA_ROOT: The same as STATIC, but these are about users uploading
+
+### Load static file in template
+`html
+<link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+`
+<link href="{% static '/css/bootstrap.min.css'%}" rel="stylesheet"> is wrong!!
+Don't put '/' before css!
+
+### Extend block
+in "base.html"
+{% extends "home.html" %}
+The content in "home.html" will be replaced by that in "base.html".  The tags in "base.html" will be added.
+
++ Use "{{ block.super }}" to inherit the block and add your own content in the tag.
+
++ Use "{% include 'htmlblock.html' %}" to include a whole block of codes, which functions like a copy and paste. If in 'htmlblock.html' there are loading static files, you need to put {% load staticfiles %} in the beginning.
+
+## Use crispy-forms
+1. Install crispy
+`bash
+pip install --upgrade django-crispy-forms
+`
+2. Add "'crispy_forms'," in settings.py.
+3. Add "{% load crispy_forms_tags %}" in the ".html" file.
+4. Add "{{ form|crispy }}" behind the <form> tag

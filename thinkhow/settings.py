@@ -27,16 +27,27 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Tutorial 16 setting
+EMAIL_HOST = 'stmp.gmail.com'
+EMAIL_HOST_USER = 'zhou.xinghao.1991@gmail.com'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    # Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third party apps
+    'crispy_forms',
+    # My apps
     'newsletter',
 ]
 
@@ -121,3 +132,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#STATIC_ROOT = "/var/www/example.com/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static_in_pro", "static_root")
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static_in_pro", "our_static"),
+    # '/var/www/static/',
+]
+
+# USER upload
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
