@@ -25,6 +25,11 @@ def home(request):
         context = {
             "title": 'Thank you',
         }
+
+    if request.user.is_authenticated() and request.user.is_staff: # If the user is admin, it is "staff"
+        context = {
+            'queryset': [1, 2, 3]# Some queryset
+        }
     return render(request, "home.html", context)
 
 def contact(request):

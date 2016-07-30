@@ -1,3 +1,4 @@
+it
 ## thinkhow
 
 
@@ -117,4 +118,37 @@ in the very last
 {% else %}
 <li><a href="{% url 'auth_login' %}">Login</a></li>
 <li><a href="{% url 'registration_register' %}">Register</a></li>
+`
+
+## 07/30/2016
+### How to make text align center?
++ Make the whole class align center.
+`html
+<style>
+.lead {
+    text-align:center;
+}
+</style>
+`
+That's not good because you might use lead some where else and don't want it to align center.
+
++ Create our own text-align-center class and Add it to "custom.css"
+`html
+<style>
+.text-align-center {
+    text-align:center;
+}
+`
+In this way, you can add self-defined class text-align-center when you want the content to be aligned center.
+
+### Use queryset to operate the models
+https://docs.djangoproject.com/en/1.9/ref/models/querysets/
+https://www.codingforentrepreneurs.com/projects/srvup-membership/
+1. In "view.py"
+Add:
+`python
+if request.user.is_authenticated() and request.user.is_staff: # If the user is admin, it is "staff"
+    context = {
+        'queryset': # Some queryset
+    }
 `
