@@ -85,6 +85,36 @@ The content in "home.html" will be replaced by that in "base.html".  The tags in
 `bash
 pip install --upgrade django-crispy-forms
 `
-2. Add "'crispy_forms'," in settings.py.
+2. Add "'crispy_forms'," and "CRISPY_TEMPLATE_PACK = 'bootstrap3'" in settings.py.
 3. Add "{% load crispy_forms_tags %}" in the ".html" file.
 4. Add "{{ form|crispy }}" behind the <form> tag
+
+## 07/29/2016
+### Apply "django-registration-redux" (https://django-registration-redux.readthedocs.io/en/latest/quickstart.html#quickstart)
+1. Install
+`bash
+pip install django-registration-redux
+`
+
+2. In "settings.py"
+Add:
+  'django.contrib.sites',
+  'registration', #should be immediately above 'django.contrib.auth'
+in INSTALLED_APPS
+
+ADD:
+# Django registration redux settings
+  ACCOUNT_ACTIVATION_DAYS = 7
+  REGISTRATION_AUTO_LOGIN = True
+  SITE_ID = 1
+  LOGIN_REDIRECT_URL = '/'
+in the very last
+
+3. In "navibar.html" change to this:
+`html
+<li><a href="{% url 'auth_logout' %}">Logout</a></li>
+<!-- <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li> -->
+{% else %}
+<li><a href="{% url 'auth_login' %}">Login</a></li>
+<li><a href="{% url 'registration_register' %}">Register</a></li>
+`

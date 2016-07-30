@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django.contrib.sites',
+    'registration', #should be immediately above 'django.contrib.auth'
     # Third party apps
     'crispy_forms',
     # My apps
@@ -144,3 +147,12 @@ STATICFILES_DIRS = [
 # USER upload
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# Crispy form tags settings
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# Django registration redux settings
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
