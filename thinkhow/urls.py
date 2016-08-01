@@ -21,12 +21,8 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    #url(r'^$', include('newsletter.urls')),
-
-    url(r'^$', 'newsletter.views.home', name='index'),
-    url(r'^contact/$', 'newsletter.views.contact', name='contact'),
-    #url(r'^$', newsletter.views.home, name='index'),
-    #url(r'^contact/$', newsletter.views.contact, name='contact'),
+    url(r'^$', views.home, name='home'),
+    url(r'^contact/$', include('contact.urls')),
     url(r'^about/$', views.about, name='about'),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.default.urls')),

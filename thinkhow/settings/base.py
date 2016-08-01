@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     # Third party apps
     'crispy_forms',
     # My apps
-    'newsletter',
+    'contact',
+    'zhihu',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -78,7 +79,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                #'newsletter',
             ],
         },
     },

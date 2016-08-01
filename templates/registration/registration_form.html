@@ -5,8 +5,15 @@
 
 {% block content %}
 <div class='row'>
+<div class='col-sm-10 col-sm-offset-2'>
+<h3>Actually you don't need to register in this website cause its my individual website.  However, you can do that as a sign of loving my website.  I will appreciate you very much!</h3>
+</div>
+</div>
+
+<br/>
+
+<div class='row'>
 <div class='col-sm-4 col-sm-offset-4'>
-<h1>Register for free!</h1>
 <form method="post" action=".">
   {% csrf_token %}
   {{ form|crispy }}
