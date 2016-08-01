@@ -152,3 +152,28 @@ if request.user.is_authenticated() and request.user.is_staff: # If the user is a
         'queryset': # Some queryset
     }
 `
+
+## 07/31/2016
+### Setup production environment.
+1. Create a new folder called "settings" in in configuration folder.
+2. In "settings" folder, create "init.py", "base.py", "local.py" and "production.py"
+3. Copy content from old settings to "base.py" and "local.py".
+4. In "local.py" change :
+`python
+BASE_DIR = os.path.dirname((os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DEBUG = False
+ALLOWED_HOSTS = ['*']
+`
+
+### Using FTP
+1. Cyberduck
+2. Transmit
+
+### Set up requirement
+`bash
+pip freeze > requirements.txt
+`
+
+`bash
+pip install -r requirements.txt
+`
