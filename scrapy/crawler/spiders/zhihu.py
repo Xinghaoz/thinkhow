@@ -55,15 +55,15 @@ class ZhihuSpider (CrawlSpider):
             # if so, we should extract the second element
             abstract = topic.xpath('.//div[@class="zh-summary summary clearfix"]/text()').extract()
             if abstract[0] == '\n':
-                item['abstract'] = abstract[1]
+                item['abstract'] = abstract[1].strip().encode('utf-8')
             else:
-                item['abstract'] = abstract[0]
+                item['abstract'] = abstract[0].strip().encode('utf-8')
 
             category = topic.xpath('./div[1]/div[2]/div[1]/a/text()').extract_first()
 
-            item['title'] = title
+            item['title'] = title.encode('utf-8')
             item['url'] = url
-            item['category'] = category
+            item['category'] = category.encode('utf-8')
             yield item
 
         for zhuanlan in zhuanlans:
@@ -76,13 +76,13 @@ class ZhihuSpider (CrawlSpider):
             # if so, we should extract the second element
             abstract = zhuanlan.xpath('.//div[@class="zh-summary summary clearfix"]/text()').extract()
             if abstract[0] == '\n':
-                item['abstract'] = abstract[1]
+                item['abstract'] = abstract[1].strip().encode('utf-8')
             else:
-                item['abstract'] = abstract[0]
+                item['abstract'] = abstract[0].strip().encode('utf-8')
 
             category = topic.xpath('./div[1]/div[2]/div[1]/a/text()').extract_first()
 
-            item['title'] = title
+            item['title'] = title.encode('utf-8')
             item['url'] = url
-            item['category'] = category
+            item['category'] = category.encode('utf-8')
             yield item
