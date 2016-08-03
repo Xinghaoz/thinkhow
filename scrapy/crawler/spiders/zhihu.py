@@ -39,16 +39,13 @@ class ZhihuSpider (CrawlSpider):
     def parse_item(self, response):
         print '&&&&&&&&&&&&&&&&&&&&&&&&& {} &&&&&&&&&&&&&&&&&&&&&&&&&'.format(response.url)
         page = Selector(response)
-        item = ZhihuItem()
 
         # topics and zhuanlan are held in two different label.
         topics = page.xpath('//div[@feed-item-a]')
         zhuanlans = page.xpath('//div[@feed-item-p]')
 
-        //*[@id="feed-0"]/div[1]/div[2]/div[1]/a
-        //*[@id="feed-1"]/div[1]/div[2]/div[1]/a
-
         for topic in topics:
+            item = ZhihuItem()
             title = topic.xpath('.//h2/a/text()').extract_first().strip()
             url = topic.xpath('.//h2/a/@href').extract_first().strip()
             url = "http://www.zhihu.com" + url
@@ -58,13 +55,19 @@ class ZhihuSpider (CrawlSpider):
             # if so, we should extract the second element
             abstract = topic.xpath('.//div[@class="zh-summary summary clearfix"]/text()').extract()
             if abstract[0] == '\n':
-                print abstract[1]
                 item['abstract'] = abstract[1]
             else:
-                print abstract[0]
                 item['abstract'] = abstract[0]
 
+            category = topic.xpath('./div[1]/div[2]/div[1]/a/text()').extract_first()
+
+            item['title'] = title
+            item['url'] = url
+            item['category'] = category
+            yield item
+
         for zhuanlan in zhuanlans:
+            item = ZhihuItem()
             title = zhuanlan.xpath('.//h2/a/text()').extract_first().strip()
             url = zhuanlan.xpath('.//h2/a/@href').extract_first().strip()
 
@@ -73,8 +76,13 @@ class ZhihuSpider (CrawlSpider):
             # if so, we should extract the second element
             abstract = zhuanlan.xpath('.//div[@class="zh-summary summary clearfix"]/text()').extract()
             if abstract[0] == '\n':
-                print abstract[1]
                 item['abstract'] = abstract[1]
             else:
-                print abstract[0]
                 item['abstract'] = abstract[0]
+
+            category = topic.xpath('./div[1]/div[2]/div[1]/a/text()').extract_first()
+
+            item['title'] = title
+            item['url'] = url
+            item['category'] = category
+            yield item
