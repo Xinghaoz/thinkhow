@@ -15,12 +15,15 @@
 }
 {% endblock %}
 
+
+
 </style>
 
 
 {% block jumbotron %}
 <!-- Main component for a primary marketing message or call to action -->
-<div class='jumbotron' margin-bottom='1px' style='background-color: #aeb7ff'>
+<!-- <div class='jumbotron' margin-bottom='1px' style='background-color: #aeb7ff'> -->
+<div class='jumbotron' margin-bottom='1px' style='background-color: #ffffff'>
     <div class='container'>
         <div class='row'>
             <div class='col-xs-6'>
@@ -41,7 +44,7 @@
 
 {% block content %}
 <div class='row'>
-    <div class='jumbotron'>
+    <div class='jumbotron' style='background-color: #ffffff'>
         <div class='container'>
             <div class='col-xs-3'>
                 <p class='lead text-align-center'>I am the iron hand of justice</p>
@@ -54,7 +57,15 @@
                 </p>
             </div>
             <div class='col-xs-3'>
-                <p class='lead text-align-center'>1</p>
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox1" value="option1"> Bilibili
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox2" value="option2"> 知乎
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox3" value="option3"> Youtube
+                </label>
             </div>
             <div class='col-xs-3'>
                 <h1 class='text-align-center'>{{ title }}</h1>
@@ -70,13 +81,25 @@
 {% endblock %}
 
 {% block zhihu %}
-<div class='page-header'><h1>知乎</h1></div>
-<div class='row'>
-    <div class='container'>
-        {% for instance in queryset %}
-        <h2><a href="{{ instance.link }}">{{ instance.title }}</a></h2>
-        <h4>{{ instance.link }}</h4>
-        {% endfor %}
+    <div class='page-header'>
+        <img src='{% static "img/zhihu.jpeg" %}'/>
+        <!-- <h1>知乎</h1> -->
     </div>
-</div>
+    {% for instance in queryset %}
+    <div class='well' style='margin-bottom: 10px; padding-top: 5px; padding-bottom: 5px'>
+        <h5 style='margin: 1px;'> 来自话题：{{ instance.category }} </h5>
+        <h3 style='margin-top: 5px'><a href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h3>
+        <h4>{{ instance.abstract }}</h4>
+    </div>
+    {% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+{% include "sidebar.html" %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block test %}
 {% endblock %}
