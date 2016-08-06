@@ -1,5 +1,5 @@
 <!-- Static navbar -->
-<nav class="navbar navbar-default navbar-static-top" style="background-color: #9effb4">
+<nav class="navbar navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -31,6 +31,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         {% if request.user.is_authenticated %}
+        <li><a href="{% url 'profile' %}"> {{ request.user }} </a></li>
         <li><a href="{% url 'auth_logout' %}">Logout</a></li>
         <!-- <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li> -->
         {% else %}

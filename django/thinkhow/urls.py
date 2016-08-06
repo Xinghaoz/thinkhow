@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^profile/$', views.profile, name='profile'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

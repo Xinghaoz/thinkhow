@@ -1,6 +1,5 @@
 {% load staticfiles %}
 {% load crispy_forms_tags %}
-{% include 'navibar.html' %}
 
 <!DOCTYPE html>
 
@@ -23,11 +22,10 @@
     </head>
 
     <body>
+        {% include "navibar.html" %}
         {% block jumbotron %}
         {% endblock %}
 
-        {% block content %}
-        {% endblock %}
 
         <div class='container'>
             <div class='row'>

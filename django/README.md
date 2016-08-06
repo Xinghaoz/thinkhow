@@ -175,3 +175,17 @@ pip freeze > requirements.txt
 `bash
 pip install -r requirements.txt
 `
+
+## 08/04/2016
+`html
+.navbar-nav>li>a:hover {
+    color: #111;
+}
+`
+This is right
+
+`html
+.navbar-nav>li>a: hover {
+    color: #111;
+}`
+WRONG!
