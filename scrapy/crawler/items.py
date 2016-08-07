@@ -9,9 +9,13 @@ import scrapy
 
 
 class ZhihuItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    title = scrapy.Field()
     url = scrapy.Field()
+    title = scrapy.Field()
     abstract = scrapy.Field()
     category = scrapy.Field()
+
+class BilibiliItem(scrapy.Item):
+    url = scrapy.Field()
+    title = scrapy.Field()
+    category = scrapy.Field()
+    up = scrapy.Field()

@@ -18,3 +18,10 @@ class ZhihuPipeline(object):
         val = "{}\t{}\t{}\t{}\n".format(item['url'], item['title'], item['abstract'], item['category'])
         self.zhihu.write(val)
         return item
+
+class BilibiliPipeline(object):
+    def __init__(self):
+        self.bilibili_json = open('bilibili.txt', 'w')
+
+    def process_item(self, item, spider):
+        pass
