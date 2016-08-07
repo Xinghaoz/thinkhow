@@ -23,7 +23,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^contact/', include('contact.urls')),
-    url(r'^about/$', views.about, name='about'),
+    url(r'^about/', include('about.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^profile/$', views.profile, name='profile')

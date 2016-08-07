@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # My apps
     'contact',
     'zhihu',
+    'about',
 ]
 
 MIDDLEWARE_CLASSES = [
