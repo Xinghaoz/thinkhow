@@ -81,8 +81,8 @@
 {% endblock %}
 
 {% block zhihu %}
-    <div class='page-header'>
-        <a id='zhihu-title' href="http://www.zhihu.com"><img src='{% static "img/zhihu.jpeg" %}'/></a>
+    <div class='page-header' id='zhihu'>
+        <a href="http://www.zhihu.com"><img src='{% static "img/zhihu.jpeg" %}'/></a>
         <!-- <h1>知乎</h1> -->
     </div>
     {% for instance in queryset %}
