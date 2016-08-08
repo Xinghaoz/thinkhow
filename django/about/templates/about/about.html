@@ -1,19 +1,13 @@
-{% extends "base.html" %}
-
+{% extends "about/about_base.html" %}
+{% load staticfiles %}
 
 {% block content %}
-<ul class='sidebar'>
-    <li><a href="">Resume</a></li>
-    <li><a href="">Linkedin</a></li>
-    <li><a href="">Facebook</a></li>
-    <li><a href="">Works</a></li>
-</ul>
 
-<div class='row'>
-    <div class='col-xs-4 col-xs-offset-4'>
-        Nothing here~
+<div class='detail'>
+    <div class='container'>
+        <h2>Xinghao Zhou</h2>
+        <img src='{% static "img/me.jpg" %}'/>
+
     </div>
-
 </div>
-
 {% endblock %}

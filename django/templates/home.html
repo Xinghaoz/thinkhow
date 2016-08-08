@@ -23,11 +23,11 @@
 {% block jumbotron %}
 <!-- Main component for a primary marketing message or call to action -->
 <!-- <div class='jumbotron' margin-bottom='1px' style='background-color: #aeb7ff'> -->
-<div class='jumbotron' margin-bottom='1px' style='background-color: #ffffff'>
+<div class='jumbotron' margin-bottom='1px' style='background-color: #FFFFFF;'>
     <div class='container'>
         <div class='row'>
             <div class='col-xs-6'>
-                <h1>ThinkHow</h1>
+                <h1 style='text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;'>ThinkHow</h1>
                 <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
                 <p>To see the difference between static and fixed top navbars, just scroll.</p>
                 <p>
@@ -43,7 +43,7 @@
 {% endblock %}
 
 {% block content %}
-<div class='row'>
+<div class='row' style='margin: 0px;'>
     <div class='jumbotron' style='background-color: #ffffff'>
         <div class='container'>
             <div class='col-xs-3'>
@@ -81,7 +81,7 @@
 {% endblock %}
 
 {% block zhihu %}
-    <div class='page-header' id='zhihu'>
+    <div class='page-header' >
         <a href="http://www.zhihu.com"><img src='{% static "img/zhihu.jpeg" %}'/></a>
         <!-- <h1>知乎</h1> -->
     </div>

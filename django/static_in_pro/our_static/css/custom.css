@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding: 0;
+    padding-top: 51px;
 }
 
 .text-align-center {
@@ -57,40 +57,4 @@ body {
 #zhihu {
     /*border-bottom-style: none;*/
     /*border-color: red;*/
-}
-
-ul.sidebar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    padding-top: 100px;
-    width: 200px;
-    background-color: #F1F1F1;
-    width: 15%;
-    height: 100%;
-    position: fixed;
-    overflow: auto;
-}
-
-ul.sidebar li a {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-
-ul.sidebar li a:hover {
-    background-color: #555;
-    color: white;
-    text-decoration: none;
-}
-
-ul.sidebar li a.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-ul.sidebar li {
-    text-align: center;
-    border-bottom: 1px solid #555;
 }
