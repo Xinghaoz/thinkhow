@@ -34,7 +34,7 @@ ul.sidebar {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    padding-top: 100px;
+    padding-top: 80px;
     width: 200px;
     background-color: #6ab3b2;
     width: 15%;
@@ -63,22 +63,39 @@ ul.sidebar li a.active {
 
 ul.sidebar li {
     text-align: center;
-    border-bottom: 1px solid #555;
+    border-style: groove;
+    margin: 50px;
+    /*border-radius: 100%;*/
+    /*border-bottom: 1px solid #555;*/
 }
 
-.jumbotron {
-    margin-left: 50%;
-    margin: 0px;
-    padding: 0px;
+ul.sidebar h2 {
+    margin-bottom: 50px;
 }
 
 .detail {
     background-color: #FFF;
-    margin-left: 15%;
+    margin-left: 20%;
+    margin-right: 59%;
+    margin-top: 50px;
     height: 100%;
+    border-style: groove;
+}
+
+.name {
+    /*text-align: center;*/
+    clear: both;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.information {
+    font-size: 5px;
+    clear: both;
+    margin: 10px;
 }
 
 img {
-    border-radius: 100%;
+    /*border-radius: 100%;*/
     height: 250px;
 }
