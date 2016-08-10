@@ -34,13 +34,13 @@ ul.sidebar {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    padding-top: 80px;
-    width: 200px;
+    padding-top: 60px;
     background-color: #6ab3b2;
-    width: 15%;
+    width: 18%;
     height: 100%;
     position: fixed;
     overflow: auto;
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 ul.sidebar li a {
@@ -50,8 +50,8 @@ ul.sidebar li a {
     text-decoration: none;
 }
 
-ul.sidebar li a:hover {
-    background-color: #555;
+ul.sidebar li:hover {
+    /*background-color: #555;*/
     color: white;
     text-decoration: none;
 }
@@ -63,21 +63,37 @@ ul.sidebar li a.active {
 
 ul.sidebar li {
     text-align: center;
-    border-style: groove;
-    margin: 50px;
-    /*border-radius: 100%;*/
+    border-style: none;
+    margin: 45px;
+    border-radius: 100%;
     /*border-bottom: 1px solid #555;*/
+    box-shadow: 5px 5px 10px black;
+    height: 50px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: beige;
+    font-weight: bold;
 }
 
 ul.sidebar h2 {
     margin-bottom: 50px;
+    font-size: 36px;
+}
+
+ul.sidebar h2 a {
+    color: #000;
+}
+
+ul.sidebar h2 a:hover {
+    text-decoration: none;
+    color: #000;
 }
 
 .detail {
     background-color: #FFF;
     margin-left: 20%;
     margin-right: 59%;
-    margin-top: 50px;
+    margin-top: 80px;
     height: 100%;
     border-style: groove;
 }
@@ -98,4 +114,5 @@ ul.sidebar h2 {
 img {
     /*border-radius: 100%;*/
     height: 250px;
+    /*width: 200px;*/
 }
