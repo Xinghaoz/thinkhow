@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding-top: 51px;
-    min-height: 2000px;
+    /*min-height: 2000px;*/
 }
 
 .text-align-center {
@@ -28,6 +28,10 @@ body {
 
 .navbar-nav>li>a:hover {
     background-color: #888;
+}
+
+.content {
+    margin-left: 18%;
 }
 
 ul.sidebar {
@@ -91,8 +95,8 @@ ul.sidebar h2 a:hover {
 
 .detail {
     background-color: #FFF;
-    margin-left: 20%;
-    margin-right: 59%;
+    margin-left:3%;
+    margin-right: 71%;
     margin-top: 80px;
     height: 100%;
     border-style: groove;
@@ -109,6 +113,20 @@ ul.sidebar h2 a:hover {
     font-size: 5px;
     clear: both;
     margin: 10px;
+}
+
+.information a{
+    color: black;
+}
+
+.information a:hover {
+    color: #cf8a05;
+    text-decoration: none;
+    -webkit-transition: all .3s ease-in;
+	-moz-transition: all .3s ease-in;
+	-o-transition: all .3s ease-in;
+	-ms-transition: all .3s ease-in;
+	transition: all .3s ease-in;
 }
 
 img {
