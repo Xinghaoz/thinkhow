@@ -112,27 +112,28 @@
     			<div class="sectionTitle">
     				<h1>Project Experience</h1>
                     <div class="checkbox">
-                        <label><input type="checkbox" checked="checked"> Python</label>
+                        <label><input id="python" type="checkbox" checked="checked" onclick="change('python')"> Python</label>
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox" checked="checked"> Java</label>
+                        <label><input id="java" type="checkbox" checked="checked" onclick="change('java')"> Java</label>
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox" checked="checked"> Spark</label>
+                        <label><input id="spark" type="checkbox" checked="checked" onclick="change('spark')"> Spark</label>
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox" checked="checked"> Django</label>
+                        <label><input id="django" type="checkbox" checked="checked" onclick="change('django')"> Django</label>
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox" checked="checked"> Front-End</label>
+                        <label><input id="frontend" type="checkbox" checked="checked" onclick="change('frontend')"> Front-End</label>
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox" checked="checked"> Back-End</label>
+                        <label><input id="backend" type="checkbox" checked="checked" onclick="change('backend')"> Back-End</label>
                     </div>
+                    <button type="button" onclick="hide()">Try it</button>
     			</div>
 
     			<div class="sectionContent">
-    				<article class="Spark">
+    				<article class="spark">
     					<h2 class="projectTitle">Movie Recommendation System Implemented By Using Spark</h2>
     					<p class="date">2016.03 – 2016.04</p>
                         <div class="clear"></div>
@@ -158,7 +159,7 @@
                         </div>
     				</article>
 
-    				<article>
+    				<article class="java backend">
     					<h2 class="projectTitle">Distributed System Communications Infrastructure</h2>
     					<p class="date">2016.02 – 2016.03</p>
                         <div class="clear"></div>
@@ -172,7 +173,7 @@
                         </div>
                     </article>
 
-                    <article>
+                    <article class="spark">
     					<h2 class="projectTitle">Iterative Programming with Spark</h2>
     					<p class="date">2015.11 - 2015.12</p>
                         <div class="clear"></div>
@@ -184,7 +185,7 @@
                         </div>
                     </article>
 
-                    <article>
+                    <article class="java frontend backend">
     					<h2 class="projectTitle">AWS-Based Tweeter Analytics Web Service</h2>
     					<p class="date">2015.9 - 2015.12</p>
                         <div class="clear"></div>
