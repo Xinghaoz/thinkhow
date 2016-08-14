@@ -1,12 +1,4 @@
-// document.getElementById("name").style.display="none";
-// checks = document.getElementsByClassName("checkbox")
-// for (var i = 0; i < checks.length; i++) {
-//     children = checks[i].children;
-//     alert(children[0].innerHTML);
-// }
-
 function myFunction() {
-    // document.getElementById("name").innerHTML = "Paragraph changed.";
     document.getElementById("name").style.display = "none";
 }
 
