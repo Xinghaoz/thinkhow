@@ -1,51 +1,60 @@
-// function myFunction() {
-//     document.getElementById("name").style.display = "none";
-// }
-//
-// function hideByClassName(className) {
-//     var elements = document.getElementsByClassName(className.toLowerCase());
-//     // elements[0].style.display = "none";
-//     for (var i = 0; i < elements.length; i++) {
-//         elements[i].style.display = "none";
-//         alert(elements[i].getAttribute("class"));
-//     }
-//     alert("Done!");
-// }
-
-// function change(className) {
-//     var elements = document.getElementsByClassName(className.toLowerCase());
-//     for (var i = 0; i < elements.length; i++) {
-//         if (document.getElementById(className).checked) {
-//             elements[i].style.display = "block";
-//         } else {
-//             elements[i].style.display = "none";
-//         }
-//     }
-// }
-
 $(document).ready(function() {
+    var numOfArticle = $("article").length;
+    var articles = $("article");
+    var articleArray = [];
+    var count = [];
+
+    // For each article, store the kind of classes in a set.
+    for (var i = 0; i < articles.length; i++) {
+        var classes = $(articles[i]).attr("class").split(" ");
+        var set = new Set();
+        for (var j = 0; j < classes.length; j++) {
+            set.add(classes[j]);
+        }
+        articleArray[i] = set;
+        count[i] = set.size;
+    }
+
+    /* If the user check or uncheck the checkbox, it will traverse through all the article.
+     * If the article's classes contains the checkbox's value, its count increase/decrease.  If the
+     * count is one/zero, show/hide it.
+     */
+    $('input[type="checkbox"]').click(function() {
+        var cla = $(this).val();
+        if ($(this).prop("checked")) {
+            for (var i = 0; i < articles.length; i++) {
+                if (articleArray[i].has(cla)) {
+                    count[i]++;
+                    if (count[i] == 1) {
+                        $(articles[i]).fadeIn(777);
+                    }
+                }
+            }
+        } else {
+            for (var i = 0; i < articles.length; i++) {
+                if (articleArray[i].has(cla)) {
+                    count[i]--;
+                    if (count[i] == 0) {
+                        $(articles[i]).fadeOut(777);
+                    }
+                }
+            }
+        }
+    })
+
+    // Not need in this time.
     $("button").click(function() {
-        // var checked = $('input[type="checkbox"]:checked');
-        // if (checked.length > 0) {
-        //     checked.each(function() {
-        //         // alert("." + $(this).val());
-        //         $("." + $(this).val()).show();
+        alert(numOfArticle);
+        // var boxes = $('input[type="checkbox"]');
+        // if (boxes.length > 0) {
+        //     boxes.each(function() {
+        //         if ($(this).prop('checked')) {
+        //             $("." + $(this).val()).fadeIn(777);
+        //         } else {
+        //             $("." + $(this).val()).fadeOut(777);
+        //         }
         //     })
         // }
-
-        // var unchecked = $('input[type="checkbox"]'.prop("checked") == false) {
-        //     alert(unchecked.length);
-        // }
-        var boxes = $('input[type="checkbox"]');
-        if (boxes.length > 0) {
-            boxes.each(function() {
-                if ($(this).prop('checked')) {
-                    $("." + $(this).val()).show(777);
-                } else {
-                    $("." + $(this).val()).hide(777);
-                }
-            })
-        }
     });
 
     $(".checkbox").hover(function() {

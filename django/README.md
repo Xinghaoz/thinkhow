@@ -189,3 +189,9 @@ This is right
     color: #111;
 }`
 WRONG!
+
+## 08/16/2016
+`js
+var articles = $("article"); // Wrong!
+articles[i].attr("class")
+$(articles[i]).attr("class") // Correct!`
