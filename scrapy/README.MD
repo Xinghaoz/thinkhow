@@ -12,5 +12,5 @@ title.xpath('/text()') - Wrong
 $ docker-machine start # start virtual machine for docker
 $ docker-machine env  # it's helps to get environment variables
 $ eval "$(docker-machine env default)" #set environment variables
-$ eval "$(docker-machine env default)"
+$ docker run -p 8050:8050 scrapinghub/splash
 `
