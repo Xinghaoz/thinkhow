@@ -85,14 +85,14 @@
     {% endfor %}
 </ul>
 <ul class='game-list' style='display: none'>
-    <!-- {% for instance in bangumi %}
+    {% for instance in game %}
     <li>
         <a href={{ instance.url }} target='_blank'><img src={{ instance.img }} alt='bangumi' style='width:77px;height:77px;'/></a>
         <a href={{ instance.url }} target='_blank'><p>{{ instance.title }}</p></a>
-        <p class='align-bottom'>更新至：{{ instance.category }}</p>
+        <p>Up主：{{ instance.up }}</p>
         <div class='clear'></div>
     </li>
-    {% endfor %} -->
+    {% endfor %}
 </ul>
 {% endblock %}
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from contact.forms import SignUpForm
 from zhihu.models import Article
-from bilibili.models import Bangumi
+from bilibili.models import Bangumi, Game
 
 # Create your views here.
 def home(request):
@@ -26,9 +26,11 @@ def home(request):
 
     zhihu = Article.objects.all()
     bangumi = Bangumi.objects.all()
+    game = Game.objects.all()
     context = {
         'zhihu': zhihu,
         'bangumi': bangumi,
+        'game': game,
     }
     return render(request, "home.html", context)
 

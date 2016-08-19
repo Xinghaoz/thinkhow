@@ -10,20 +10,14 @@ from crawler.items import BilibiliItem
 import re
 
 
-class BilibiliSpider (BaseSpider):
-    name = 'bilibili'
+class BangumiSpider (BaseSpider):
+    name = 'bangumi'
     allowed_domains = ['bilibili.com']
-    start_urls = ['http://bangumi.bilibili.com/22/', 'http://www.bilibili.com/video/game.html']
+    start_urls = ['http://bangumi.bilibili.com/22/']
 
     def start_requests(self):
             # for url in self.start_urls:
             yield scrapy.Request(self.start_urls[0], self.parse, meta={
-                'splash': {
-                    'endpoint': 'render.html'
-                }
-            })
-
-            yield scrapy.Request(self.start_urls[1], self.parse_game, meta={
                 'splash': {
                     'endpoint': 'render.html'
                 }
@@ -53,21 +47,4 @@ class BilibiliSpider (BaseSpider):
             item['img'] = img
 
             i += 1
-            # yield item
-
-    def parse_game(self, response):
-        print '&&&&&&&&&&&&&&&&&&&&&&&&& {} &&&&&&&&&&&&&&&&&&&&&&&&&'.format(response.url)
-        page = Selector(response)
-
-        game_list_wrapper = page.xpath('//ul[@class="rlist"]')[0]
-        game_list_wrapper_1 = page.xpath('/html/body/div[4]/div[6]/div[2]/div[2]/div[1]/div/ul[1]')
-
-        game_list = game_list_wrapper.xpath('./li')
-        game_list_1 = game_list_wrapper_1.xpath('./li')
-        print '=======', game_list_wrapper_1.extract_first()
-        print '=======', game_list_1.extract()
-
-        for game in game_list_1:
-            title = game.xpath('.//div[@class="title t"]/text()').extract_first()
-
-            print '=======', title
+            yield item

@@ -1,7 +1,6 @@
 $(document).ready(function() {
-    $(".fa").hover(function() {
+    $(".fa-refresh").hover(function() {
         $(this).addClass("fa-pulse");
-
     },
     function() {
         $(this).removeClass("fa-pulse");
@@ -21,21 +20,23 @@ $(document).ready(function() {
         $(".bangumi-list").fadeOut(250);
     })
 
-    // $("#bangumi-refresh").click(function () {
-    //     $.ajax({
-    //         type:'get',
-    //         url:<YOUR SERVERSIDE PAGE URL>,
-    //         cache:false,
-    //         // data:<if any arguments>,
-    //         async:asynchronous,
-    //         // dataType:json, //if you want json
-    //         success: function(data) {
-    //
-    //         },
-    //         error: function(request, status, error) {
-    //             alert("running python script error");
-    //         }
-    //
-    //     });
-    // });
+    $("#bangumi-refresh").click(function () {
+        $(this).addClass("fa-spinner");
+        $(this).removeClass("fa-refresh");
+        // $.ajax({
+        //     type:'get',
+        //     url:<YOUR SERVERSIDE PAGE URL>,
+        //     cache:false,
+        //     // data:<if any arguments>,
+        //     async:asynchronous,
+        //     // dataType:json, //if you want json
+        //     success: function(data) {
+        //
+        //     },
+        //     error: function(request, status, error) {
+        //         alert("running python script error");
+        //     }
+        //
+        // });
+    });
 });
