@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'contact',
     'zhihu',
     'about',
+    'bilibili',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from contact.forms import SignUpForm
 from zhihu.models import Article
+from bilibili.models import Bangumi
 
 # Create your views here.
 def home(request):
@@ -23,9 +24,11 @@ def home(request):
             "title": 'Thank you',
         }
 
-    queryset = Article.objects.all()
+    zhihu = Article.objects.all()
+    bangumi = Bangumi.objects.all()
     context = {
-        'queryset': queryset
+        'zhihu': zhihu,
+        'bangumi': bangumi,
     }
     return render(request, "home.html", context)
 

@@ -11,12 +11,22 @@ class ZhihuPipeline(object):
         self.zhihu_json = open('zhihu.dat', 'w')
         self.zhihu = open('zhihu.txt', 'w')
 
-    def process_item(self, item, spider):
-        line = json.dumps(dict(item)) + "\n"
-        self.zhihu_json.write(line)
+        self.bilibili = open('bilibili.txt', 'w')
 
-        val = "{}\t{}\t{}\t{}\n".format(item['url'], item['title'], item['abstract'], item['category'])
-        self.zhihu.write(val)
+    def process_item(self, item, spider):
+        if spider.name == 'zhihu':
+            line = json.dumps(dict(item)) + "\n"
+            self.zhihu_json.write(line)
+
+            val = "{}\t{}\t{}\t{}\n".format(item['url'], item['title'], item['abstract'], item['category'])
+            self.zhihu.write(val)
+
+        elif spider.name == 'bilibili':
+            # line = json.dumps(dict(item)) + "\n"
+            # self.bilibili.write(line)
+            val = "{}\t{}\t{}\t{}\n".format(item['url'], item['title'], item['category'], item['img'])
+            self.bilibili.write(val)
+
         return item
 
 class BilibiliPipeline(object):

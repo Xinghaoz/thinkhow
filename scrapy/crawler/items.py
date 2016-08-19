@@ -17,5 +17,12 @@ class ZhihuItem(scrapy.Item):
 class BilibiliItem(scrapy.Item):
     url = scrapy.Field()
     title = scrapy.Field()
+    img = scrapy.Field()
     category = scrapy.Field()
     up = scrapy.Field()
+
+class BangumiItem(scrapy.Item):
+    url = scrapy.Field()
+    title = scrapy.Field()
+    img = scrapy.Field()
+    category = scrapy.Field()
