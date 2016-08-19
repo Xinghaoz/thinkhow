@@ -15,10 +15,6 @@
 
         {% include "head_css.html" %}
 
-        <style>
-        {% block style %}
-        {% endblock %}
-        </style>
     </head>
 
     <body>
@@ -31,18 +27,27 @@
 
 
         <div class='container'>
-            <div class='row'>
-                <div class='col-sm-9'>
-                    {% block zhihu %}
-                    {% endblock %}
-
-                </div>
-                <div class='col-sm-3'>
-                    {% block sidebar %}
-                    {% endblock %}
-                </div>
-
+            <div class='block'>
+                {% block bilibili %}
+                {% endblock %}
             </div>
+
+            <div class='block'>
+                {% block zhihu %}
+                {% endblock %}
+                <!-- <div class='row'>
+                    <div class='col-sm-9'>
+                        {#% block zhihu %}
+                        {#% endblock %}
+
+                    </div>
+                    <div class='col-sm-3'>
+                        {#% block sidebar %}
+                        {#% endblock %}
+                    </div>
+                </div> -->
+            </div>
+
         </div>
 
         {% block test %}
@@ -60,6 +65,7 @@
         <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
         <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/home.js' %}"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
     </body>

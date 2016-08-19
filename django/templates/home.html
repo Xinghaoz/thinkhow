@@ -2,24 +2,6 @@
 {% load crispy_forms_tags %}
 {% load staticfiles %}
 
-<style>
-{% block style %}
-.navbar-static-top {
-    margin-bottom: 1px !important;
-}
-
-
-.jumbotron {
-    /*background-color: #0E3D14;*/
-    margin-bottom: 1;
-}
-{% endblock %}
-
-
-
-</style>
-
-
 {% block jumbotron %}
 <!-- Main component for a primary marketing message or call to action -->
 <!-- <div class='jumbotron' margin-bottom='1px' style='background-color: #aeb7ff'> -->
@@ -42,7 +24,7 @@
 </div>
 {% endblock %}
 
-{% block content %}
+{#% block content %}
 <div class='row' style='margin: 0px;'>
     <div class='jumbotron' style='background-color: #ffffff'>
         <div class='container'>
@@ -78,20 +60,58 @@
         </div>
     </div>
 </div>
+{#% endblock %}
+
+{% block bilibili %}
+<div class='page-header'>
+    <div class='logo'>
+        <a href="http://www.bilibili.com" target='_blank'><img src='{% static "img/bilibili.gif" %}' alt='Bilibili' style='width:131.5px;height:77px;'/></a>
+    </div>
+    <ul class='switcher'>
+        <li id='animation-btn' class='btn-active'>Animation</li>
+        <li id='game-btn'>Game</li>
+    </ul>
+    <i id='bangumi-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i>
+</div>
+<div class='clear'></div>
+<ul class='bangumi-list'>
+    {% for instance in bangumi %}
+    <li>
+        <a href={{ instance.url }} target='_blank'><img src={{ instance.img }} alt='bangumi' style='width:77px;height:77px;'/></a>
+        <a href={{ instance.url }} target='_blank'><p>{{ instance.title }}</p></a>
+        <p class='align-bottom'>更新至：{{ instance.category }}</p>
+        <div class='clear'></div>
+    </li>
+    {% endfor %}
+</ul>
+<ul class='game-list' style='display: none'>
+    <!-- {% for instance in bangumi %}
+    <li>
+        <a href={{ instance.url }} target='_blank'><img src={{ instance.img }} alt='bangumi' style='width:77px;height:77px;'/></a>
+        <a href={{ instance.url }} target='_blank'><p>{{ instance.title }}</p></a>
+        <p class='align-bottom'>更新至：{{ instance.category }}</p>
+        <div class='clear'></div>
+    </li>
+    {% endfor %} -->
+</ul>
 {% endblock %}
 
 {% block zhihu %}
-    <div class='page-header' >
+<div class='page-header'>
+    <div class='logo'>
         <a href="http://www.zhihu.com"><img src='{% static "img/zhihu.jpeg" %}'/></a>
-        <!-- <h1>知乎</h1> -->
+        <i id='zhihu-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i>
     </div>
-    {% for instance in queryset %}
+</div>
+<ul class='zhihu-list'>
+    {% for instance in zhihu %}
     <div class='well' style='margin-bottom: 10px; padding-top: 5px; padding-bottom: 5px'>
-        <h5 style='margin: 1px;'> 来自话题：{{ instance.category }} </h5>
+        <h5 style='margin: 1px; color: #AAA;'> 来自话题：{{ instance.category }} </h5>
         <h3 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h3>
         <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'><h4><p id='zhihu-abstract-text'>{{ instance.abstract }}</p></h4></a>
     </div>
     {% endfor %}
+</ul>
 {% endblock %}
 
 {% block sidebar %}

@@ -13,7 +13,7 @@ def main():
     bangumi_list = []
 
     # Data file is in "scrapy" directory, which is in "thinkhow" directory.
-    container_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    container_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     with open(os.path.join(container_dir, "scrapy", "bilibili.txt")) as f:
         line = f.readline()
         while line:

@@ -2,7 +2,7 @@
     This file load the data collected by scrapy into django models.
 '''
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "thinkhow.settings")
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'thinkhow.settings')
 
 # If the version of django is larger than 1.7, you should include the following two lines.
 import django
@@ -14,7 +14,7 @@ def main():
 
     # Data file is in "scrapy" directory, which is in "thinkhow" directory.
     container_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    with open(os.path.join(container_dir, "scrapy", "zhihu.txt")) as f:
+    with open(os.path.join(container_dir, 'scrapy', 'zhihu.txt')) as f:
         line = f.readline()
         while line:
             #print line
@@ -24,6 +24,6 @@ def main():
 
     Article.objects.bulk_create(zhihu_list)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
     print('Done!')

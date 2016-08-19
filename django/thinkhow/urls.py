@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^about/', include('about.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.default.urls')),
-    url(r'^profile/$', views.profile, name='profile')
+    url(r'^profile/$', views.profile, name='profile'),
+    url(r'^refresh_bangumi/$', views.refresh_bangumi),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

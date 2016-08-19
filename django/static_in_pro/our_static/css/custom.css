@@ -54,7 +54,120 @@ body {
     color: #337ab7;
 }
 
-#zhihu {
-    /*border-bottom-style: none;*/
-    /*border-color: red;*/
+.block {
+    margin-bottom: 100px;
+}
+
+.zhihu-list {
+    list-style-type: none;
+    -moz-column-count: 2;
+	-webkit-column-count: 2;
+	column-count: 1;
+    padding: 0px;
+    min-height: 500px;
+}
+
+.bangumi-list {
+    list-style-type: none;
+    -moz-column-count: 4;
+	-webkit-column-count: 4;
+	column-count: 4;
+    margin: 0px;
+    /*margin-top: 25px;*/
+    font-size: 14px;
+    padding: 0px;
+}
+
+.bangumi-list li {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.bangumi-list li img {
+    float: left;
+    margin-right: 7px;
+}
+
+.bangumi-list li a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+/*.bangumi-list li p {
+    float: right;
+}*/
+
+.clear {clear: both;}
+
+.align-bottom {
+    position: absolute;
+    bottom: 0px;
+    margin: 0px;
+    left: 84px;
+    color: #AAA;
+}
+
+.fa {
+    position: absolute;
+    bottom: 7px;
+    right: 0px;
+    cursor: pointer;
+}
+
+.page-header {
+    position: relative;
+    padding-bottom: 88px;
+}
+
+.logo {
+    float:left;
+    margin: 0px;
+    /*padding-bottom: 60px;*/
+    padding: 0px;
+    max-width: 136px;
+}
+
+.switcher {
+    list-style-type: none;
+    margin-left: 136px;
+    margin-bottom: 0px;
+    font-size: 25px;
+    /*padding-bottom: 40px;*/
+    position: absolute;
+    bottom: 7px;
+    color: #AAA;
+}
+
+.switcher li {
+    display: inline;
+    padding: 0px 5px;
+}
+
+.switcher li:hover {
+    background-color: #777;
+    cursor: pointer;
+}
+
+.btn-active {
+    background-color: #777;
+    color: #FFF;
+    content: "";
+    /*position: absolute;*/
+    top: 100%;
+    left: 50%;
+    /*margin-left: -5px;
+    border-width: 5px;*/
+    /*border-style: solid;
+    border-color: black transparent transparent transparent;*/
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
 }

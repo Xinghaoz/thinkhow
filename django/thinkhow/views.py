@@ -34,3 +34,6 @@ def home(request):
 
 def profile(request):
     return render(request, "home.html", {})
+
+def refresh_bangumi(request):
+    return render(request, "load_bangumi.py", {});
