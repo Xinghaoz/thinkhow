@@ -49,6 +49,7 @@ class ZhihuSpider (CrawlSpider):
             title = topic.xpath('.//h2/a/text()').extract_first().strip()
             url = topic.xpath('.//h2/a/@href').extract_first().strip()
             url = "http://www.zhihu.com" + url
+            img = topic.xpath('.//img/@src').extract_first()
 
             # If abstract contains image, the first element would be '\n'.
             # So we should first check whether the first element is '\n',
@@ -64,12 +65,14 @@ class ZhihuSpider (CrawlSpider):
             item['title'] = title.encode('utf-8')
             item['url'] = url
             item['category'] = category.encode('utf-8')
+            item['img'] = img
             yield item
 
         for zhuanlan in zhuanlans:
             item = ZhihuItem()
             title = zhuanlan.xpath('.//h2/a/text()').extract_first().strip()
             url = zhuanlan.xpath('.//h2/a/@href').extract_first().strip()
+            img = topic.xpath('.//img/@src').extract_first()
 
             # If abstract contains image, the first element would be '\n'.
             # So we should first check whether the first element is '\n',
@@ -85,4 +88,5 @@ class ZhihuSpider (CrawlSpider):
             item['title'] = title.encode('utf-8')
             item['url'] = url
             item['category'] = category.encode('utf-8')
+            item['img'] = img
             yield item

@@ -8,16 +8,16 @@ $(document).ready(function() {
 
     $("#animation-btn").click(function() {
         $(this).addClass("btn-active");
-        $(".bangumi-list").fadeIn(250);
+        $(".bangumi-list").fadeIn(777);
         $("#game-btn").removeClass("btn-active");
-        $(".game-list").fadeOut(250);
+        $(".game-list").fadeOut(0);
     })
 
     $("#game-btn").click(function() {
         $(this).addClass("btn-active");
-        $(".game-list").fadeIn(250);
+        $(".game-list").fadeIn(777);
         $("#animation-btn").removeClass("btn-active");
-        $(".bangumi-list").fadeOut(250);
+        $(".bangumi-list").fadeOut(0);
     })
 
     $("#bangumi-refresh").click(function () {

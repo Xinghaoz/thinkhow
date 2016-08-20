@@ -19,7 +19,7 @@ class ZhihuPipeline(object):
             line = json.dumps(dict(item)) + "\n"
             self.zhihu_json.write(line)
 
-            val = "{}\t{}\t{}\t{}\n".format(item['url'], item['title'], item['abstract'], item['category'])
+            val = "{}\t{}\t{}\t{}\t{}\n".format(item['url'], item['title'], item['abstract'], item['category'], item['img'])
             self.zhihu.write(val)
 
         elif spider.name == 'bangumi':

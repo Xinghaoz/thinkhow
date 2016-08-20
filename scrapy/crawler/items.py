@@ -13,6 +13,7 @@ class ZhihuItem(scrapy.Item):
     title = scrapy.Field()
     abstract = scrapy.Field()
     category = scrapy.Field()
+    img = scrapy.Field()
 
 class BilibiliItem(scrapy.Item):
     url = scrapy.Field()

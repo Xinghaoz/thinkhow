@@ -89,7 +89,7 @@
     <li>
         <a href={{ instance.url }} target='_blank'><img src={{ instance.img }} alt='bangumi' style='width:77px;height:77px;'/></a>
         <a href={{ instance.url }} target='_blank'><p>{{ instance.title }}</p></a>
-        <p>Up主：{{ instance.up }}</p>
+        <p class='align-bottom'>Up主：{{ instance.up }}</p>
         <div class='clear'></div>
     </li>
     {% endfor %}
@@ -105,11 +105,19 @@
 </div>
 <ul class='zhihu-list'>
     {% for instance in zhihu %}
-    <div class='well' style='margin-bottom: 10px; padding-top: 5px; padding-bottom: 5px'>
-        <h5 style='margin: 1px; color: #AAA;'> 来自话题：{{ instance.category }} </h5>
-        <h3 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h3>
-        <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'><h4><p id='zhihu-abstract-text'>{{ instance.abstract }}</p></h4></a>
+    <div class='well'>
+        <div class='side-photo'>
+            <img src="{{ instance.img }}" style='height:50px;width:50px;'/>
+        </div>
+        <div class='zhihu-content'>
+            <h5 style='margin: 1px; color: #AAA;'> 来自话题：{{ instance.category }} </h5>
+            <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
+            <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
+                <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
+            </a>
+        </div>
     </div>
+    <div class='clear'></div>
     {% endfor %}
 </ul>
 {% endblock %}

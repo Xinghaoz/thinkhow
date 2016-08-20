@@ -19,7 +19,7 @@ def main():
         while line:
             #print line
             parts = line.split('\t')
-            zhihu_list.append(Article(url=parts[0], title=parts[1], abstract=parts[2], category=parts[3]))
+            zhihu_list.append(Article(url=parts[0], title=parts[1], abstract=parts[2], category=parts[3], img=parts[4]))
             line = f.readline()
 
     Article.objects.bulk_create(zhihu_list)

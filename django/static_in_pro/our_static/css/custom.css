@@ -13,6 +13,7 @@ body {
 .panel-body table tr td { padding-left: 15px }
 .panel-body .table {margin-bottom: 0px; }
 
+/* For navbar */
 .navbar {
     background-color: rgba(0,0,0,0.7);
     margin-bottom: 0px;
@@ -35,9 +36,10 @@ body {
     background-color: #888;
 }
 
+/* For zhihu */
 #zhihu-abstract-text {
     color: #000;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 1px;
     line-height: 1.4;
 }
@@ -67,6 +69,27 @@ body {
     min-height: 500px;
 }
 
+.side-photo {
+    float: left;
+    margin-right: 7px;
+    margin-bottom: 50px;
+}
+
+.well {
+    position: relative;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+}
+
+/*
+.zhihu-content {
+    position: absolute;
+    margin-left: 50px;
+}*/
+
+/* For bilibili */
 .bangumi-list {
     list-style-type: none;
     -moz-column-count: 4;
@@ -89,6 +112,33 @@ body {
 }
 
 .bangumi-list li a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.game-list {
+    list-style-type: none;
+    -moz-column-count: 4;
+	-webkit-column-count: 4;
+	column-count: 4;
+    margin: 0px;
+    /*margin-top: 25px;*/
+    font-size: 14px;
+    padding: 0px;
+}
+
+.game-list li {
+    margin-bottom: 25px;
+    position: relative;
+    max-width: 247.5px;  /* Dont know why, but it works! */
+}
+
+.game-list li img {
+    float: left;
+    margin-right: 7px;
+}
+
+.game-list li a:hover {
     text-decoration: none;
     color: #000;
 }
@@ -122,7 +172,6 @@ body {
 .logo {
     float:left;
     margin: 0px;
-    /*padding-bottom: 60px;*/
     padding: 0px;
     max-width: 136px;
 }
@@ -132,7 +181,6 @@ body {
     margin-left: 136px;
     margin-bottom: 0px;
     font-size: 25px;
-    /*padding-bottom: 40px;*/
     position: absolute;
     bottom: 7px;
     color: #AAA;
@@ -152,22 +200,6 @@ body {
     background-color: #777;
     color: #FFF;
     content: "";
-    /*position: absolute;*/
     top: 100%;
     left: 50%;
-    /*margin-left: -5px;
-    border-width: 5px;*/
-    /*border-style: solid;
-    border-color: black transparent transparent transparent;*/
-}
-
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: black transparent transparent transparent;
 }
