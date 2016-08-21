@@ -122,6 +122,35 @@
 </ul>
 {% endblock %}
 
+{% block series %}
+<div class='page-header'>
+    <div class='logo'>
+        <img src='{% static "img/TVseries.jpg" %}' alt='Bilibili' style='width:131.5px;height:77px;'/>
+    </div>
+    <i id='bangumi-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i>
+</div>
+<div class='clear'></div>
+<ul class='tv-list'>
+    <li>
+        <p class='tv-header'>Walking Dead</p>
+        <img src='{% static "img/Daryl.jpg" %}' style='width:263.671875px; height:150px;'/>
+    </li>
+    <li>
+        <p class='tv-header'>Game Of Thrones</p>
+        <img src='{% static "img/GameOfThrones.jpg" %}' style='width:263.671875px; height:150px;'/>
+    </li>
+    <li>
+        <p class='tv-header'>Game Of Thrones</p>
+        <img src='{% static "img/GameOfThrones.jpg" %}' style='width:263.671875px; height:150px;'/>
+    </li>
+    <!-- When the number of item is 4, it becomes a mess!!!! -->
+    <!-- <li>
+        <p class='tv-header'>Game Of Thrones</p>
+        <img src='{% static "img/GameOfThrones.jpg" %}' style='width:263.671875px; height:150px;'/>
+    </li> -->
+</ul>
+{% endblock %}
+
 {% block sidebar %}
 {% include "sidebar.html" %}
 {% endblock %}
