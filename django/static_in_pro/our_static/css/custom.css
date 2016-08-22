@@ -243,6 +243,11 @@ body {
     /*margin-right: 7px;*/
 }
 
+.tv-list li a img {
+    display: block;
+    margin: 0px auto;
+}
+
 .tv-list li a:hover {
     /*text-decoration: none;*/
     /*color: #000;*/
