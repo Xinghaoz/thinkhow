@@ -246,6 +246,8 @@ body {
 .tv-list li a img {
     display: block;
     margin: 0px auto;
+    width: 263.671875px;
+    height: 150px;
 }
 
 .tv-list li a:hover {

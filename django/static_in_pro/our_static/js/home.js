@@ -39,4 +39,20 @@ $(document).ready(function() {
         //
         // });
     });
+
+    // $(".tv-img").hover(function() {
+    //     // $(this).addClass("fa-pulse");
+    //     alert("1");
+    // },
+    // function() {
+    //     // $(this).removeClass("fa-pulse");
+    //     alert("2");
+    // });
+
+    $(".tv-list li a img").hover(function() {
+        $(this).animate({width: '311.1328125px', height: '177px'}, "slow");
+    },
+    function() {
+        $(this).animate({width: '263.671875px', height: '150px'}, "slow");
+    });
 });
