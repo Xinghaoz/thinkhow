@@ -14,6 +14,8 @@ class ZhihuItem(scrapy.Item):
     abstract = scrapy.Field()
     category = scrapy.Field()
     img = scrapy.Field()
+    author = scrapy.Field()
+    bio = scrapy.Field()
 
 class BilibiliItem(scrapy.Item):
     url = scrapy.Field()

@@ -56,6 +56,16 @@ body {
     color: #337ab7;
 }
 
+#author {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#author span{
+    font-weight: normal;
+    color: #777;
+}
+
 .block {
     margin-bottom: 100px;
 }
@@ -141,6 +151,10 @@ body {
 .game-list li a:hover {
     text-decoration: none;
     color: #000;
+}
+
+.game-list p {
+    line-height: 118%;
 }
 
 /*.bangumi-list li p {

@@ -1,9 +1,15 @@
 $(document).ready(function() {
     $(".fa-refresh").hover(function() {
-        $(this).addClass("fa-pulse");
+        val = $(this).attr("class");
+        if (val.includes("fa-refresh")) {
+            $(this).addClass("fa-pulse");
+        }
     },
     function() {
-        $(this).removeClass("fa-pulse");
+        val = $(this).attr("class");
+        if (val.includes("fa-refresh")) {
+            $(this).removeClass("fa-pulse");
+        }
     });
 
     $("#animation-btn").click(function() {
@@ -20,9 +26,15 @@ $(document).ready(function() {
         $(".bangumi-list").fadeOut(0);
     })
 
+    $(".fa-refresh").click(function () {
+        val = $(this).attr("class");
+        if (val.includes("fa-refresh")) {
+            $(this).addClass("fa-spinner");
+            $(this).removeClass("fa-refresh");
+        }
+    });
+
     $("#bangumi-refresh").click(function () {
-        $(this).addClass("fa-spinner");
-        $(this).removeClass("fa-refresh");
         // $.ajax({
         //     type:'get',
         //     url:<YOUR SERVERSIDE PAGE URL>,
@@ -39,15 +51,6 @@ $(document).ready(function() {
         //
         // });
     });
-
-    // $(".tv-img").hover(function() {
-    //     // $(this).addClass("fa-pulse");
-    //     alert("1");
-    // },
-    // function() {
-    //     // $(this).removeClass("fa-pulse");
-    //     alert("2");
-    // });
 
     $(".tv-list li a img").hover(function() {
         $(this).animate({width: '311.1328125px', height: '177px'}, "slow");
