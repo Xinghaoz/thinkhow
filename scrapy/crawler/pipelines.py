@@ -11,6 +11,8 @@ class ZhihuPipeline(object):
         self.zhihu_json = open('zhihu.dat', 'w')
         self.zhihu = open('zhihu.txt', 'w')
 
+        self.zhihu_ml = open('zhihu_ml.txt', 'w')
+
         self.bangumi = open('bangumi.txt', 'w')
         self.game = open('game.txt', 'w')
 
@@ -31,5 +33,9 @@ class ZhihuPipeline(object):
         elif spider.name == 'game':
             val = "{}\t{}\t{}\t{}\n".format(item['url'], item['title'], item['img'], item['up'])
             self.game.write(val)
+
+        elif spider.name == 'zhihu_ml':
+            val = "{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(item['url'], item['title'], item['abstract'], item['category'], item['img'], item['author'], item['bio'])
+            self.zhihu_ml.write(val)
 
         return item

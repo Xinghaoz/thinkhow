@@ -26,6 +26,20 @@ $(document).ready(function() {
         $(".bangumi-list").fadeOut(0);
     })
 
+    $("#zhihu-ml-btn").click(function (){
+        $(this).addClass("btn-active");
+        $(".zhihu-ml").fadeIn(777);
+        $("#zhihu-all-btn").removeClass("btn-active");
+        $(".zhihu-all").fadeOut(0);
+    })
+
+    $("#zhihu-all-btn").click(function (){
+        $(this).addClass("btn-active");
+        $(".zhihu-all").fadeIn(777);
+        $("#zhihu-ml-btn").removeClass("btn-active");
+        $(".zhihu-ml").fadeOut(0);
+    })
+
     $(".fa-refresh").click(function () {
         val = $(this).attr("class");
         if (val.includes("fa-refresh")) {

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from contact.forms import SignUpForm
-from zhihu.models import Article
+from zhihu.models import Article, ZhihuML
 from bilibili.models import Bangumi, Game
 
 # Create your views here.
@@ -25,10 +25,12 @@ def home(request):
         }
 
     zhihu = Article.objects.all()
+    zhihu_ml = ZhihuML.objects.all()
     bangumi = Bangumi.objects.all()
     game = Game.objects.all()
     context = {
         'zhihu': zhihu,
+        'zhihu_ml': zhihu_ml,
         'bangumi': bangumi,
         'game': game,
     }
@@ -36,6 +38,3 @@ def home(request):
 
 def profile(request):
     return render(request, "home.html", {})
-
-def refresh_bangumi(request):
-    return render(request, "load_bangumi.py", {});
