@@ -202,7 +202,8 @@ body {
 
 .switcher li {
     display: inline;
-    padding: 0px 5px;
+    /*padding: 0px 5px;*/
+    padding: 0 25px;
 }
 
 .switcher li:hover {
