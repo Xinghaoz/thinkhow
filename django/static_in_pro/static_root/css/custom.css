@@ -1,7 +1,6 @@
 body {
     margin: 0;
-    padding: 0;
-    min-height: 2000px;
+    padding-top: 51px;
 }
 
 .text-align-center {
@@ -14,11 +13,10 @@ body {
 .panel-body table tr td { padding-left: 15px }
 .panel-body .table {margin-bottom: 0px; }
 
+/* For navbar */
 .navbar {
-    background-color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,0.7);
     margin-bottom: 0px;
-    position: fixed;
-    padding: 0px;
 }
 
 .navbar-brand {
@@ -38,9 +36,10 @@ body {
     background-color: #888;
 }
 
+/* For zhihu */
 #zhihu-abstract-text {
     color: #000;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 1px;
     line-height: 1.4;
 }
@@ -57,7 +56,220 @@ body {
     color: #337ab7;
 }
 
-#zhihu {
-    /*border-bottom-style: none;*/
-    /*border-color: red;*/
+#author {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#author span{
+    font-weight: normal;
+    color: #777;
+}
+
+.block {
+    margin-bottom: 100px;
+}
+
+.zhihu-list {
+    list-style-type: none;
+    -moz-column-count: 1;
+	-webkit-column-count: 1;
+	column-count: 1;
+    padding: 0px;
+    min-height: 500px;
+}
+
+.side-photo {
+    float: left;
+    margin-right: 7px;
+    margin-bottom: 50px;
+}
+
+.well {
+    position: relative;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+}
+
+/*
+.zhihu-content {
+    position: absolute;
+    margin-left: 50px;
+}*/
+
+/* For bilibili */
+.bangumi-list {
+    list-style-type: none;
+    -moz-column-count: 4;
+	-webkit-column-count: 4;
+	column-count: 4;
+    margin: 0px;
+    /*margin-top: 25px;*/
+    font-size: 14px;
+    padding: 0px;
+}
+
+.bangumi-list li {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.bangumi-list li img {
+    float: left;
+    margin-right: 7px;
+}
+
+.bangumi-list li a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.game-list {
+    list-style-type: none;
+    -moz-column-count: 4;
+	-webkit-column-count: 4;
+	column-count: 4;
+    margin: 0px;
+    /*margin-top: 25px;*/
+    font-size: 14px;
+    padding: 0px;
+}
+
+.game-list li {
+    margin-bottom: 25px;
+    position: relative;
+    max-width: 247.5px;  /* Dont know why, but it works! */
+}
+
+.game-list li img {
+    float: left;
+    margin-right: 7px;
+}
+
+.game-list li a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.game-list p {
+    line-height: 118%;
+}
+
+/*.bangumi-list li p {
+    float: right;
+}*/
+
+.clear {clear: both;}
+
+.align-bottom {
+    position: absolute;
+    bottom: 0px;
+    margin: 0px;
+    left: 84px;
+    color: #AAA;
+}
+
+.fa {
+    position: absolute;
+    bottom: 7px;
+    right: 0px;
+    cursor: pointer;
+}
+
+.page-header {
+    position: relative;
+    padding-bottom: 88px;
+}
+
+.logo {
+    float:left;
+    margin: 0px;
+    padding: 0px;
+    max-width: 136px;
+}
+
+.switcher {
+    list-style-type: none;
+    margin-left: 136px;
+    margin-bottom: 0px;
+    font-size: 25px;
+    position: absolute;
+    bottom: 7px;
+    color: #AAA;
+}
+
+.switcher li {
+    display: inline;
+    /*padding: 0px 5px;*/
+    padding: 0 25px;
+}
+
+.switcher li:hover {
+    background-color: #777;
+    cursor: pointer;
+}
+
+.btn-active {
+    background-color: #777;
+    color: #FFF;
+    content: "";
+    top: 100%;
+    left: 50%;
+}
+
+
+/*For TV series*/
+.tv-header {
+    text-align: center;
+    font-size: 25px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.tv-list {
+    list-style-type: none;
+    -moz-column-count: 3;
+	-webkit-column-count: 3;
+	column-count: 3;
+    /*margin: 0px;
+    margin-top: 25px;
+    font-size: 14px;
+    padding: 0px;*/
+}
+
+.tv-list li {
+    display: inline;
+    -moz-column-count: 3;
+	-webkit-column-count: 3;
+	column-count: 3;
+    margin-bottom: 25px;
+    position: relative;
+    /* Dont know why, but it works!
+    /*max-width: 380px;
+    max-height: 195px;*/
+}
+
+.tv-list li img {
+    /*position: absolute;
+    margin: 0 auto;*/
+    /*display: inline;*/
+    /*float: left;*/
+    /*margin-right: 7px;*/
+}
+
+.tv-list li a img {
+    display: block;
+    margin: 0px auto;
+    width: 263.671875px;
+    height: 150px;
+}
+
+.tv-list li a:hover {
+    /*text-decoration: none;*/
+    /*color: #000;*/
+}
+
+.tv-item {
+    position: relative;
 }
