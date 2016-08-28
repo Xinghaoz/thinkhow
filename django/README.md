@@ -195,3 +195,57 @@ WRONG!
 var articles = $("article"); // Wrong!
 articles[i].attr("class")
 $(articles[i]).attr("class") // Correct!`
+
+## 08/27/2016
+Install python development files:
+`bash
+sudo apt-get install python-dev
+sudo apt-get install python-pip`
+
+Now that the development files are available, we can install uWSGI globally through pip by typing:
+`bash
+sudo pip install uwsgi`
+
+Deploy Django with uWSGI:
+`bash
+uwsgi --http :8000 --module mysite.wsgi`
+
+Deploy备忘录：
+折腾了一两个小时，终于解决了502 Bad Gateway的问题。
+nginx的作用是分发网络包，在设置里每个"location"定义了一个包去往的地址。
+在我的设置中，最下面的包是去往Django的，
+所以不仅要开启nginx服务器：
+`bash
+sudo service nginx restart`
+
+还要开启Django:
+`bash
+uwsgi --socket mysite.sock --module mysite.wsgi`
+
+而这Django和Nginx的关系是：
+`the web client <-> the web server <-> the socket <-> uWSGI <-> Python`
+
+中间要有一个socket来连接！！
+502 Bad Gateway的原因就是找不到这个socket
+
+通过
+`vim /var/log/nginx/error.log`
+我发现
+`connect() to unix:///home/ubuntu/thinkhow/django/mysite.sock failed (2: No such file or directory) while connecting to upstream, client: 128.237.210.254, server: example.com, request: "GET / HTTP/1.1", upstream: "uwsgi://unix:///home/ubuntu/thinkhow/django/mysite.sock:", host: "ec2-52-91-196-230.compute-1.amazonaws.com:8000"`
+没有找到这个sock！！这就是出错的原因
+
+没有的话，自己就创建一个
+`sudo vim thinkhow.sock`
+内容空白即可
+
+注意还有会有Permission Denied的问题：
+`2016/08/27 20:11:04 [crit] 11882#0: *1 connect() to unix:///home/ubuntu/uwsgi-tutorial/mysite/mysite.sock failed (13: Permission denied) while connecting to upstream, client: 128.237.210.254, server: 52.91.196.230, request: "GET / HTTP/1.1", upstream: "uwsgi://unix:///home/ubuntu/uwsgi-tutorial/mysite/mysite.sock:", host: "52.91.196.230:8000"`
+
+如此即可：
+`bash
+uwsgi --socket mysite.sock --wsgi-file test.py --chmod-socket=666 # (very permissive)`
+Or:
+`bash
+uwsgi --socket mysite.sock --wsgi-file test.py --chmod-socket=664 # (more sensible)`
+
+至此Django终于部署成功啦！
