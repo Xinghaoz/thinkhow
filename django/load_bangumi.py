@@ -1,7 +1,7 @@
 '''
     This file load the data collected by scrapy into django models.
 '''
-import os
+import os, time
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "thinkhow.settings")
 
 # If the version of django is larger than 1.7, you should include the following two lines.
@@ -10,6 +10,7 @@ django.setup()
 
 def main():
     from bilibili.models import Bangumi
+    from update.models import BangumiTime
     # Delete all objects before insert new ones
 
     bangumi_list = []
@@ -33,6 +34,9 @@ def main():
     if not flag:
         Bangumi.objects.all().delete()
         Bangumi.objects.bulk_create(bangumi_list)
+
+        update_time = time.ctime()
+        BangumiTime.objects.create(update_time = update_time)
         print('\n+++++++++++++++++++++++++ Bangumi has been loaded successfully +++++++++++++++++++++++++ \n')
     else:
         print '\n+++++++++++++++++++++++++ Nothing to update in Bangumi! +++++++++++++++++++++++++\n'

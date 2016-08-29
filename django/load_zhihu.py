@@ -1,7 +1,7 @@
 '''
     This file load the data collected by scrapy into django models.
 '''
-import os
+import os, time
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'thinkhow.settings')
 
 # If the version of django is larger than 1.7, you should include the following two lines.
@@ -10,6 +10,7 @@ django.setup()
 
 def main():
     from zhihu.models import Article
+    from update.models import ZhihuTime
     # Delete all objects before insert new ones
 
     zhihu_list = []
@@ -32,6 +33,10 @@ def main():
     if not flag:
         Article.objects.all().delete()
         Article.objects.bulk_create(zhihu_list)
+
+        # Update the time
+        update_time = time.ctime()
+        ZhihuTime.objects.create(update_time = update_time)
         print('\n+++++++++++++++++++++++++ Zhihu has been loaded successfully +++++++++++++++++++++++++ \n')
     else:
         print '\n+++++++++++++++++++++++++ Nothing to update in Zhihu! +++++++++++++++++++++++++\n'

@@ -11,9 +11,9 @@
             <div class='col-xs-6'>
                 <h1 style='text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;'>ThinkHow</h1>
                 <p>Hi~ I am Xinghao, this is my personal website.  Welcome!</p>
-                <p>In this website, I grasp the content from the websites that I often visite, which saves me the trouble visiting them one by one</p>
+                <p>In this website, I use crawls to grasp the content from the websites that I often visite, which saves me the trouble visiting them one by one.</p>
                 <p>
-                <a class='btn btn-lg btn-primary'role='button'>Want to how it works? &raquo;</a>
+                <a class='btn btn-lg btn-primary'role='button' href=''>How it works? &raquo;</a>
                 </p>
             </div>
             <div class='col-xs-6'>
@@ -71,7 +71,11 @@
         <li id='animation-btn' class='btn-active'>Animation</li>
         <li id='game-btn'>Game</li>
     </ul>
-    <i id='bangumi-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i>
+    <!-- {#% for instance in zhihu_time %} -->
+    <div class='bangumi-time'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ bangumi_time.update_time }}</p></div>
+    <div class='game-time' style='display:none'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ game_time.update_time }}</p></div>
+    <!-- {#% endfor %} -->
+    <!-- <i id='bangumi-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i> -->
 </div>
 <div class='clear'></div>
 <ul class='bangumi-list'>
@@ -84,7 +88,7 @@
     </li>
     {% endfor %}
 </ul>
-<ul class='game-list' style='display: none'>
+<ul class='game-list' style='display:none'>
     {% for instance in game %}
     <li>
         <a href={{ instance.url }} target='_blank'><img src={{ instance.img }} alt='bangumi' style='width:77px;height:77px;'/></a>
@@ -100,7 +104,9 @@
 <div class='page-header'>
     <div class='logo'>
         <a href="http://www.zhihu.com"><img src='{% static "img/zhihu.jpeg" %}'/></a>
-        <i id='zhihu-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i>
+        <div class='zhihu-time'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ zhihu_time.update_time }}</p></div>
+        <div class='zhihu-ml-time' style='display:none'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ zhihu_ml_time.update_time }}</p></div>
+        <!-- <i id='zhihu-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i> -->
     </div>
     <ul class='switcher'>
         <li id='zhihu-all-btn' class='btn-active'>All</li>

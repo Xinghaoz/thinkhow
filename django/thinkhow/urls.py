@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^about/', include('about.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    # url(r'^todo/$', views.todo, name='todo'),
     url(r'^profile/$', views.profile, name='profile'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

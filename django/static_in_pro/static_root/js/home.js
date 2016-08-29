@@ -17,6 +17,8 @@ $(document).ready(function() {
         $(".bangumi-list").fadeIn(777);
         $("#game-btn").removeClass("btn-active");
         $(".game-list").fadeOut(0);
+        $(".game-time").hide();
+        $(".bangumi-time").show();
     })
 
     $("#game-btn").click(function() {
@@ -24,6 +26,8 @@ $(document).ready(function() {
         $(".game-list").fadeIn(777);
         $("#animation-btn").removeClass("btn-active");
         $(".bangumi-list").fadeOut(0);
+        $(".bangumi-time").hide();
+        $(".game-time").show();
     })
 
     $("#zhihu-ml-btn").click(function (){
@@ -31,6 +35,8 @@ $(document).ready(function() {
         $(".zhihu-ml").fadeIn(777);
         $("#zhihu-all-btn").removeClass("btn-active");
         $(".zhihu-all").fadeOut(0);
+        $(".zhihu-time").hide();
+        $(".zhihu-ml-time").show();
     })
 
     $("#zhihu-all-btn").click(function (){
@@ -38,6 +44,8 @@ $(document).ready(function() {
         $(".zhihu-all").fadeIn(777);
         $("#zhihu-ml-btn").removeClass("btn-active");
         $(".zhihu-ml").fadeOut(0);
+        $(".zhihu-ml-time").hide();
+        $(".zhihu-time").show();
     })
 
     $(".fa-refresh").click(function () {

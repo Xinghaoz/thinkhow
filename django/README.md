@@ -248,4 +248,37 @@ Or:
 `bash
 uwsgi --socket mysite.sock --wsgi-file test.py --chmod-socket=664 # (more sensible)`
 
+Run uWSGI in background:
+`bash
+uwsgi --ini uwsgi.ini &
+`
+
+Stop uWSGI:
+`bash
+killall -9 uwsgi
+`
+
 至此Django终于部署成功啦！
+
+## 08/29/2016
+In python
+('update_time',)
+is a tuple, but
+('update_time')
+is not!
+`python
+class BangumiTimeAdmin(admin.ModelAdmin):
+    list_display = ('update_time',)
+`
+
+### STATIC_ROOT VS STATIC_URL
+STATIC_URL is where Django stores the static files.
+STATIC_ROOT is where your web server to find the static files.
+
+### How to stop uWSGI:
+ps ax | grep uwsgi
+15005 pts/4    S      0:00 /ve/path/bin/uwsgi --ini config.ini
+15006 pts/4    S      0:00 /ve/path/bin/uwsgi --ini config.ini
+15007 pts/4    S      0:00 /ve/path/bin/uwsgi --ini config.ini
+
+killall -9 uwsgi

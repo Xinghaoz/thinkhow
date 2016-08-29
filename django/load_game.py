@@ -1,7 +1,7 @@
 '''
     This file load the data collected by scrapy into django models.
 '''
-import os
+import os, time
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "thinkhow.settings")
 
 # If the version of django is larger than 1.7, you should include the following two lines.
@@ -10,6 +10,7 @@ django.setup()
 
 def main():
     from bilibili.models import Game
+    from update.models import GameTime
     # Delete all objects before insert new ones
 
     game_list = []
@@ -31,6 +32,9 @@ def main():
     if not flag:
         Game.objects.all().delete()
         Game.objects.bulk_create(game_list)
+
+        update_time = time.ctime()
+        GameTime.objects.create(update_time = update_time)
         print('\n+++++++++++++++++++++++++ Game has been loaded successfully +++++++++++++++++++++++++ \n')
     else:
         print '\n+++++++++++++++++++++++++ Nothing to update in Game! +++++++++++++++++++++++++\n'

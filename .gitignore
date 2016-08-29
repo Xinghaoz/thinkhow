@@ -7,3 +7,5 @@ old_settings.py
 base.py
 local.py
 production.py
+thinkhow_nginx.conf
+uwsgi.ini

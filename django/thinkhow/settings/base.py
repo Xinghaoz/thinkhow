@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+# PRODUCTION = True
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -23,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = 'j_z=m#vc_mbd7*2^inp!946-ugwav225pp7p1^@9fa8870eyah'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Tutorial 16 setting
 EMAIL_HOST = 'stmp.gmail.com'
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     'zhihu',
     'about',
     'bilibili',
+    'update',
 ]
 
 MIDDLEWARE_CLASSES = [
