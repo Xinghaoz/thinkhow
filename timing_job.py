@@ -24,7 +24,7 @@ def timing_exe(cmd='', sec=600):
     schedule.enter(sec, 0, perform_command, (cmd, sec))
     schedule.run()
 
-timing_exe(sec=5)
+timing_exe(sec=300)
 
 # Only the first one get executed!
 

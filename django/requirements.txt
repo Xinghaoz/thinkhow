@@ -4,3 +4,6 @@ django-registration-redux==1.4
 ipython==4.2.0
 Scrapy==1.1.0
 scrapy-splash==0.7
+w3lib
+cssselect
+pydispatch
