@@ -54,6 +54,10 @@ class ZhihuSpider (CrawlSpider):
             img = topic.xpath('.//img/@src').extract_first()
             author = topic.xpath('.//a[@class="author-link"]/text()').extract_first()
             bio = topic.xpath('.//span[@class="bio"]/text()').extract_first()
+            if not bio:
+                bio = ''
+            if not author:
+                author = 'Anonymous'
 
             # print '+++++++', author
             # print '+++++++', bio
@@ -86,7 +90,10 @@ class ZhihuSpider (CrawlSpider):
             img = topic.xpath('.//img/@src').extract_first()
             author = topic.xpath('.//a[@class="author-link"]/text()').extract_first()
             bio = topic.xpath('.//span[@class="bio"]/text()').extract_first()
-
+            if not bio:
+                bio = ''
+            if not author:
+                author = 'Anonymous'
 
             # If abstract contains image, the first element would be '\n'.
             # So we should first check whether the first element is '\n',
