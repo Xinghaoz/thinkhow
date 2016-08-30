@@ -11,7 +11,7 @@ django.setup()
 def main():
     from bilibili.models import Bangumi
     from update.models import BangumiTime
-    # Delete all objects before insert new ones
+    os.environ["TZ"]="US/Eastern"
 
     bangumi_list = []
 
@@ -32,6 +32,7 @@ def main():
 
     # We delete and update only when the file is not empty
     if not flag:
+        # Delete all objects before insert new ones
         Bangumi.objects.all().delete()
         Bangumi.objects.bulk_create(bangumi_list)
 

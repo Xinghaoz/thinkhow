@@ -11,7 +11,7 @@ django.setup()
 def main():
     from bilibili.models import Game
     from update.models import GameTime
-    # Delete all objects before insert new ones
+    os.environ["TZ"]="US/Eastern"
 
     game_list = []
 
@@ -30,6 +30,7 @@ def main():
             line = f.readline()
 
     if not flag:
+        # Delete all objects before insert new ones
         Game.objects.all().delete()
         Game.objects.bulk_create(game_list)
 

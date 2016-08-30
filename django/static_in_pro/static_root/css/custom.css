@@ -182,7 +182,7 @@ body {
     position: absolute;
     bottom: 7px;
     right: 0px;
-    cursor: pointer;
+    /*font-weight: bold;*/
 }
 
 .page-header {

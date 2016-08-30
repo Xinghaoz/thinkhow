@@ -11,7 +11,7 @@ django.setup()
 def main():
     from zhihu.models import ZhihuML
     from update.models import ZhihuMLTime
-    # Delete all objects before insert new ones
+    os.environ["TZ"]="US/Eastern"
 
     zhihu_list = []
 
@@ -31,6 +31,7 @@ def main():
             line = f.readline()
 
     if not flag:
+        # Delete all objects before insert new ones
         ZhihuML.objects.all().delete()
         ZhihuML.objects.bulk_create(zhihu_list)
 
