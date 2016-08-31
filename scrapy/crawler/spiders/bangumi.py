@@ -8,7 +8,7 @@ from scrapy.http import Request, FormRequest
 
 from crawler.items import BilibiliItem
 import re
-
+import os, time
 
 class BangumiSpider (BaseSpider):
     name = 'bangumi'
@@ -16,12 +16,13 @@ class BangumiSpider (BaseSpider):
     start_urls = ['http://bangumi.bilibili.com/22/']
 
     def start_requests(self):
-            # for url in self.start_urls:
-            yield scrapy.Request(self.start_urls[0], self.parse, meta={
-                'splash': {
-                    'endpoint': 'render.html'
-                }
-            })
+        os.environ["TZ"]="US/Eastern"
+        # for url in self.start_urls:
+        yield scrapy.Request(self.start_urls[0], self.parse, meta={
+            'splash': {
+                'endpoint': 'render.html'
+            }
+        })
 
     def parse(self, response):
         print '&&&&&&&&&&&&&&&&&&&&&&&&& {} &&&&&&&&&&&&&&&&&&&&&&&&&'.format(response.url)
@@ -45,6 +46,7 @@ class BangumiSpider (BaseSpider):
             item['url'] = url
             item['category'] = category.encode('utf-8')
             item['img'] = img
+            item['update_time'] = time.ctime()
 
             i += 1
             yield item

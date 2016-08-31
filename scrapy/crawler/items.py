@@ -16,6 +16,7 @@ class ZhihuItem(scrapy.Item):
     img = scrapy.Field()
     author = scrapy.Field()
     bio = scrapy.Field()
+    update_time = scrapy.Field()
 
 class BilibiliItem(scrapy.Item):
     url = scrapy.Field()
@@ -23,6 +24,7 @@ class BilibiliItem(scrapy.Item):
     img = scrapy.Field()
     category = scrapy.Field()
     up = scrapy.Field()
+    update_time = scrapy.Field()
 
 class BangumiItem(scrapy.Item):
     url = scrapy.Field()

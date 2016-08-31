@@ -8,7 +8,7 @@ from scrapy.http import Request, FormRequest
 
 from crawler.items import BilibiliItem
 import re
-
+import os, time
 
 class GameSpider (BaseSpider):
     name = 'game'
@@ -16,12 +16,13 @@ class GameSpider (BaseSpider):
     start_urls = ['http://www.bilibili.com/video/game.html']
 
     def start_requests(self):
-            # for url in self.start_urls:
-            yield scrapy.Request(self.start_urls[0], self.parse, meta={
-                'splash': {
-                    'endpoint': 'render.html'
-                }
-            })
+        os.environ["TZ"]="US/Eastern"
+        # for url in self.start_urls:
+        yield scrapy.Request(self.start_urls[0], self.parse, meta={
+            'splash': {
+                'endpoint': 'render.html'
+            }
+        })
 
     def parse(self, response):
         print '&&&&&&&&&&&&&&&&&&&&&&&&& {} &&&&&&&&&&&&&&&&&&&&&&&&&'.format(response.url)
@@ -49,4 +50,5 @@ class GameSpider (BaseSpider):
             item['title'] = title.encode('utf-8')
             item['img'] = img
             item['up'] = up.encode('utf-8')
+            item['update_time'] = time.ctime()
             yield item

@@ -8,9 +8,11 @@ class Bangumi(models.Model):
     url = models.CharField(max_length=120)
     category = models.CharField(max_length=25, default='')
     img = models.CharField(max_length=100, default='')
+    update_time = models.CharField(max_length=50, default='')
 
 class Game(models.Model):
     title = models.CharField(max_length=50)
     url = models.CharField(max_length=120)
     up = models.CharField(max_length=25, default='')
     img = models.CharField(max_length=100, default='')
+    update_time = models.CharField(max_length=50, default='')

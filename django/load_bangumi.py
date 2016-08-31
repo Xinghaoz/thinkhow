@@ -27,7 +27,7 @@ def main():
 
         while line:
             parts = line.split('\t')
-            bangumi_list.append(Bangumi(url=parts[0], title=parts[1], category=parts[2], img=parts[3]))
+            bangumi_list.append(Bangumi(url=parts[0], title=parts[1], category=parts[2], img=parts[3], update_time=parts[4]))
             line = f.readline()
 
     # We delete and update only when the file is not empty
@@ -36,8 +36,9 @@ def main():
         Bangumi.objects.all().delete()
         Bangumi.objects.bulk_create(bangumi_list)
 
-        update_time = time.ctime()
-        BangumiTime.objects.create(update_time = update_time)
+        # update_time = time.ctime()
+        # BangumiTime.objects.all().delete()
+        # BangumiTime.objects.create(update_time = update_time)
         print('\n+++++++++++++++++++++++++ Bangumi has been loaded successfully +++++++++++++++++++++++++ \n')
     else:
         print '\n+++++++++++++++++++++++++ Nothing to update in Bangumi! +++++++++++++++++++++++++\n'

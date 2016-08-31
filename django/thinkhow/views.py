@@ -30,10 +30,14 @@ def home(request):
     bangumi = Bangumi.objects.all()
     game = Game.objects.all()
 
-    zhihu_time = ZhihuTime.objects.last()
-    zhihu_ml_time = ZhihuMLTime.objects.last()
-    bangumi_time = BangumiTime.objects.last()
-    game_time = GameTime.objects.last()
+    # zhihu_time = ZhihuTime.objects.last()
+    # zhihu_ml_time = ZhihuMLTime.objects.last()
+    # bangumi_time = BangumiTime.objects.last()
+    # game_time = GameTime.objects.last()
+    zhihu_time = Article.objects.last()
+    zhihu_ml_time = ZhihuML.objects.last()
+    bangumi_time = Bangumi.objects.last()
+    game_time = Game.objects.last()
 
     context = {
         'zhihu': zhihu,

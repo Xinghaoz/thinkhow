@@ -9,6 +9,7 @@ from scrapy.http import Request, FormRequest
 from crawler.items import ZhihuItem
 from crawler import header
 import re
+import os, time
 #import time
 #import re
 #import pymongo
@@ -28,6 +29,7 @@ class ZhihuSpider (CrawlSpider):
         self.cookies = header.C
 
     def start_requests(self):
+        os.environ["TZ"]="US/Eastern"
         print '&&&&&&&&&&&&&&&&&&&&&&&&& start_requests &&&&&&&&&&&&&&&&&&&&&&&&&'
         # Use cookie to login in Zhihu
         for i, url in enumerate(self.start_urls):
@@ -85,4 +87,5 @@ class ZhihuSpider (CrawlSpider):
             item['img'] = "https://pic1.zhimg.com/d3dd87a0feae0a3db82973157eee89c0_m.png"
             item['author'] = author.encode('utf-8')
             item['bio'] = bio.encode('utf-8')
+            item['update_time'] = time.ctime()
             yield item

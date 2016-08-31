@@ -26,7 +26,7 @@ def main():
 
         while line:
             parts = line.split('\t')
-            game_list.append(Game(url=parts[0], title=parts[1], img=parts[2], up=parts[3]))
+            game_list.append(Game(url=parts[0], title=parts[1], img=parts[2], up=parts[3], update_time=parts[4]))
             line = f.readline()
 
     if not flag:
@@ -34,8 +34,9 @@ def main():
         Game.objects.all().delete()
         Game.objects.bulk_create(game_list)
 
-        update_time = time.ctime()
-        GameTime.objects.create(update_time = update_time)
+        # update_time = time.ctime()
+        # GameTime.objects.all().delete()
+        # GameTime.objects.create(update_time = update_time)
         print('\n+++++++++++++++++++++++++ Game has been loaded successfully +++++++++++++++++++++++++ \n')
     else:
         print '\n+++++++++++++++++++++++++ Nothing to update in Game! +++++++++++++++++++++++++\n'

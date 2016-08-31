@@ -27,7 +27,7 @@ def main():
         while line:
             #print line
             parts = line.split('\t')
-            zhihu_list.append(Article(url=parts[0], title=parts[1], abstract=parts[2], category=parts[3], img=parts[4], author=parts[5], bio=parts[6]))
+            zhihu_list.append(Article(url=parts[0], title=parts[1], abstract=parts[2], category=parts[3], img=parts[4], author=parts[5], bio=parts[6], update_time=parts[7]))
             line = f.readline()
 
     if not flag:
@@ -36,8 +36,9 @@ def main():
         Article.objects.bulk_create(zhihu_list)
 
         # Update the time
-        update_time = time.ctime()
-        ZhihuTime.objects.create(update_time = update_time)
+        # update_time = time.ctime()
+        # ZhihuTime.objects.all().delete()
+        # ZhihuTime.objects.create(update_time = update_time)
         print('\n+++++++++++++++++++++++++ Zhihu has been loaded successfully +++++++++++++++++++++++++ \n')
     else:
         print '\n+++++++++++++++++++++++++ Nothing to update in Zhihu! +++++++++++++++++++++++++\n'

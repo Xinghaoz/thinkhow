@@ -11,6 +11,7 @@ class Article(models.Model):
     img = models.CharField(max_length=100, default='')
     author = models.CharField(max_length=120, default='')
     bio = models.CharField(max_length=120, default='')
+    update_time = models.CharField(max_length=50, default='')
 
 class ZhihuML(models.Model):
     url = models.CharField(max_length=120)
@@ -20,3 +21,4 @@ class ZhihuML(models.Model):
     img = models.CharField(max_length=100, default='')
     author = models.CharField(max_length=120, default='')
     bio = models.CharField(max_length=120, default='')
+    update_time = models.CharField(max_length=50, default='')
