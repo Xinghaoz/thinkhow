@@ -109,12 +109,15 @@
         <!-- <i id='zhihu-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i> -->
     </div>
     <ul class='switcher'>
-        <li id='zhihu-all-btn' class='btn-active'>All</li>
-        <li id='zhihu-ml-btn'>Machine Learning</li>
+        <li class='btn-active zhihu-btn' value='zhihu-all'>All</li>
+        <li class='zhihu-btn' value='zhihu-ml'>ML</li>
+        <li class='zhihu-btn' value='zhihu-cv'>CV</li>
+        <li class='zhihu-btn' value='zhihu-math'>Math</li>
+        <li class='zhihu-btn' value='zhihu-stat'>Statistics</li>
     </ul>
 </div>
 
-<div class='zhihu-all'>
+<div class='zhihu-all zhihu-wrapper'>
     <div class='zhihu-list'>
         {% for instance in zhihu %}
         <div class='well'>
@@ -135,7 +138,7 @@
     </div>
 </div>
 
-<div class='zhihu-ml' style='display:none'>
+<div class='zhihu-ml zhihu-wrapper' style='display:none'>
     <div class='zhihu-list'>
         {% for instance in zhihu_ml %}
         <div class='well'>
@@ -143,7 +146,7 @@
                 <img src="{{ instance.img }}" style='height:50px;width:50px;'/>
             </div>
             <div class='zhihu-content'>
-                <h5 style='margin: 1px; color: #AAA;'> 来自话题：{{ instance.category }} </h5>
+                <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19559450/hot' target='_blank'>{{ instance.category }}</a></h5>
                 <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
                 <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
                 <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
@@ -155,6 +158,70 @@
         {% endfor %}
     </div>
 </div>
+
+<div class='zhihu-cv zhihu-wrapper' style='display:none'>
+    <div class='zhihu-list'>
+        {% for instance in zhihu_cv %}
+        <div class='well'>
+            <div class='side-photo'>
+                <img src="{{ instance.img }}" style='height:50px;width:50px;'/>
+            </div>
+            <div class='zhihu-content'>
+                <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19590195/hot' target='_blank'>{{ instance.category }}</a></h5>
+                <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
+                <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
+                <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
+                    <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
+                </a>
+            </div>
+        </div>
+        <div class='clear'></div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class='zhihu-math zhihu-wrapper' style='display:none'>
+    <div class='zhihu-list'>
+        {% for instance in zhihu_math %}
+        <div class='well'>
+            <div class='side-photo'>
+                <img src="{{ instance.img }}" style='height:50px;width:50px;'/>
+            </div>
+            <div class='zhihu-content'>
+                <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19554091/hot' target='_blank'>{{ instance.category }}</a></h5>
+                <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
+                <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
+                <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
+                    <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
+                </a>
+            </div>
+        </div>
+        <div class='clear'></div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class='zhihu-stat zhihu-wrapper' style='display:none'>
+    <div class='zhihu-list'>
+        {% for instance in zhihu_stat %}
+        <div class='well'>
+            <div class='side-photo'>
+                <img src="{{ instance.img }}" style='height:50px;width:50px;'/>
+            </div>
+            <div class='zhihu-content'>
+                <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19670916/hot' target='_blank'>{{ instance.category }}</a></h5>
+                <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
+                <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
+                <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
+                    <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
+                </a>
+            </div>
+        </div>
+        <div class='clear'></div>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}
 
 {% block series %}

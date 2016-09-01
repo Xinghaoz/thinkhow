@@ -11,9 +11,6 @@ def perform_command(cmd='', sec=600):
     os.system("cd scrapy; scrapy crawl zhihu; cd ..")
     os.system("cd django; python load_zhihu.py; cd ..")
 
-    os.system("cd scrapy; scrapy crawl zhihu_ml; cd ..")
-    os.system("cd django; python load_zhihu_ml.py; cd ..")
-
     os.system("cd scrapy; scrapy crawl bangumi; cd ..")
     os.system("cd django; python load_bangumi.py; cd ..")
 

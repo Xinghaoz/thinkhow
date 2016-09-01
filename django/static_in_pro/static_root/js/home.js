@@ -30,22 +30,30 @@ $(document).ready(function() {
         $(".game-time").show();
     })
 
-    $("#zhihu-ml-btn").click(function (){
+    // $("#zhihu-ml-btn").click(function () {
+    //     $(this).addClass("btn-active");
+    //     $(".zhihu-ml").fadeIn(777);
+    //     $("#zhihu-all-btn").removeClass("btn-active");
+    //     $(".zhihu-all").fadeOut(0);
+    //     $(".zhihu-time").hide();
+    //     $(".zhihu-ml-time").show();
+    // })
+    //
+    // $("#zhihu-all-btn").click(function () {
+    //     $(this).addClass("btn-active");
+    //     $(".zhihu-all").fadeIn(777);
+    //     $("#zhihu-ml-btn").removeClass("btn-active");
+    //     $(".zhihu-ml").fadeOut(0);
+    //     $(".zhihu-ml-time").hide();
+    //     $(".zhihu-time").show();
+    // })
+    $(".zhihu-btn").click(function () {
+        $(".zhihu-btn").removeClass("btn-active");
         $(this).addClass("btn-active");
-        $(".zhihu-ml").fadeIn(777);
-        $("#zhihu-all-btn").removeClass("btn-active");
-        $(".zhihu-all").fadeOut(0);
-        $(".zhihu-time").hide();
-        $(".zhihu-ml-time").show();
-    })
+        value = $(this).attr("value");
 
-    $("#zhihu-all-btn").click(function (){
-        $(this).addClass("btn-active");
-        $(".zhihu-all").fadeIn(777);
-        $("#zhihu-ml-btn").removeClass("btn-active");
-        $(".zhihu-ml").fadeOut(0);
-        $(".zhihu-ml-time").hide();
-        $(".zhihu-time").show();
+        $(".zhihu-wrapper").hide();
+        $("." + value).fadeIn(777);
     })
 
     $(".fa-refresh").click(function () {

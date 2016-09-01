@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from contact.forms import SignUpForm
-from zhihu.models import Article, ZhihuML
+from zhihu.models import Article, ZhihuML, ZhihuCV, ZhihuMath, ZhihuStat
 from bilibili.models import Bangumi, Game
 from update.models import ZhihuTime, ZhihuMLTime, BangumiTime, GameTime
 
@@ -27,13 +27,18 @@ def home(request):
 
     zhihu = Article.objects.all()
     zhihu_ml = ZhihuML.objects.all()
+    zhihu_cv = ZhihuCV.objects.all()
+    zhihu_math = ZhihuMath.objects.all()
+    zhihu_stat = ZhihuStat.objects.all()
     bangumi = Bangumi.objects.all()
     game = Game.objects.all()
 
+    ''' Changed update_time into each model instead of being a single model '''
     # zhihu_time = ZhihuTime.objects.last()
     # zhihu_ml_time = ZhihuMLTime.objects.last()
     # bangumi_time = BangumiTime.objects.last()
     # game_time = GameTime.objects.last()
+
     zhihu_time = Article.objects.last()
     zhihu_ml_time = ZhihuML.objects.last()
     bangumi_time = Bangumi.objects.last()
@@ -42,6 +47,9 @@ def home(request):
     context = {
         'zhihu': zhihu,
         'zhihu_ml': zhihu_ml,
+        'zhihu_cv': zhihu_cv,
+        'zhihu_math': zhihu_math,
+        'zhihu_stat': zhihu_stat,
         'bangumi': bangumi,
         'game': game,
         'zhihu_time': zhihu_time,
