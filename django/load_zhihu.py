@@ -13,7 +13,6 @@ django.setup()
 def main():
     from zhihu.models import Article, ZhihuML, ZhihuCV, ZhihuMath, ZhihuStat
     from update.models import ZhihuTime
-    os.environ["TZ"]="US/Eastern"
 
     zhihu_list = []
     zhihu_ml_list = []
@@ -63,10 +62,6 @@ def main():
         ZhihuStat.objects.all().delete()
         ZhihuStat.objects.bulk_create(zhihu_stat_list)
 
-        # Update the time
-        # update_time = time.ctime()
-        # ZhihuTime.objects.all().delete()
-        # ZhihuTime.objects.create(update_time = update_time)
         print('\n+++++++++++++++++++++++++ Zhihu has been loaded successfully +++++++++++++++++++++++++ \n')
     else:
         print '\n+++++++++++++++++++++++++ Nothing to update in Zhihu! +++++++++++++++++++++++++\n'

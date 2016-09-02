@@ -34,9 +34,6 @@ def main():
         Game.objects.all().delete()
         Game.objects.bulk_create(game_list)
 
-        # update_time = time.ctime()
-        # GameTime.objects.all().delete()
-        # GameTime.objects.create(update_time = update_time)
         print('\n+++++++++++++++++++++++++ Game has been loaded successfully +++++++++++++++++++++++++ \n')
     else:
         print '\n+++++++++++++++++++++++++ Nothing to update in Game! +++++++++++++++++++++++++\n'

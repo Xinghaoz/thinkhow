@@ -9,3 +9,6 @@ def resume(request):
 
 def skills(request):
     return render(request, 'about/skills.html', {})
+
+def about_website(request):
+    return render(request, 'about/about_website.html', {})
