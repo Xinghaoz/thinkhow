@@ -10,14 +10,6 @@ from crawler.items import ZhihuItem
 from crawler import header
 import re
 import os, time
-#import time
-#import re
-#import pymongo
-#from pymongo import MongoClient
-
-#import scrapy_splash
-#from scrapy_splash import SplashRequest, SplashResponse
-
 
 class ZhihuSpider (CrawlSpider):
     name = 'zhihu_ml'
@@ -45,9 +37,6 @@ class ZhihuSpider (CrawlSpider):
         # topics and zhuanlan are held in two different label.
         topics = page.xpath('//div[@class="feed-main"]')
 
-        print '=======', topics
-
-        # print response.body
         for topic in topics:
             item = ZhihuItem()
             title = topic.xpath('.//h2/a/text()').extract_first().strip()
@@ -66,13 +55,6 @@ class ZhihuSpider (CrawlSpider):
                 item['abstract'] = abstract[0].strip().encode('utf-8')
 
             category = "Machine Learning"
-
-            # print '+++++++ title: ', title
-            # print '+++++++ url: ', url
-            # print '+++++++ author: ', author
-            # print '+++++++ bio: ', bio
-            # print '+++++++ abstract: ', abstract
-            # print '+++++++ category', category
 
             # Somebody doesn't have bio and somebody is anonymous.
             if not bio:

@@ -7,7 +7,6 @@
 
 import scrapy
 
-
 class ZhihuItem(scrapy.Item):
     url = scrapy.Field()
     title = scrapy.Field()
@@ -25,9 +24,3 @@ class BilibiliItem(scrapy.Item):
     category = scrapy.Field()
     up = scrapy.Field()
     update_time = scrapy.Field()
-
-class BangumiItem(scrapy.Item):
-    url = scrapy.Field()
-    title = scrapy.Field()
-    img = scrapy.Field()
-    category = scrapy.Field()

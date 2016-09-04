@@ -10,7 +10,7 @@
     <h1 class='text-align-center'>{{ title }}</h1>
     {% endif %}
 
-    <form method='POST' action=''>{% csrf_token %}
+    <form method='POST' action='/contact/message/'>{% csrf_token %}
         {{ form|crispy }}
         <input class='btn btn-primary' type='submit' value="Submit">
     </form>

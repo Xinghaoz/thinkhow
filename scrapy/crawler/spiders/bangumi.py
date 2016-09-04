@@ -4,7 +4,7 @@ import scrapy
 from scrapy.spiders import BaseSpider, CrawlSpider
 from scrapy.selector import Selector
 from scrapy.linkextractors import LinkExtractor
-from scrapy.http import Request, FormRequest
+from scrapy.http import Request
 
 from crawler.items import BilibiliItem
 import re
@@ -17,7 +17,6 @@ class BangumiSpider (BaseSpider):
 
     def start_requests(self):
         os.environ["TZ"]="US/Eastern"
-        # for url in self.start_urls:
         yield scrapy.Request(self.start_urls[0], self.parse, meta={
             'splash': {
                 'endpoint': 'render.html'
