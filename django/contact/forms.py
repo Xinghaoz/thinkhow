@@ -7,6 +7,15 @@ class ContactForm(forms.Form):
     email = forms.EmailField()
     message = forms.CharField()
 
+class ContactForm(forms.Form):
+    PUBLICITY_CHOICE = (
+        ('PUBLIC', 'public'),
+        ('PRIVATE', 'private')
+    )
+    full_name = forms.CharField(required=False)
+    email = forms.EmailField()
+    comments = forms.CharField(widget=forms.Textarea)
+    private = forms.ChoiceField(choices=PUBLICITY_CHOICE, widget=forms.RadioSelect)
 
 class SignUpForm(forms.ModelForm):
     class Meta:

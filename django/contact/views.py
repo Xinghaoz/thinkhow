@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 # from django.urls import reverse
-from django.conf.urls import reverse
+# from django.conf.urls import reverse
 
 from .forms import SignUpForm, ContactForm
 from .models import SignUp
@@ -21,7 +21,7 @@ def contact(request):
 
     return render(request, "contact/forms.html", context)
 
-def message(request):
+def comments(request):
     form = ContactForm(request.POST or None)
     if form.is_valid():
         # print form.cleaned_data

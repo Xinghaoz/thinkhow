@@ -12,6 +12,8 @@
 
     <form method='POST' action='/contact/message/'>{% csrf_token %}
         {{ form|crispy }}
+        <!-- <p>Comment</p> -->
+        <!-- <textarea>Some text...</textarea> -->
         <input class='btn btn-primary' type='submit' value="Submit">
     </form>
   </div>

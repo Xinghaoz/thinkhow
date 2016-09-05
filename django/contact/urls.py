@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.contact, name='contact'),
-    url(r'^message/', views.message, name='message')
+    url(r'^message/', views.comments, name='comments')
 ]
