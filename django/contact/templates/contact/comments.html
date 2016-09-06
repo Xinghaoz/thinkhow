@@ -3,10 +3,14 @@
 {% load staticfiles %}
 
 {% block content %}
-{% for key, value in form.cleaned_data.iteritems %}
-<p>{{ key }}</p>
-<p>{{ value }}</p>
-{% endfor %}
+<div class="container">
+    {% for comment in comments %}
+        {% if not comment.private %}
+            <p>{{ comment.full_name }} {{ comment.timestamp }}</p>
+            <p>{{ comment.comment }}</p>
+        {% endif %}
+    {% endfor %}
+</div>
 {% endblock %}
 
 

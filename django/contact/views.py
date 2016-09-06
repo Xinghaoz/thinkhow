@@ -2,39 +2,51 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 # from django.urls import reverse
 # from django.conf.urls import reverse
+from django.core.urlresolvers import reverse
 
-from .forms import SignUpForm, ContactForm
-from .models import SignUp
+from .forms import SignUpForm, CommentForm
+from .models import Comment
 
 # Create your views here.
 def contact(request):
-    title = "Contact me"
-    form = ContactForm(request.POST or None)
-    if form.is_valid():
-        for key, value in form.cleaned_data.iteritems():
-            print key, value
+    print "======= contact ======="
+    form = CommentForm()
 
     context = {
         "form": form,
-        "title": title,
     }
 
     return render(request, "contact/forms.html", context)
 
 def comments(request):
-    form = ContactForm(request.POST or None)
+    form = CommentForm(request.POST or None)
     if form.is_valid():
         # print form.cleaned_data
         for key, value in form.cleaned_data.iteritems():
-            print key, value
+            pass
+            # print "=======", key, value
+    else:
+        context = {
+            "form": form,
+        }
+        return render(request, "contact/forms.html", context)
 
     data = form.cleaned_data
-    new_one = SignUp(email=data['email'], full_name=data['full_name'], message=data['message'])
+    new_one = Comment(email=data['email'], full_name=data['full_name'], comment=data['comment'])
     new_one.save()
 
+    comments = Comment.objects.all()
     context = {
         "form": form,
+        "comments": comments,
     }
 
-    return HttpResponseRedirect(reverse('contact:message', args=()))
-    # return render(request, "contact/message.html", context)
+    # return HttpResponseRedirect(reverse('comments', args=()))
+    return render(request, "contact/comments.html", context)
+
+def message(request):
+    comments = Comment.objects.all()
+    context = {
+        "comments": comments,
+    }
+    return render(request, "contact/comments.html", context)
