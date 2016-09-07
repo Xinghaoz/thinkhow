@@ -3,9 +3,9 @@
 header.py
 header.txt
 old_settings.py
-*.txt
 base.py
 local.py
 production.py
 thinkhow_nginx.conf
 uwsgi.ini
+scrapy/*.txt
