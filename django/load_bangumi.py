@@ -36,9 +36,6 @@ def main():
         Bangumi.objects.all().delete()
         Bangumi.objects.bulk_create(bangumi_list)
 
-        # update_time = time.ctime()
-        # BangumiTime.objects.all().delete()
-        # BangumiTime.objects.create(update_time = update_time)
         print('\n+++++++++++++++++++++++++ Bangumi has been loaded successfully +++++++++++++++++++++++++ \n')
     else:
         print '\n+++++++++++++++++++++++++ Nothing to update in Bangumi! +++++++++++++++++++++++++\n'
