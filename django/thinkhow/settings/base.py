@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'about',
     'bilibili',
     'update',
+    'blog',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -24,3 +24,13 @@ class BilibiliItem(scrapy.Item):
     category = scrapy.Field()
     up = scrapy.Field()
     update_time = scrapy.Field()
+
+class QuoraItem(scrapy.Item):
+    url = scrapy.Field()
+    title = scrapy.Field()
+    abstract = scrapy.Field()
+    category = scrapy.Field()
+    img = scrapy.Field()
+    author = scrapy.Field()
+    bio = scrapy.Field()
+    update_time = scrapy.Field()

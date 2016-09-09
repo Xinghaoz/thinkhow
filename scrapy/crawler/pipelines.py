@@ -18,15 +18,12 @@ class ZhihuPipeline(object):
 
     def process_item(self, item, spider):
         if spider.name == 'zhihu':
-            line = json.dumps(dict(item)) + "\n"
-            self.zhihu_json.write(line)
-
+            # line = json.dumps(dict(item)) + "\n"
+            # self.zhihu_json.write(line)
             val = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(item['url'], item['title'], item['abstract'], item['category'], item['img'], item['author'], item['bio'], item['update_time'])
             self.zhihu.write(val)
 
         elif spider.name == 'bangumi':
-            # line = json.dumps(dict(item)) + "\n"
-            # self.bangumi.write(line)
             val = "{}\t{}\t{}\t{}\t{}\n".format(item['url'], item['title'], item['category'], item['img'], item['update_time'])
             self.bangumi.write(val)
 
