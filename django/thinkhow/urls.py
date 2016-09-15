@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^contact/', include('contact.urls')),
     url(r'^about/', include('about.urls')),
+    url(r'^tools/', include('tools.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^todo/$', views.todo, name='todo'),
