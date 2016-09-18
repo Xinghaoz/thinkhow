@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block head %}
+<head>
+    <link href="{% static 'css/tools.css' %}" rel="stylesheet">
+</head>
+{% endblock %}
+
 {% block content %}
 <img href="{% static 'img/calculator.jpg' %}">
-<div>
-    <img src="{% static 'img/calculator.jpg' %}"/>
+<div class="tools-container">
+    <a href="{% url 'calculator' %}"><img class="tools-image" src="{% static 'img/calculator.jpg' %}"/></a>
+    <p class="tools-header">Calculator</p>
 </div>
 {% endblock %}
