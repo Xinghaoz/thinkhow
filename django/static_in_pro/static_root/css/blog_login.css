@@ -1,0 +1,42 @@
+/* customized style */
+.header {
+    text-align: center;
+    margin-top: 77px;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.register-form form ul {
+    padding: 0px;
+    margin-top: 36px;
+    list-style-type: none;
+}
+
+.register-form form ul li {
+    /*border-style: groove;*/
+    border: 5px;
+    margin-top: 25px;
+}
+
+.register-form form ul li input {
+    /*border-style: groove;*/
+    /*border: 5px;*/
+    width: 250px;
+}
+
+.inner-container {
+    width: 250px;
+    padding: auto;
+    margin: auto;
+}
+
+.inner-container p {
+    text-align: left;
+    color: white;
+}
+
+.introduction a:hover {
+    color: white;
+}

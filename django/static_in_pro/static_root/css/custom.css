@@ -239,10 +239,6 @@ body {
     -moz-column-count: 3;
 	-webkit-column-count: 3;
 	column-count: 3;
-    /*margin: 0px;
-    margin-top: 25px;
-    font-size: 14px;
-    padding: 0px;*/
 }
 
 .tv-list li {
@@ -257,24 +253,11 @@ body {
     max-height: 195px;*/
 }
 
-.tv-list li img {
-    /*position: absolute;
-    margin: 0 auto;*/
-    /*display: inline;*/
-    /*float: left;*/
-    /*margin-right: 7px;*/
-}
-
 .tv-list li a img {
     display: block;
     margin: 0px auto;
     width: 263.671875px;
     height: 150px;
-}
-
-.tv-list li a:hover {
-    /*text-decoration: none;*/
-    /*color: #000;*/
 }
 
 .tv-item {
