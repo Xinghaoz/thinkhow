@@ -74,7 +74,7 @@ class ZhihuSpider (CrawlSpider):
             item['category'] = category.encode('utf-8')
             item['img'] = img
             item['author'] = author.encode('utf-8')
-            item['bio'] = bio.encode('utf-8')
+            item['bio'] = bio.encode('utf-8').strip()
             item['update_time'] = time.ctime()
             yield item
 
@@ -106,7 +106,7 @@ class ZhihuSpider (CrawlSpider):
             item['category'] = category.encode('utf-8')
             item['img'] = img
             item['author'] = author.encode('utf-8')
-            item['bio'] = bio.encode('utf-8')
+            item['bio'] = bio.encode('utf-8').strip()
             item['update_time'] = time.ctime()
             yield item
 
@@ -148,6 +148,6 @@ class ZhihuSpider (CrawlSpider):
             item['category'] = category.encode('utf-8')
             item['img'] = "https://pic1.zhimg.com/d3dd87a0feae0a3db82973157eee89c0_m.png"
             item['author'] = author.encode('utf-8')
-            item['bio'] = bio.encode('utf-8')
+            item['bio'] = bio.encode('utf-8').strip()
             item['update_time'] = time.ctime()
             yield item

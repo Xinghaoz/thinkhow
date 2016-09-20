@@ -1,0 +1,9 @@
+img {
+    height: auto;
+    width: auto;
+}
+
+.image-wrapper {
+    width: 666px;
+    margin: 50px auto;
+}

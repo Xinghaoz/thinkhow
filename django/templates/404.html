@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
-{% block title %}Page not found{% endblock %}
+Page not found
 
 {% block content %}
 <div class='text-align-center'>
 <h1>Page not found</h1>
 
 <p>Sorry, but the requested page could not be found.</p>
-<img src="img/404.jpg">
+<img src="{% static 'img/404.png' %}"/>
 </div>
 {% endblock %}

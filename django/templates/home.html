@@ -63,200 +63,205 @@
 {#% endblock %}
 
 {% block bilibili %}
-<div class='page-header'>
-    <div class='logo'>
-        <a href="http://www.bilibili.com" target='_blank'><img src='{% static "img/bilibili.gif" %}' alt='Bilibili' style='width:131.5px;height:77px;'/></a>
+<div class='block'>
+    <div class='page-header'>
+        <div class='logo'>
+            <a href="http://www.bilibili.com" target='_blank'><img src='{% static "img/bilibili.gif" %}' alt='Bilibili' style='width:131.5px;height:77px;'/></a>
+        </div>
+        <ul class='switcher'>
+            <li id='animation-btn' class='btn-active'>Animation</li>
+            <li id='game-btn'>Game</li>
+        </ul>
+        <!-- {#% for instance in zhihu_time %} -->
+        <div class='bangumi-time'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ bangumi_time.update_time }}</p></div>
+        <div class='game-time' style='display:none'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ game_time.update_time }}</p></div>
+        <!-- {#% endfor %} -->
+        <!-- <i id='bangumi-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i> -->
     </div>
-    <ul class='switcher'>
-        <li id='animation-btn' class='btn-active'>Animation</li>
-        <li id='game-btn'>Game</li>
+    <div class='clear'></div>
+    <ul class='bangumi-list'>
+        {% for instance in bangumi %}
+        <li>
+            <a href={{ instance.url }} target='_blank'><img src={{ instance.img }} alt='bangumi' style='width:77px;height:77px;'/></a>
+            <a href={{ instance.url }} target='_blank'><p>{{ instance.title }}</p></a>
+            <p class='align-bottom'>更新至：{{ instance.category }}</p>
+            <div class='clear'></div>
+        </li>
+        {% endfor %}
     </ul>
-    <!-- {#% for instance in zhihu_time %} -->
-    <div class='bangumi-time'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ bangumi_time.update_time }}</p></div>
-    <div class='game-time' style='display:none'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ game_time.update_time }}</p></div>
-    <!-- {#% endfor %} -->
-    <!-- <i id='bangumi-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i> -->
+    <ul class='game-list' style='display:none'>
+        {% for instance in game %}
+        <li>
+            <a href={{ instance.url }} target='_blank'><img src={{ instance.img }} alt='bangumi' style='width:77px;height:77px;'/></a>
+            <a href={{ instance.url }} target='_blank'><p>{{ instance.title }}</p></a>
+            <p class='align-bottom'>Up主：{{ instance.up }}</p>
+            <div class='clear'></div>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
-<div class='clear'></div>
-<ul class='bangumi-list'>
-    {% for instance in bangumi %}
-    <li>
-        <a href={{ instance.url }} target='_blank'><img src={{ instance.img }} alt='bangumi' style='width:77px;height:77px;'/></a>
-        <a href={{ instance.url }} target='_blank'><p>{{ instance.title }}</p></a>
-        <p class='align-bottom'>更新至：{{ instance.category }}</p>
-        <div class='clear'></div>
-    </li>
-    {% endfor %}
-</ul>
-<ul class='game-list' style='display:none'>
-    {% for instance in game %}
-    <li>
-        <a href={{ instance.url }} target='_blank'><img src={{ instance.img }} alt='bangumi' style='width:77px;height:77px;'/></a>
-        <a href={{ instance.url }} target='_blank'><p>{{ instance.title }}</p></a>
-        <p class='align-bottom'>Up主：{{ instance.up }}</p>
-        <div class='clear'></div>
-    </li>
-    {% endfor %}
-</ul>
 {% endblock %}
 
 {% block zhihu %}
-<div class='page-header'>
-    <div class='logo'>
-        <a href="http://www.zhihu.com"><img src='{% static "img/zhihu.jpeg" %}'/></a>
-        <div class='zhihu-time'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ zhihu_time.update_time }}</p></div>
-        <div class='zhihu-ml-time' style='display:none'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ zhihu_ml_time.update_time }}</p></div>
-        <!-- <i id='zhihu-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i> -->
-    </div>
-    <ul class='switcher'>
-        <li class='btn-active zhihu-btn' value='zhihu-all'>All</li>
-        <li class='zhihu-btn' value='zhihu-ml'>ML</li>
-        <li class='zhihu-btn' value='zhihu-cv'>CV</li>
-        <li class='zhihu-btn' value='zhihu-math'>Math</li>
-        <li class='zhihu-btn' value='zhihu-stat'>Statistics</li>
-    </ul>
-</div>
-
-<div class='zhihu-all zhihu-wrapper'>
-    <div class='zhihu-list'>
-        {% for instance in zhihu %}
-        <div class='well'>
-            <div class='side-photo'>
-                <img src="{{ instance.img }}" style='height:50px;width:50px;'/>
-            </div>
-            <div class='zhihu-content'>
-                <h5 style='margin: 1px; color: #AAA;'> 来自话题：{{ instance.category }} </h5>
-                <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
-                <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
-                <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
-                    <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
-                </a>
-            </div>
+<div class='block'>
+    <div class='page-header'>
+        <div class='logo'>
+            <a href="http://www.zhihu.com"><img src='{% static "img/zhihu.jpeg" %}'/></a>
+            <div class='zhihu-time'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ zhihu_time.update_time }}</p></div>
+            <div class='zhihu-ml-time' style='display:none'><p class='update-time'><span style='color:#AAA'>Last updated:</span> {{ zhihu_ml_time.update_time }}</p></div>
+            <!-- <i id='zhihu-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i> -->
         </div>
-        <div class='clear'></div>
-        {% endfor %}
+        <ul class='switcher'>
+            <li class='btn-active zhihu-btn' value='zhihu-all'>All</li>
+            <li class='zhihu-btn' value='zhihu-ml'>ML</li>
+            <li class='zhihu-btn' value='zhihu-cv'>CV</li>
+            <li class='zhihu-btn' value='zhihu-math'>Math</li>
+            <li class='zhihu-btn' value='zhihu-stat'>Statistics</li>
+        </ul>
     </div>
-</div>
 
-<div class='zhihu-ml zhihu-wrapper' style='display:none'>
-    <div class='zhihu-list'>
-        {% for instance in zhihu_ml %}
-        <div class='well'>
-            <div class='side-photo'>
-                <img src="{{ instance.img }}" style='height:50px;width:50px;'/>
+    <div class='zhihu-all zhihu-wrapper'>
+        <div class='zhihu-list'>
+            {% for instance in zhihu %}
+            <div class='well'>
+                <div class='side-photo'>
+                    <img src="{{ instance.img }}" style='height:50px;width:50px;' alt="{% static 'img/default.jpg' %}"/>
+                </div>
+                <div class='zhihu-content'>
+                    <h5 style='margin: 1px; color: #AAA;'> 来自话题：{{ instance.category }} </h5>
+                    <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
+                    <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
+                    <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
+                        <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
+                    </a>
+                </div>
             </div>
-            <div class='zhihu-content'>
-                <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19559450/hot' target='_blank'>{{ instance.category }}</a></h5>
-                <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
-                <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
-                <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
-                    <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
-                </a>
-            </div>
+            <div class='clear'></div>
+            {% endfor %}
         </div>
-        <div class='clear'></div>
-        {% endfor %}
     </div>
-</div>
 
-<div class='zhihu-cv zhihu-wrapper' style='display:none'>
-    <div class='zhihu-list'>
-        {% for instance in zhihu_cv %}
-        <div class='well'>
-            <div class='side-photo'>
-                <img src="{{ instance.img }}" style='height:50px;width:50px;'/>
+    <div class='zhihu-ml zhihu-wrapper' style='display:none'>
+        <div class='zhihu-list'>
+            {% for instance in zhihu_ml %}
+            <div class='well'>
+                <div class='side-photo'>
+                    <img src="{{ instance.img }}" style='height:50px;width:50px;' alt="{% static 'img/default.jpg' %}"/>
+                </div>
+                <div class='zhihu-content'>
+                    <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19559450/hot' target='_blank'>{{ instance.category }}</a></h5>
+                    <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
+                    <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
+                    <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
+                        <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
+                    </a>
+                </div>
             </div>
-            <div class='zhihu-content'>
-                <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19590195/hot' target='_blank'>{{ instance.category }}</a></h5>
-                <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
-                <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
-                <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
-                    <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
-                </a>
-            </div>
+            <div class='clear'></div>
+            {% endfor %}
         </div>
-        <div class='clear'></div>
-        {% endfor %}
     </div>
-</div>
 
-<div class='zhihu-math zhihu-wrapper' style='display:none'>
-    <div class='zhihu-list'>
-        {% for instance in zhihu_math %}
-        <div class='well'>
-            <div class='side-photo'>
-                <img src="{{ instance.img }}" style='height:50px;width:50px;'/>
+    <div class='zhihu-cv zhihu-wrapper' style='display:none'>
+        <div class='zhihu-list'>
+            {% for instance in zhihu_cv %}
+            <div class='well'>
+                <div class='side-photo'>
+                    <img src="{{ instance.img }}" style='height:50px;width:50px;' alt="{% static 'img/default.jpg' %}"/>
+                </div>
+                <div class='zhihu-content'>
+                    <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19590195/hot' target='_blank'>{{ instance.category }}</a></h5>
+                    <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
+                    <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
+                    <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
+                        <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
+                    </a>
+                </div>
             </div>
-            <div class='zhihu-content'>
-                <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19554091/hot' target='_blank'>{{ instance.category }}</a></h5>
-                <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
-                <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
-                <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
-                    <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
-                </a>
-            </div>
+            <div class='clear'></div>
+            {% endfor %}
         </div>
-        <div class='clear'></div>
-        {% endfor %}
     </div>
-</div>
 
-<div class='zhihu-stat zhihu-wrapper' style='display:none'>
-    <div class='zhihu-list'>
-        {% for instance in zhihu_stat %}
-        <div class='well'>
-            <div class='side-photo'>
-                <img src="{{ instance.img }}" style='height:50px;width:50px;'/>
+    <div class='zhihu-math zhihu-wrapper' style='display:none'>
+        <div class='zhihu-list'>
+            {% for instance in zhihu_math %}
+            <div class='well'>
+                <div class='side-photo'>
+                    <img src="{{ instance.img }}" style='height:50px;width:50px;' alt="{% static 'img/default.jpg' %}"/>
+                </div>
+                <div class='zhihu-content'>
+                    <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19554091/hot' target='_blank'>{{ instance.category }}</a></h5>
+                    <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
+                    <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
+                    <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
+                        <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
+                    </a>
+                </div>
             </div>
-            <div class='zhihu-content'>
-                <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19670916/hot' target='_blank'>{{ instance.category }}</a></h5>
-                <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
-                <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
-                <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
-                    <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
-                </a>
-            </div>
+            <div class='clear'></div>
+            {% endfor %}
         </div>
-        <div class='clear'></div>
-        {% endfor %}
+    </div>
+
+    <div class='zhihu-stat zhihu-wrapper' style='display:none'>
+        <div class='zhihu-list'>
+            {% for instance in zhihu_stat %}
+            <div class='well'>
+                <div class='side-photo'>
+                    <img src="{{ instance.img }}" style='height:50px;width:50px;' alt="{% static 'img/default.jpg' %}"/>
+                </div>
+                <div class='zhihu-content'>
+                    <h5 style='margin: 1px; color: #AAA;'> 来自话题：<a href='https://www.zhihu.com/topic/19670916/hot' target='_blank'>{{ instance.category }}</a></h5>
+                    <h4 style='margin-top: 5px'><a id='zhihu-title' href="{{ instance.url }}" target='_blank'>{{ instance.title }}</a></h4>
+                    <p id=author>{{ instance.author }} <span>({{ instance.bio}})</span></p>
+                    <a id='zhihu-abstract-link' href="{{ instance.url }}" target='_blank'>
+                        <p id='zhihu-abstract-text'>{{ instance.abstract }}</p>
+                    </a>
+                </div>
+            </div>
+            <div class='clear'></div>
+            {% endfor %}
+        </div>
     </div>
 </div>
-
 {% endblock %}
 
 {% block series %}
-<div class='page-header'>
-    <div class='logo'>
-        <img src='{% static "img/TVseries.jpg" %}' alt='Bilibili' style='width:131.5px;height:77px;'/>
+<div class='block'>
+    <div class='page-header'>
+        <div class='logo'>
+            <img src='{% static "img/TVseries.jpg" %}' style='width:131.5px;height:77px;' alt="{% static 'img/default.jpg' %}"/>
+        </div>
+        <i id='bangumi-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i>
     </div>
-    <i id='bangumi-refresh' class='fa fa-refresh fa-3x' aria-hidden='true'></i>
+    <div class='clear'></div>
+    <ul class='tv-list'>
+        <li>
+            <p class='tv-header'>Walking Dead</p>
+            <a href='https://www.netflix.com/watch/70297527?trackId=14170286&tctx=1%2C0%2C9ff5ed43-24d7-4372-933f-d1653d2d3f9f-65944784' target='_blank'>
+                <img src='{% static "img/Daryl.jpg" %}'/>
+            </a>
+        </li>
+        <li>
+            <p class='tv-header'>Game Of Thrones</p>
+            <a href='http://www.hbo.com/game-of-thrones/episodes/index.html' target='_blank'>
+                <img src='{% static "img/GameOfThrones.jpg" %}'/>
+            </a>
+        </li>
+        <li>
+            <p class='tv-header'>Game Of Thrones</p>
+            <a href='http://www.hbo.com/game-of-thrones/episodes/index.html' target='_blank'>
+                <img src='{% static "img/GameOfThrones.jpg" %}'/>
+            </a>
+        </li>
+        <!-- When the number of item is 4, it becomes a mess!!!! -->
+        <!-- <li>
+            <p class='tv-header'>Game Of Thrones</p>
+            <img src='{% static "img/GameOfThrones.jpg" %}' style='width:263.671875px; height:150px;'/>
+        </li> -->
+    </ul>
 </div>
-<div class='clear'></div>
-<ul class='tv-list'>
-    <li>
-        <p class='tv-header'>Walking Dead</p>
-        <a href='https://www.netflix.com/watch/70297527?trackId=14170286&tctx=1%2C0%2C9ff5ed43-24d7-4372-933f-d1653d2d3f9f-65944784' target='_blank'>
-            <img src='{% static "img/Daryl.jpg" %}'/>
-        </a>
-    </li>
-    <li>
-        <p class='tv-header'>Game Of Thrones</p>
-        <a href='http://www.hbo.com/game-of-thrones/episodes/index.html' target='_blank'>
-            <img src='{% static "img/GameOfThrones.jpg" %}'/>
-        </a>
-    </li>
-    <li>
-        <p class='tv-header'>Game Of Thrones</p>
-        <a href='http://www.hbo.com/game-of-thrones/episodes/index.html' target='_blank'>
-            <img src='{% static "img/GameOfThrones.jpg" %}'/>
-        </a>
-    </li>
-    <!-- When the number of item is 4, it becomes a mess!!!! -->
-    <!-- <li>
-        <p class='tv-header'>Game Of Thrones</p>
-        <img src='{% static "img/GameOfThrones.jpg" %}' style='width:263.671875px; height:150px;'/>
-    </li> -->
-</ul>
 {% endblock %}
 
 {% block sidebar %}
