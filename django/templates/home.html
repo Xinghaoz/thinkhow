@@ -125,7 +125,9 @@
             {% for instance in zhihu %}
             <div class='well'>
                 <div class='side-photo'>
+                    {% autoescape off %}
                     <img src="{{ instance.img }}" style='height:50px;width:50px;' alt="{% static 'img/default.jpg' %}"/>
+                    {% endautoescape %}
                 </div>
                 <div class='zhihu-content'>
                     <h5 style='margin: 1px; color: #AAA;'> 来自话题：{{ instance.category }} </h5>
@@ -250,9 +252,9 @@
             </a>
         </li>
         <li>
-            <p class='tv-header'>Game Of Thrones</p>
-            <a href='http://www.hbo.com/game-of-thrones/episodes/index.html' target='_blank'>
-                <img src='{% static "img/GameOfThrones.jpg" %}'/>
+            <p class='tv-header'>House of Cards</p>
+            <a href='https://www.netflix.com/watch/70248289?trackId=14277281&tctx=0%2C0%2Ce1521a08-f48b-4d3e-9355-db752aae1885-53310454' target='_blank'>
+                <img src='{% static "img/houseofcards.jpg" %}'/>
             </a>
         </li>
         <!-- When the number of item is 4, it becomes a mess!!!! -->

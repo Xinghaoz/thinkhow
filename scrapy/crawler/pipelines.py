@@ -23,13 +23,13 @@ class ZhihuPipeline(object):
             category = item['category']
             img = item['img']
             if category == 'ALL:猫':
-                img = "{% statc 'img/cat.png' %}"
+                img = "/static/img/cat.png"
             elif category == 'ALL:游戏':
-                img = "{% statc 'img/game.jpg' %}"
+                img =  "/static/img/game.jpg"
             elif category == 'ALL:刀塔（DOTA 2）':
-                img = "{% statc 'img/dota2.jpg' %}"
+                img = "/static/img/dota2.jpg"
             elif category == 'ALL:动漫':
-                img = "{% statc 'img/acg.jpg' %}"
+                img = "/static/img/acg.jpg"
             val = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(item['url'],
                                                             item['title'],
                                                             item['abstract'],
