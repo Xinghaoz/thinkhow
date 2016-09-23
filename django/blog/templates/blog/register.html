@@ -1,67 +1,41 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="description" content="">
-        <meta name="author" content="Xinghao Zhou">
-        <link rel="icon" href="images/g.jpg">
+{% block content %}
+<div class="outer-container">
+    <div class="container">
+        <div class="text-align-center">
+            <h1 class="header"><a class="header-link" href="{% url 'home' %}">Grumblr</a></h1>
 
-        <title>Grumblr</title>
-
-        <!-- Bootstrap core CSS -->
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <!-- Custom styles for this template -->
-        <link href="css/blog.css" rel="stylesheet">
-        <link href="css/register.css" rel="stylesheet">
-    </head>
-
-    <body>
-        <div class="outer-container">
-            <div class="container">
-                <div class="inner-container text-align-center">
-                    <h1 class="header"><a href="index.html">Grumblr</a></h1>
-                    <div class="register-form">
-                        <form action="index(after login).html">
-                            <ul>
-                                <li><input type="text" name="username" placeholder="Username"></li>
-                                <li><input type="email" name="email" placeholder="Email"></li>
-                                <li><input type="password" name="password" placeholder="Password"></li>
-                                <li><input type="password" name="comfirm" placeholder="Comfirm password"></li>
-                                <li><input type="submit" class="btn btn-primary" value="Join"></li>
-                            </ul>
-                        </form>
-                    </div>
-                    <p>Already have account?<span style="margin-left: 25px;"></span><a class="inner-link" href="login.html">Log in</a></p>
-                </div>
+            {% if not request.user.is_authenticated %}
+            <div class="register-form">
+                <form method="POST">
+                    {% csrf_token %}
+                    <ul>
+                        <div class="message-container">
+                        {% if error_msg %}
+                            {% for msg in error_msg %}
+                                <p class="error-message">{{ msg }}</p>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                        <li><input type="text" name="username" placeholder="Username" required></li>
+                        <li><input type="email" name="email" placeholder="Email" required></li>
+                        <li><input type="text" name="first_name" placeholder="First Name" required></li>
+                        <li><input type="text" name="last_name" placeholder="Last Name" required></li>
+                        <li><input type="password" name="password" placeholder="Password" required></li>
+                        <li><input type="password" name="confirm" placeholder="Comfirm password" required></li>
+                        <li><input type="submit" class="btn btn-primary" value="Join"></li>
+                    </ul>
+                </form>
             </div>
+            <p class="small-message">Already have an account?
+                <a class="inner-link" href="{% url 'login' %}">Log in</a>
+            </p>
+            {% else %}
+            <p class="information">You've logged in<p>
+                <a class="inner-link" href="{% url 'logout' %}">Logout</a>
+            {% endif %}
         </div>
-
-
-
-
-
-        <!-- Footer -->
-        <footer class="footer">
-          <div class="container">
-            <p class="text-muted text-align-center">I am footer!!</p>
-          </div>
-        </footer>
-
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- <script src="/static/js/jquery.min.js"></script> -->
-        <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
-        <!-- <script src="/static/js/bootstrap.min.js"></script> -->
-        <!-- <script src="/static/js/home.js"></script> -->
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
-    </body>
-</html>
+    </div>
+</div>
+{% endblock %}

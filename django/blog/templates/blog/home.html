@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="outer-container">
+    {% if not request.user.is_authenticated %}
+    <div class="container">
+
+            <h1 class="header">Grumblr</h1>
+            <div class="introduction">
+                <p class="introduction-p">
+                    A mysterious space<br>
+                    where unbelieveable things happen
+                </p>
+                <a class="inner-link" href="{% url 'register' %}">
+                    <p class="slogan">Join us NOW!</p></a>
+            </div>
+    </div>
+    {% else %}
+    <div class="sidebar">
+        <div class="sidebar-container">
+            <div class="sidebar-header">
+                <img class="photo" src="{% static 'img/g.jpg' %}">
+                <p class="my-name">{{ request.user }}</p>
+                <p class="my-bio">My Bio (TBD)~</p>
+            </div>
+
+            <div class="sidebar-information">
+                <p>FirstName: <span class="sidebar-attr">{{ user.first_name }}</span></p>
+                <p>LastName: <span class="sidebar-attr">{{ user.last_name }}</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-right">
+        <div class="sidebar-container">
+            This area is going to be built as side-nav-bar
+        </div>
+    </div>
+
+    <div class="inner-container">
+        <div class="new-post">
+            <form method="POST" action="{% url 'post' %}">
+                {% csrf_token %}
+                <textarea class="post-text" name="text" placeholder="New post (< 42 characters)" maxlength="42" required></textarea>
+                <input type="submit" class="btn btn-primary btn-post" value="Post">
+            </form>
+
+            <div class="post-error">
+            {% if error_msg %}
+                {% for msg in error_msg %}
+                    <p class="error-message">{{ msg }}</p>
+                {% endfor %}
+            {% endif %}
+            </div>
+        </div>
+
+        {% if posts %}
+            {% for post in posts %}
+            <div class="post-wrapper">
+                <p class="post-author"><a class="profile-link" href="{% url 'profile' post.username %}" target="_blank">{{ post.username }}</a><span class="post-date">{{ post.timestamp }}</span</p>
+                <div class="post-content">
+                    <p>{{ post.text }}</p>
+                </div>
+                <i class="fa fa-heart" aria-hidden="true"></i><p>{{ post.likes }}</p>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div> <!-- inner-container -->
+
+{% endif %}
+</div>
+{% endblock %}
