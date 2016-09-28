@@ -26,7 +26,6 @@ timing_exe(sec=300)
 # Only the first one get executed!
 
 # timing_exe("echo 123", sec=5)
-# timing_exe(cmd="cd scrapy; scrapy crawl zhihu; cd ..", sec=20)
 # timing_exe(cmd="cd scrapy; scrapy crawl zhihu_ml; cd..", sec=60, diff=10)
 # timing_exe(cmd="cd scrapy; scrapy crawl bangumi; cd..", sec=60, diff=20)
 # timing_exe(cmd="cd scrapy; scrapy crawl game; cd..", sec=60, diff=30)
