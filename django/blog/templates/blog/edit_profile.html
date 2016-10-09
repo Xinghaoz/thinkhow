@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="outer-container">
+    {% if not request.user.is_authenticated %}
+    <div class="container">
+
+            <h1 class="header">Grumblr</h1>
+            <div class="introduction">
+                <p class="introduction-p">
+                    A mysterious space<br>
+                    where unbelieveable things happen
+                </p>
+                <a class="inner-link" href="{% url 'register' %}">
+                    <p class="slogan">Join us NOW!</p></a>
+            </div>
+    </div>
+    {% else %}
+    {% block sidebar %}
+    {% include 'sidebar.html' %}
+    {% endblock %}
+
+    <div class="inner-container">
+        <div class="edit-profile-container">
+            {% if profile_form.errors %}
+                {% for field in profile_form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in profile_form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if user_form.errors %}
+                {% for field in user_form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in user_form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form method="POST" action="{% url 'edit_profile' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if profile_form and user_form %}
+                    <ul class='edit-profile'>
+                    {% for field in user_form.visible_fields %}
+                        <li><p> {{ field.label_tag }} </p><div> {{ field }} </div></li>
+                    {% endfor %}
+
+                    {% for field in profile_form.visible_fields %}
+                        <li><p> {{ field.label_tag }} </p><div> {{ field }} </div> </li>
+                    {% endfor %}
+                    <input type="submit" class="btn btn-primary edit-btn" value="Submit">
+                    </ul>
+                {% endif %}
+            </form>
+            <div class="edit-profile-photo">
+                {% if profile.photo %}
+                <img class="edit-profile-photo" src="{% url 'photo' request.user %}" alt="{{ prequest.user.username }}">
+                {% else %}
+                <img class="edit-profile-photo" src="{% static 'img/g.jpg' %}" alt="{{ request.user.username }}">
+                {% endif %}
+            </div>
+            <!-- <div class="change-password"> -->
+            <!-- <div> -->
+            <div class="change-password-container">
+                <form method="POST" action="{% url 'change_password' %}">
+                    <ul class="change-password-ul">
+                    {% csrf_token %}
+                    {% for field in password_form.visible_fields %}
+                    <li class="change-password-ul">{{ field }}</li>
+                    {% endfor %}
+                    <input type="submit" class="btn btn-primary change-password-btn" value="Change Password">
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div> <!-- inner-container -->
+
+{% endif %}
+</div>
+{% endblock %}
