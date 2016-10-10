@@ -1,0 +1,42 @@
+{% load static %}
+<div class="sidebar">
+    <div class="sidebar-container">
+        <div class="sidebar-header">
+            {% if profile.photo and not user %}
+            <img class="photo" src="{% url 'photo' request.user %}" alt="{{ request.user.username }}">
+            {% elif profile.photo and user %}
+            <img class="photo" src="{% url 'photo' user.username %}" alt="{{ user.username }}">
+            {% else %}
+            <img class="photo" src="{% static 'img/g.jpg' %}" alt="{{ request.user }}">
+            {% endif %}
+            <p class="my-name">{{ user.username }}</p>
+            {% if viewuser %}
+                {% if request.user.username != viewuser %}
+                    {% if not is_following %}
+                    <form method="POST" action='{% url 'follow' viewuser %}'>
+                        {% csrf_token %}
+                        <button type='submit' class='btn btn-default'>Follow</button>
+                    </form>
+                    {% else %}
+                    <form method="POST" action='{% url 'follow' viewuser %}'>
+                        {% csrf_token %}
+                        <button type='submit' class='btn btn-default'>Unfollow</button>
+                    </form>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </div>
+
+        <div class="sidebar-information">
+            <p class='bio'>{{ profile.bio }}</p>
+            <p>FirstName: <span class="sidebar-attr">{{ user.first_name }}</span></p>
+            <p>LastName: <span class="sidebar-attr">{{ user.last_name }}</span></p>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-right">
+    <div class="sidebar-container">
+        This area is going to be built as side-nav-bar
+    </div>
+</div>

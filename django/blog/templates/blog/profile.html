@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="outer-container">
+    {% if not request.user.is_authenticated %}
+    <div class="container">
+
+            <h1 class="header">Grumblr</h1>
+            <div class="introduction">
+                <p class="introduction-p">
+                    A mysterious space<br>
+                    where unbelieveable things happen
+                </p>
+                <a class="inner-link" href="{% url 'register' %}">
+                    <p class="slogan">Join us NOW!</p></a>
+            </div>
+    </div>
+    {% else %}
+
+    {% block sidebar %}
+    {% include 'sidebar.html' %}
+    {% endblock %}
+
+    <div class="inner-container">
+        {% if error %}
+        <div class="text-align-center">
+            <p class="error-message">
+                {{ error }}
+            </p>
+        </div>
+        {% endif %}
+
+        {% if posts %}
+            {% for post in posts %}
+            <div class="post-wrapper">
+                {% if post.profile.photo %}
+                <img class="photo" src="{% url 'photo' post.profile.user.username %}" alt="{{ post.profile.user.username }}">
+                {% else %}
+                <img class="photo" src="{% static 'img/g.jpg' %}" alt="{{ post.profile.user.username }}">
+                {% endif %}
+                <p class="post-author"><a class="profile-link" href="{% url 'profile' post.profile.user.username %}" target="_blank">{{ post.profile.user.username }}</a><span class="post-date">{{ post.timestamp }}</span</p>
+                <div class="post-content">
+                    <p>{{ post.text }}</p>
+                </div>
+                <i class="fa fa-heart" aria-hidden="true"></i><p>{{ post.likes }}</p>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div> <!-- inner-container -->
+
+{% endif %}
+</div>
+{% endblock %}

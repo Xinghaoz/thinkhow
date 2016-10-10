@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block account_content %}
+    <div class="">
+          <p class="introduction-p">Please click following link to confirm:<p>
+          <a class="inner-link" href="{{ confirm_link }}">Confirm your account</a>
+        {% if error %}
+          <p> {{ error }} </p>
+          <p> Please confirm again! </p>
+        {% endif %}
+    </div>
+{% endblock %}
