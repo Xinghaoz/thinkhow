@@ -12,21 +12,28 @@
                     <p class="error-message">{{ msg }}</p>
                 {% endfor %}
             {% endif %}
+            {% if form.errors %}
+            <p class="error-message">
+            Incorrect user name and password.
+            </p>
+            {% endif %}
+
             </div>
 
             {% if not request.user.is_authenticated %}
             <div class="register-form">
-                <form method="POST">
+                <form method="POST" action="{% url 'login' %}">
                     {% csrf_token %}
                     <ul>
-                        <li><input type="text" name="username" placeholder="Username"></li>
-                        <li><input type="password" name="password" placeholder="Password"></li>
+                        {% for field in form.visible_fields %}
+                            {{ field.errors }}<li>{{ field }}</li>
+                        {% endfor %}
                         <li><input type="submit" class="btn btn-primary" value="Login"></li>
                     </ul>
                 </form>
             </div>
             <p class="small-message">New user?  <a class="inner-link" href="{% url 'register' %}">Register</a></p>
-
+            <p class="small-message">Forgot password? <a class="inner-link" href="{% url 'reset_password' %}">Reset it</a>!</p>
             {% else %}
             <p class="information">You've logged in<p>
                 <a class="inner-link" href="{% url 'logout' %}">Logout</a>

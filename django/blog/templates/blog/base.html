@@ -30,7 +30,14 @@
         {% include 'navbar.html' %}
 
         {% block content %}
+        {% block sidebar %}
         {% endblock %}
+        {% endblock %}
+
+        <div class="account-content">
+            {% block account_content %}
+            {% endblock %}
+        </div>
 
 
         <!-- Footer -->

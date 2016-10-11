@@ -5,7 +5,6 @@
 <div class="outer-container">
     {% if not request.user.is_authenticated %}
     <div class="container">
-
             <h1 class="header">Grumblr</h1>
             <div class="introduction">
                 <p class="introduction-p">
@@ -17,32 +16,20 @@
             </div>
     </div>
     {% else %}
-    <div class="sidebar">
-        <div class="sidebar-container">
-            <div class="sidebar-header">
-                <img class="photo" src="{% static 'img/g.jpg' %}">
-                <p class="my-name">{{ request.user }}</p>
-                <p class="my-bio">My Bio (TBD)~</p>
-            </div>
 
-            <div class="sidebar-information">
-                <p>FirstName: <span class="sidebar-attr">{{ user.first_name }}</span></p>
-                <p>LastName: <span class="sidebar-attr">{{ user.last_name }}</span></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="sidebar-right">
-        <div class="sidebar-container">
-            This area is going to be built as side-nav-bar
-        </div>
-    </div>
+    {% block sidebar %}
+    {% include 'sidebar.html' %}
+    {% endblock %}
 
     <div class="inner-container">
         <div class="new-post">
             <form method="POST" action="{% url 'post' %}">
                 {% csrf_token %}
-                <textarea class="post-text" name="text" placeholder="New post (< 42 characters)" maxlength="42" required></textarea>
+                {% if post_form %}
+                    {% for field in post_form.visible_fields %}
+                        {{ field }}
+                    {% endfor %}
+                {% endif %}
                 <input type="submit" class="btn btn-primary btn-post" value="Post">
             </form>
 
@@ -55,10 +42,23 @@
             </div>
         </div>
 
+        {% if error %}
+        <div class="text-align-center">
+            <p class="error-message">
+                {{ error }}
+            </p>
+        </div>
+        {% endif %}
+
         {% if posts %}
             {% for post in posts %}
             <div class="post-wrapper">
-                <p class="post-author"><a class="profile-link" href="{% url 'profile' post.username %}" target="_blank">{{ post.username }}</a><span class="post-date">{{ post.timestamp }}</span</p>
+                {% if post.profile.photo %}
+                <img class="photo" src="{% url 'photo' post.profile.user.username %}" alt="{{ post.profile.user.username }}">
+                {% else %}
+                <img class="photo" src="{% static 'img/g.jpg' %}" alt="{{ post.profile.user.username }}">
+                {% endif %}
+                <p class="post-author"><a class="profile-link" href="{% url 'profile' post.profile.user.username %}" target="_blank">{{ post.profile.user.username }}</a><span class="post-date">{{ post.timestamp }}</span</p>
                 <div class="post-content">
                     <p>{{ post.text }}</p>
                 </div>

@@ -8,22 +8,23 @@
 
             {% if not request.user.is_authenticated %}
             <div class="register-form">
-                <form method="POST">
+                <form method="POST" action="{% url 'register' %}">
                     {% csrf_token %}
                     <ul>
                         <div class="message-container">
-                        {% if error_msg %}
-                            {% for msg in error_msg %}
-                                <p class="error-message">{{ msg }}</p>
-                            {% endfor %}
-                        {% endif %}
+                            {% if register_form.non_field_errors %}
+                                {% for error in register_form.non_field_errors %}
+                                    <div class="error-message">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
                         </div>
-                        <li><input type="text" name="username" placeholder="Username" required></li>
-                        <li><input type="email" name="email" placeholder="Email" required></li>
-                        <li><input type="text" name="first_name" placeholder="First Name" required></li>
-                        <li><input type="text" name="last_name" placeholder="Last Name" required></li>
-                        <li><input type="password" name="password" placeholder="Password" required></li>
-                        <li><input type="password" name="confirm" placeholder="Comfirm password" required></li>
+                        {% for field in register_form.visible_fields %}
+                            <li><div class="error-message">{{ field.errors }}</div>{{ field }}</li>
+                        {% endfor %}
+                        {% for field in register_form.hidden_fields %}
+                            <li>{{ field }}</li>
+                        {% endfor %}
+
                         <li><input type="submit" class="btn btn-primary" value="Join"></li>
                     </ul>
                 </form>
