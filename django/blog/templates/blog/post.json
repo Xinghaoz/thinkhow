@@ -1,0 +1,8 @@
+{
+  "username" : "{{ post.profile }}",
+  "photo" : "{{ post.profile.photo }}",
+  "text" : "{{ post.text }}",
+  "timestamp" : "{{ post.timestamp }}",
+  "likes" : "{{ post.likes }}",
+  "from_epoch" : "{{ post.from_epoch }}"
+}

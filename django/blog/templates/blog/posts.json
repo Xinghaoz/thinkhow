@@ -1,0 +1,5 @@
+{
+  "posts":[
+    {% for post in posts %}{% include 'post.json' %}{% if not forloop.last %}, {% endif %}{% endfor %}
+  ]
+}

@@ -29,12 +29,6 @@ class RegistrationForm(forms.ModelForm):
             }),
         }
 
-        # username = forms.CharField(max_length=20)
-        # email = forms.EmailField()
-        # first_name = forms.CharField(max_length=25)
-        # last_name = forms.CharField(max_length=25)
-        # password = forms.CharField(max_length = 25, widget=forms.PasswordInput())
-
     def clean(self):
         cleaned_data = super(RegistrationForm, self).clean()
 
@@ -70,6 +64,7 @@ class PostForm(forms.ModelForm):
             'text': forms.Textarea(attrs={
                 'placeholder': "New post (< 42 characters)",
                 'class': 'post-text',
+                'id': 'post-text',
             })
         }
 

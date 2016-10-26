@@ -23,6 +23,9 @@
         <!-- Custom styles for this template -->
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
         <link href="{% static 'css/profile.css' %}" rel="stylesheet">
+        <link href="{% static 'css/comment.css' %}" rel="stylesheet">
+        {% block style %}
+        {% endblock %}
     </head>
 
 
@@ -52,5 +55,7 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- <script src="/static/js/bootstrap.min.js"></script> -->
+        {% block js %}
+        {% endblock %}
     </body>
 </html>

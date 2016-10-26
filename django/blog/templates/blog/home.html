@@ -23,7 +23,7 @@
 
     <div class="inner-container">
         <div class="new-post">
-            <form method="POST" action="{% url 'post' %}">
+            <form id="post-form" method="POST" action="{% url 'post' %}">
                 {% csrf_token %}
                 {% if post_form %}
                     {% for field in post_form.visible_fields %}
@@ -50,24 +50,13 @@
         </div>
         {% endif %}
 
-        {% if posts %}
-            {% for post in posts %}
-            <div class="post-wrapper">
-                {% if post.profile.photo %}
-                <img class="photo" src="{% url 'photo' post.profile.user.username %}" alt="{{ post.profile.user.username }}">
-                {% else %}
-                <img class="photo" src="{% static 'img/g.jpg' %}" alt="{{ post.profile.user.username }}">
-                {% endif %}
-                <p class="post-author"><a class="profile-link" href="{% url 'profile' post.profile.user.username %}" target="_blank">{{ post.profile.user.username }}</a><span class="post-date">{{ post.timestamp }}</span</p>
-                <div class="post-content">
-                    <p>{{ post.text }}</p>
-                </div>
-                <i class="fa fa-heart" aria-hidden="true"></i><p>{{ post.likes }}</p>
-            </div>
-            {% endfor %}
-        {% endif %}
+        {% include 'posts.html' %}
     </div> <!-- inner-container -->
 
 {% endif %}
 </div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/posts.js' %}"></script>
 {% endblock %}

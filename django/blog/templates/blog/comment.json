@@ -1,0 +1,7 @@
+{
+  "comment_id" : "{{ comment.comment_id }}",
+  "author" : "{{ comment.author.user.username }}",
+  "comment" : "{{ comment.comment }}",
+  "timestamp" : "{{ comment.timestamp }}",
+  "from_epoch" : "{{ comment.from_epoch }}"
+}
