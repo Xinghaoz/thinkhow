@@ -1,0 +1,14 @@
+{% extends 'lovelive/base.html' %}
+{% load static %}
+{% block title %}Role{% endblock %}
+{% block style %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'lovelive/css/choose_role.css' %}" >
+{% endblock %}
+
+{% block content %}
+    <div class="role_block"></div>
+    <script src="{%static '/lovelive/js/choose_role.js'%}"></script>
+    
+
+{% endblock %}

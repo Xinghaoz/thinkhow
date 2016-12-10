@@ -1,0 +1,1 @@
+{"id":"{{ role.id }}", "name":"{{ role.role_name }}","picture":"{{role.role_picture}}","wealth":"{{role.init_wealth}}","gpa":"{{role.init_gpa}}","strength":"{{role.init_strength}}","lucky":"{{role.lucky}}"}

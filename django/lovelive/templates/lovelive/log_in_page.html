@@ -1,0 +1,48 @@
+{% extends 'lovelive/base.html' %}
+{% load static %}
+{% block title %}Log in{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'lovelive/css/log_in_page.css' %}" >
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+      <div class="col-sm-8 ">
+      </div>
+
+      <div class="col-sm-4 ">
+        <div class="log_in_block">
+        <a style="text-decoration:none" href="/lovelive/login"><p class="log_in_lovelive_head"> Lovelive </p></a>
+        <br><br>
+        {% load myfilters %}
+        <form action="{% url 'login'%}" method="post">
+          <span class="log_in_tag">{{ form.username.label_tag }}</span>
+          <span>{{form.username|addclass:'log_in_input'}}</span>
+          <br><br>
+          <span class="log_in_tag">{{ form.password.label_tag }}</span>
+          <span>{{form.password|addclass:'log_in_input'}}</span>
+
+          <a href="{% url 'reset_password'%}"  class="forgot_password">forgot?</a>
+
+          <div>
+            <input  class="button" type="submit" value="Login">
+          </div>
+          <br>
+          <div class="register_button">
+            <a href="{% url 'register'%}"  class="button">Register</a>
+          </div>
+          <input type="hidden" name="next" value="{{ next }}" />
+          {% csrf_token %}
+        </form>
+        <br>
+
+        {% if form.errors %}
+        <p class="log_in_error">
+        Incorrect user name and password.
+        </p>
+        {% endif %}
+
+        </div>
+      </div>
+    </div>
+{% endblock %}

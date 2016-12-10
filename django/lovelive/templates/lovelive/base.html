@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Lovelive">
+    <meta name="author" content="Lovelive Team">
+    <link rel="icon" href="{% static 'lovelive/pictures/icon.ico' %}">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- CSS -->
+    <link href="{% static 'lovelive/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    {% block style %}
+    {% endblock %}
+
+
+  </head>
+
+  <body>
+
+
+    {% block content %}{% endblock %}
+    <!-- ===========script=========== -->
+    <script type="text/javascript" src="{% static 'lovelive/js/jquery-3.1.1.js' %}"></script>
+    <script src="{% static 'lovelive/js/bootstrap.min.js' %}"></script>
+    {% block script %}
+    {% endblock %}
+
+
+  </body>
+</html>
