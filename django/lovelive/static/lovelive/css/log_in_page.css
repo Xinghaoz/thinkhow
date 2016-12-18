@@ -1,0 +1,97 @@
+body {
+  background-image: url(../pictures/log_in_register_page2.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+  min-height: 1000px;
+
+}
+
+.log_in_block {
+  width: 320px;
+  border-style: hidden;
+  border-radius: 5px;
+  margin: 10px;
+  margin-top: 50px;
+  margin-right: 120px;
+  margin-left: 30px;
+  padding: 50px;
+  padding-right: 60px;
+  background-color:rgba(240,240,260,0.2) ;
+}
+
+.log_in_lovelive_head {
+  font-size:40px;
+  font-family:verdana;
+  color:white;
+  text-align:center;
+}
+
+.log_in_tag {
+  margin-left: 20px;
+  color: rgb(169,186,203);
+
+}
+.log_in_input {
+  margin-left: 20px;
+  margin-right: 0px;
+  border-style: hidden;
+  border-radius: 5px;
+  border-color: white;
+  width:176px;
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.8);
+
+}
+.forgot_password {
+  margin-left: 160px;
+  margin-top: 5px;
+  color: white;
+  font-size: 10px;
+
+}
+
+.button {
+  margin-top: 14px;
+  margin-left: 20px;
+  width:176px;
+  border-style: hidden;
+  border-radius: 4px;
+  background-color:rgb(173,216,230);
+  color: rgb(99,116,133);
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 20px;
+
+}
+.register_button {
+  margin-left: 20px;
+  width:176px;
+  border-style: hidden;
+  border-radius: 4px;
+  background-color:rgb(173,216,230);
+  color: rgb(99,116,133);
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 20px;
+  text-align: center;
+
+}
+.forgot_password:hover{
+  color: rgb(169,186,203);
+  text-decoration: none;
+}
+
+.button:hover{
+  color: white;
+  text-decoration: none;
+
+}
+
+.log_in_error {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 0px;
+  margin-left: 20px;
+  font-size: 6px;
+  color: rgb(255, 153, 153);
+}

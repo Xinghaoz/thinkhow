@@ -1,0 +1,135 @@
+body {
+  min-height: 1000px;
+  background-image: url(../pictures/home_page1.jpg);
+  background-size:cover;
+}
+
+/*--------navbar-------*/
+.navbar {
+  margin:0;
+  padding:0;
+  background-color: rgba(240,248,255,0.6);
+}
+.navbar-brand{
+  font-size: 20px;
+  font-weight: 500;
+}
+.now_active {
+  background-color: rgba(250,250,270,0.4);
+}
+#navbar li {
+  float:left;
+}
+#navbar li a {
+  display:block;
+  color:rgb(119,136,153);
+  text-align: left;
+  padding: 16px;
+  font-weight: 500;
+}
+#navbar li a:hover {
+  background-color: rgba(250,250,270,0.4);
+    color:rgb(0, 172, 230);
+}
+#navbar li a:visited {
+  background-color: rgba(250,250,270,0.4);
+}
+#navbar li a:active {
+  background-color: rgba(250,250,270,0.4);
+}
+/*--------navbar_end-------*/
+
+
+.total {
+  margin: 10px;
+  padding-top: 100px;
+}
+.profile_round_img {
+  border-radius: 10%;
+  max-width:200px;
+  margin-top: 60px;
+
+}
+.changepassword_block {
+  margin-top: 110px;
+  margin-bottom: 100px;
+  padding: 20px;
+  background-color: rgba(250,250,270,0.5);
+
+}
+.changepassword_input {
+  padding: 5px;
+  margin-top:15px;
+  margin-right: 8px;
+  border-style: hidden;
+  border-radius: 4px;
+  border-color: white;
+  width: 200px;
+  background-color:rgba(250,250,270,0.8)
+}
+.changepassword_button {
+  margin-top: 40px;
+  margin-left: 100px;
+  width:100px;
+  border-style: hidden;
+  border-radius: 4px;
+  background-color:rgba(173,216,230,0.8);
+  color: rgb(99,116,133);
+  padding: 8px;
+}
+.changepassword_button:hover{
+  color: white;
+  text-decoration: none;
+
+}
+.profile_label_tag {
+  padding: 0px;
+  color:rgb(153, 153, 102);
+  font-size: 18px;
+  font-family:Century Gothic;
+}
+.profile_input {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-style: hidden;
+  border-radius: 4px;
+  border-color: white;
+  width: 350px;
+  background-color:rgba(250,250,270,0.8)
+
+}
+.profile_submit_button {
+  margin-top: 40px;
+  margin-left: 200px;
+  width:150px;
+  border-style: hidden;
+  border-radius: 4px;
+  background-color:rgba(173,216,230,0.8);
+  color: rgb(99,116,133);
+  padding: 8px;
+
+}
+.profile_block{
+  margin-top: 50px;
+  padding: 20px;
+  background-color: rgba(250,250,270,0.6);
+}
+
+.profile_submit_button:hover{
+  color: white;
+  text-decoration: none;
+
+}
+.profile_field_error {
+  font-size: 6px;
+  color: rgb(255, 153, 153);
+}
+.profile_nonfield_error {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 0px;
+  margin-left: 20px;
+  font-size: 6px;
+  color: rgb(255, 153, 153);
+
+}

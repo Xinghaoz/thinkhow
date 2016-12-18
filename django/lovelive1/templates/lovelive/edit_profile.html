@@ -1,0 +1,76 @@
+{% extends 'lovelive/base.html' %}
+{% load static %}
+{% block title %}Edit my profile{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'lovelive/css/edit_profile.css' %}" >
+{% endblock %}
+
+{% block content %}
+
+{% include 'lovelive/navbar.html' %}
+<div class="row total">
+  <div class="col-sm-3 col-sm-offset-1">
+    {% if profileform.picture.value %}
+      <img src="{% url 'get-profile-photo'%}" alt="{{profileform.first_name.value}}{{profileform.last_name.value}}"
+        class="profile_round_img">
+    {% endif %}
+    <div class="changepassword_block">
+      <form action="{% url 'change_password_in_profile'%}" method="post">
+        {% load myfilters %}
+        <table>
+        {% for changepasswordfield in changepasswordform %}
+          {{changepasswordfield|addclass:'changepassword_input'}}
+          <span class="profile_field_error">{{changepasswordfield.errors}}</span>
+        {% endfor %}
+        </table>
+
+        <input  class="changepassword_button" type="submit" value="Change">
+
+        {% csrf_token %}
+      </form>
+      <!-- error display -->
+      {% for error in changepasswordform.non_field_errors %}
+          <p class="profile_nonfield_error">{{error}}</p>
+      {% endfor %}
+      <!-- error display -->
+    </div>
+
+  </div>
+
+  <div class="col-sm-5 ">
+    <!-- edit profile if clicked -->
+    <div class = "profile_block">
+
+    <form enctype="multipart/form-data" action="{% url 'edit-profile'%}" method="post">
+      {% load myfilters %}
+      <table>
+      {% for profilefield in profileform %}
+        <p class="profile_label_tag"> {{profilefield.label_tag}}</p>
+        {{profilefield|addclass:'profile_input'}}
+        <br>
+        <span class="profile_field_error">{{profilefield.errors}}</span>
+      {% endfor %}
+      </table>
+        <input  class="profile_submit_button" type="submit" value="Save">
+      {% csrf_token %}
+    </form>
+
+    </div>
+    <!-- edit profile if clicked -->
+    <!-- error display -->
+    {% for error in profileform.non_field_errors %}
+        <p class="profile_nonfield_error">{{error}}</p>
+    {% endfor %}
+    <!-- error display -->
+
+
+
+
+
+  </div>
+  <div class="col-sm-3">
+
+  </div>
+
+
+{% endblock %}

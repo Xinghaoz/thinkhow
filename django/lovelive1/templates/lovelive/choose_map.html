@@ -1,0 +1,22 @@
+{% extends 'lovelive/base.html' %}
+{% load static %}
+{% block title %}Choose Map{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'lovelive/css/choose_map.css' %}" >
+{% endblock %}
+
+{% block content %}
+    {% include 'lovelive/navbar.html' %}
+
+    <p id="username" hidden="True">{{username}}</p>
+    <div id = "choose_map_background">
+
+          <img id="default_map" src="{%static 'lovelive/pictures/default_map2.jpg'%}" class="choose_map_map">
+        
+    </div>
+    <p id="time_stamp_hidden" hidden="True" ></p>
+
+{% endblock %}
+{% block script %}
+  <script src="{% static 'lovelive/js/wait_for_other_user.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'lovelive/base.html' %}
+{% load static %}
+{% block title %}Lovelive!{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'lovelive/css/first_page.css' %}" >
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+      <div class="col-sm-4 ">
+      </div>
+      <!-- get start  -->
+      <div class="col-sm-4 ">
+      </div>
+
+      <div class="col-sm-4 ">
+        <div class="first_page_block">
+          <a style="text-decoration:none" href="/lovelive/"><p class="first_page_lovelive_head"> Lovelive! </p></a>
+          {% if user %}
+          <a style="text-decoration:none" href="/lovelive/home"><p class="start_to_login">Start!</p></a>
+          {% else %}
+          <a style="text-decoration:none" href="/lovelive/login"><p class="start_to_login">Start!</p></a>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+{% endblock %}

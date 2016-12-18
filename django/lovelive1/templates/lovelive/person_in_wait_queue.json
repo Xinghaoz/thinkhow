@@ -1,0 +1,1 @@
+{"player_id":"{{ player.id }}","player_username":"{{ player.username }}", "player_picture":{% if player.profile.picture %}"{{ player.profile.picture }}"{% else %}"0"{% endif %}}

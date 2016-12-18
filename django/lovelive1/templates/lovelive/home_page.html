@@ -1,0 +1,68 @@
+{% extends 'lovelive/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'lovelive/css/home_page.css' %}" >
+{% endblock %}
+
+{% block content %}
+    {% include 'lovelive/navbar.html' %}
+
+    <div class="row total">
+      <div class="col-sm-3 col-sm-offset-1">
+        <!-- profile background -->
+        <div class="blur">
+          <img src="{% static 'lovelive/pictures/blur3.jpg' %}" alt="blur" class="blur_image">
+        </div>
+        <!-- profile background end -->
+
+        <!-- profile-information -->
+        <div>
+        {% if myprofile.picture %}
+          <img src="{% url 'get-profile-photo'%}" alt="{{me.username}}"
+            class="profile_round_img">
+        {% else %}
+          <img src="{% static 'lovelive/pictures/default_profile_picture.png' %}" alt="default_picture"
+            class="profile_round_img">
+        {% endif %}
+        <span class="profile_name" ><p class="profile_name_inner">{{me.username}}</p></span>
+        {% if not myprofile.short_bio == null %}
+          <p class="profile_description" >{{myprofile.short_bio}}</p>
+        {% endif %}
+        </div>
+        <!-- profile-information end-->
+
+        <!-- edit my profile -->
+        <div>
+        <a href="{% url 'edit-profile' %}">
+          <img src="{% static 'lovelive/pictures/edit_profile.png' %}" alt="comment" class="edit_profile_link_image">
+          <p class="edit_profile_link" >edit</p>
+        </a>
+        <!-- edit my profile end-->
+        </div>
+      </div>
+
+      <div class="col-sm-5 ">
+        <div>
+          <table class="myproperty_block">
+            <tr class="myproperty_block_row">
+              <td class="myproperty_block_coloum_head">Cash</td>
+              <td class="myproperty_block_coloum">{{myproperty.cash}}</td>
+            </tr>
+            <tr class="myproperty_block_row">
+              <td class="myproperty_block_coloum_head">Deposit</td>
+              <td class="myproperty_block_coloum">{{myproperty.deposit}}</td>
+            </tr>
+            <tr class="myproperty_block_row">
+              <td class="myproperty_block_coloum_head">Total score</td>
+              <td class="myproperty_block_coloum">{{myproperty.total_score}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-sm-3">
+        {% include 'lovelive/start_game_block.html' %}
+    </div>
+{% endblock %}

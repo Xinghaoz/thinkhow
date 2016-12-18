@@ -1,0 +1,38 @@
+{% extends 'lovelive/base.html' %}
+{% load static %}
+{% block title %}Scoreboard{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'lovelive/css/scoreboard.css' %}" >
+{% endblock %}
+
+{% block content %}
+    {% include 'lovelive/navbar.html' %}
+      <div class="scoreboard_block">
+        <p class="scoreboard_head">Scoreboard</p>
+        <table class="myproperty_block">
+          {% for first_50_user_score in first_50_users_scores%}
+
+
+            <tr class="scoreboard_block_row">
+      
+              <td class="scoreboard_block_coloum">
+                {% if first_50_user_score.owner.profile.picture %}
+                <img src="{% url 'get-other-profile-photo' first_50_user_score.owner.id %}"
+                            alt="{{first_50_user.owner}}"
+                            class="scoreboard_profile_image">
+                {% else %}
+                  <img src="{% static 'lovelive/pictures/default_profile_picture.png' %}" alt="default_picture"
+                    class="scoreboard_profile_image">
+                {% endif %}
+              </td>
+              <td class="scoreboard_block_coloum_head">{{first_50_user_score.owner}}</td>
+              <td class="scoreboard_block_coloum">{{first_50_user_score.total_score}}</td>
+            </tr>
+
+          {% endfor %}
+
+        </table>
+      </div>
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'lovelive/base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'lovelive/css/register_page.css' %}" >
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+
+
+      <div class="col-sm-4 ">
+        <div class="register_block">
+        <a style="text-decoration:none" href="/lovelive/login"><p class="register_lovelive"> lovelive </p></a>
+        <br><br>
+        {% load myfilters %}
+        <form action="/lovelive/register" method="post">
+          {% for registrationfield in registrationform %}
+            {{registrationfield|addclass:'register_input'}}
+            <span class="register_field_error">{{registrationfield.errors}}</span>
+          {% endfor %}
+          <div>
+            <input  class="button" type="submit" value="Register">
+          </div>
+          {% csrf_token %}
+        </form>
+        <br>
+        <!-- error display -->
+        {% for error in registrationform.non_field_errors %}
+            <p class="register_nonfield_error">{{error}}</p>
+        {% endfor %}
+        <!-- error display -->
+
+        </div>
+      </div>
+      <div class="col-sm-8 ">
+      </div>
+    </div>
+
+
+{% endblock %}

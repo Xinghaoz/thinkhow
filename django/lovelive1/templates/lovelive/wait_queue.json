@@ -1,0 +1,1 @@
+{"begin_status":"{{begin_status}}","players":[{% for player in players %}{%spaceless%}{% include 'lovelive/person_in_wait_queue.json' %}{%endspaceless%}{% if not forloop.last %}, {% endif %}{% endfor %}]}

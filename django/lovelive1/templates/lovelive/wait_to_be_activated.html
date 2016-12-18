@@ -1,0 +1,23 @@
+{% extends 'lovelive/base.html' %}
+{% load static %}
+{% block title %}verify your email{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'lovelive/css/register_page.css' %}" >
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+      <div class="col-sm-6 ">
+        {% if verification_error == 1 %}
+          <p class="wait_to_be_activated_message"> Oh...something wrong...</p>
+          <p class="wait_to_be_activated_message"> you may go to your email to verify again</p>
+        {% else %}
+          <p class="wait_to_be_activated_message"> Hi {{username}},</p>
+          <p class="wait_to_be_activated_message"> just a few steps before enjoying your journey in lovelive</p>
+          <p class="wait_to_be_activated_message"> go to your email {{email}} and verify your account </p>
+        {% endif %}
+
+      </div>
+      <div class="col-sm-6 ">
+     </div>
+{% endblock %}
