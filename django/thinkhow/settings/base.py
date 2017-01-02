@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'update',
     'blog',
     'tools',
+    'lovelive',
 ]
 
 MIDDLEWARE_CLASSES = [
