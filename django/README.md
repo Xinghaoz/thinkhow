@@ -282,3 +282,166 @@ ps ax | grep uwsgi
 15007 pts/4    S      0:00 /ve/path/bin/uwsgi --ini config.ini
 
 killall -9 uwsgi
+
+
+## Deploy update 01/02/2017
+To turn in homework 6, create files (and subdirectories if needed) in
+this directory, add and commit those files to your cloned repository,
+and push your commit to your bare repository on GitHub.
+
+Add any general notes or instructions for the TAs to this README file.
+The TAs will read this file before evaluating your work.
+
+Deploy URL: http://www.thinkhowblog.com/
+
+## Setup Environment
+```bash
+sudo apt-get update
+```
+
+Install python development files:
+```bash
+sudo apt-get install python-dev
+sudo apt-get install python-pip
+```
+
+Now that the development files are available, we can install uWSGI globally through pip by typing:
+
+Install Django and the dependencies:
+```bash
+sudo pip install django
+sudo pip install Pillow
+sudo pip install uwsgi
+```
+
+Install Nginx
+```
+sudo apt-get install nginx
+```
+
+Configure the static root in django. (setting.py)
+```
+STATIC_ROOT = os.path.join(BASE_DIR, "static_root/")
+```
+Then
+```
+python manage.py collectstatic
+```
+
+Create a log file
+```
+sudo vim /var/log/uwsgi/xinghaoz.log
+```
+
+Change the default port of Nginx.
+```
+sudo vim /etc/nginx/sites-available/default
+```
+Change the following 2 lines:
+```
+listen 80 default_server;
+listen [::]:80 default_server;
+```
+To:
+```
+listen 8080 default_server;
+listen [::]:8080 default_server;
+```
+
+
+## Deploy
+When running in delopying mode, we should set the DEBUG mode to False:
+In settings.py:
+```
+DEBUG = False
+ALLOWED_HOSTS = ['*']
+```
+
+```
+sudo ln -s /home/ubuntu/grumblr/xinghaoz_nginx.conf /etc/nginx/sites-enabled/
+```
+
+Or directly copy the configuration file into the directory
+```
+sudo cp xinghaoz_nginx.conf /etc/nginx/sites-enabled/xinghaoz_nginx.conf
+```
+
+Run Nginx server:
+```
+sudo service nginx restart
+```
+
+Run Django with uwsgi:
+```
+uwsgi --socket xinghaoz.sock --module webapps.wsgi --chmod-socket=666
+```
+
+By now, we have successfully deploy our application in the web!
+
+---------
+For our convenience, we can set a .ini file and include all our configuration
+in the file, then run the uwsgi by using the configuration file.
+
+Create a file "uwsgi.ini" and copy the following into the file:
+```
+[uwsgi]
+# Django-related settings
+# the base directory (full path)
+chdir=/home/ubuntu/grumblr
+# Django's wsgi file
+module          = webapps.wsgi
+# the virtualenv (full path)
+＃home            = /path/to/virtualenv
+# process-related settings
+# master
+master          = true
+# maximum number of worker processes
+processes       = 10
+# the socket (use the full path to be safe)
+socket          = /home/ubuntu/grumblr/xinghaoz.sock
+# ... with appropriate permissions - may be needed
+chmod-socket    = 666
+# clear environment on exit
+vacuum          = true
+```
+
+Run uWSGI in background:
+```bash
+uwsgi --ini uwsgi.ini &
+```
+
+If we want to Stop uWSGI:
+```bash
+killall -9 uwsgi
+```
+
+Remember to change the DB!
+```
+DATABASES = {
+    # Use Postgresql
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': POSTGRESQL_PASSWORD,
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+```
+
+Remember to hide you key!
+
+Don't forget to make the deploy secure by add following into settings.py:
+```
+SECRET_KEY = SECRET_KEY
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = '0'
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+``
