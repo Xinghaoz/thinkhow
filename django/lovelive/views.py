@@ -43,20 +43,6 @@ from lovelive.forms import *
 #         context = {'user' : True}
 #     return render(request, 'lovelive/first_page.html', context)
 #
-# def custom_login(request):
-#     if request.user.is_authenticated():
-#         return redirect(reverse('home'))
-#     else:
-#         if request.method == 'GET':
-#             form = AuthenticationForm()
-#             return render(request, 'lovelive/log_in_page.html', {'form': form})
-#         else:
-#             form = AuthenticationForm(data=request.POST)
-#             if form.is_valid():
-#                 login(request, form.get_user())
-#                 return redirect(reverse('home'))
-#             else:
-#                 return render(request, 'lovelive/log_in_page.html', {'form': form})
 #
 # @login_required
 # def home(request):
@@ -130,74 +116,6 @@ from lovelive.forms import *
 #     print("get photo")
 #     return HttpResponse(profile_get_photo.picture, content_type=content_type)
 #
-# @transaction.atomic
-# def register(request):
-#     context = {}
-#     # Just display the registration form if this is a GET request
-#     if request.method == 'GET':
-#         context['registrationform'] = RegistrationForm()
-#         return render(request, 'lovelive/register_page.html', context)
-#     registrationform = RegistrationForm(request.POST)
-#     context['registrationform'] = registrationform
-#
-#     if not registrationform.is_valid():
-#         return render(request, 'lovelive/register_page.html', context)
-#
-#     new_user = User.objects.create_user(username=registrationform.cleaned_data['username'], \
-#                                         email=registrationform.cleaned_data['email1'], \
-#                                         password=registrationform.cleaned_data['password1'])
-#     new_user.is_active = False
-#     new_user.save()
-#     #create a blank profile
-#     new_profile = Profile(owner=new_user)
-#     new_profile.save()
-#     #create a blank my property
-#     new_myproperty = Property(owner=new_user)
-#     new_myproperty.save()
-#
-#     #token
-#     token = default_token_generator.make_token(new_user)
-#
-#     #email_body
-#     email_body = """
-#         Welcome to lovelive, click the link below to verify your email address:
-#         http://%s%s
-#     """ % (request.get_host(), reverse('confirm', args=(new_user.username, token, )))
-#     #
-#
-#     send_mail(subject = "verify your email",
-#               message = email_body,
-#               from_email="lovelive-regis-service@lovelive.com",
-#               recipient_list = [new_user.email])
-#
-#     context['username'] = new_user.username
-#     context['email'] = new_user.email
-#     context['verification_error'] = 0
-#     return render(request, 'lovelive/wait_to_be_activated.html', context)
-#
-# @transaction.atomic
-# def confirm(request, username, token):
-#     context = {}
-#     try:
-#         new_activated_user = User.objects.get(username=username)
-#     except User.DoesNotExist:
-#         context['verification_error'] = 1
-#         return render(request, 'lovelive/wait_to_be_activated.html', context)
-#     token_2 = default_token_generator.make_token(new_activated_user)
-#     if new_activated_user.is_active == True:
-#         return redirect(reverse('home'))
-#     else:
-#         if token_2 == token:
-#             new_activated_user.is_active = True
-#             new_activated_user.save()
-#         else:
-#             context['verification_error'] = 1
-#             return render(request, 'lovelive/wait_to_be_activated.html', context)
-#
-#     # Logs in & redirects
-#     login(request, new_activated_user)
-#     # redirect to home
-#     return redirect('/lovelive/home')
 #
 # @login_required
 # def get_photo(request,id):

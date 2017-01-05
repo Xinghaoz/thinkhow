@@ -24,27 +24,9 @@ urlpatterns = [
     # url(r'^check-if-other-user-join-in', lovelive.views.check_if_other_user_join_in, name='check-if-other-user-join-in'),
     # url(r'^wait-queue-full-start-game', lovelive.views.wait_queue_full_start_game, name='wait-queue-full-start-game'),
     # #------------------------------------ WAIT ROOM PART end--------------------------
-    # # Route for built-in authentication with our own custom login page
-    # # url(r'^login$', django.contrib.auth.views.login, {'template_name':'lovelive/log_in_page.html'}, name='login'),
-    # url(r'^login$', lovelive.views.custom_login, name = 'login'),
-    # # Route to logout a user and send them back to the login page
-    # url(r'^logout$', django.contrib.auth.views.logout_then_login, name='logout'),
-    # url(r'^confirm/(?P<username>.*)/(?P<token>[A-Za-z0-9_-]+)$', lovelive.views.confirm, name='confirm'),
-    # url(r'^register$', lovelive.views.register, name='register'),
     #
     # url(r'^photo/(?P<id>\w+)/$', lovelive.views.get_photo,name="photo"),
     #
-    # #forgot the password and reset it
-    # url(r'^user/password/reset/$', lovelive.views.reset_password, name="reset_password"),
-    # url(r'^user/password/reset/done/$',
-    #     django.contrib.auth.views.password_reset_done, {'template_name' : 'lovelive/password_reset/password_reset_done.html'},),
-    # url(r'^user/password/reset/(?P<uidb64>[0-9A-Za-z]+)/(?P<token>.+)/$', django.contrib.auth.views.password_reset_confirm,
-    #     {'post_reset_redirect' : '/lovelive/user/password/done/',
-    #      'template_name' : 'lovelive/password_reset/password_reset_confirm.html'},
-    #       name='confirm_password'),
-    # url(r'^user/password/done/$',
-    #     django.contrib.auth.views.password_reset_complete,
-    #     {'template_name' : 'lovelive/password_reset/password_reset_complete.html'}),
 
     #change my password in profile
 #    url(r'^user/password/change/$', lovelive.views.change_password_in_profile, name="change_password_in_profile"),
