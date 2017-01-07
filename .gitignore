@@ -9,3 +9,4 @@ production.py
 thinkhow_nginx.conf
 uwsgi.ini
 scrapy/*.txt
+lovelive1/
