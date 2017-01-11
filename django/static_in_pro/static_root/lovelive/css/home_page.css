@@ -1,0 +1,177 @@
+body {
+  min-height: 1000px;
+  background-image: url(../pictures/home_page1.jpg);
+  background-size:cover;
+}
+
+/*--------navbar-------*/
+.navbar {
+  margin:0;
+  padding:0;
+  background-color: rgba(240,248,255,0.6);
+}
+.navbar-brand{
+  font-size: 20px;
+  font-weight: 500;
+}
+.now_active {
+  background-color: rgba(250,250,270,0.4);
+}
+#navbar li {
+  float:left;
+}
+#navbar li a {
+  display:block;
+  color:rgb(119,136,153);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  padding: 16px;
+}
+#navbar li a:hover {
+  background-color: rgba(250,250,270,0.4);
+    color:rgb(0, 172, 230);
+}
+#navbar li a:visited {
+  background-color: rgba(250,250,270,0.4);
+}
+#navbar li a:active {
+  background-color: rgba(250,250,270,0.4);
+}
+/*--------navbar_end-------*/
+
+
+.total {
+  margin: 10px;
+  padding-top: 100px;
+}
+/*--------profile-------*/
+
+/*-----------------blur-------*/
+.blur {
+  filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+
+  -webkit-filter: blur(3px); /* Chrome, Opera */
+     -moz-filter: blur(3px);
+      -ms-filter: blur(3px);
+          filter: blur(3px);
+
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
+
+.blur_image {
+  position:absolute;
+  z-index:1;
+  width:310px;
+  height:auto;
+}
+/*-----------------blur_end-------*/
+
+
+.profile_round_img {
+  border-radius: 10%;
+  position:absolute;
+  top:60px;
+  left: 35%;
+  z-index:2;
+  width:auto;
+  height:100px;
+}
+
+
+.profile_name {
+  font-size:23px;
+  font-family:Century Gothic;
+  color: rgb(128, 128, 128);
+  position:relative;
+  left:-6%;
+  top:165px;
+  margin-top: 20px;
+  text-align: center;
+  z-index:2;
+  margin-top: 50px;
+}
+
+.profile_description {
+  font-size:17px;
+  font-family:chalkboard;
+  color: rgb(128, 128, 128);
+  position:relative;
+  top:200px;
+  left:-20px;
+  text-align:center;
+  z-index:2;
+}
+.edit_profile_link_image {
+  position:absolute;
+  top:200px;
+  left: 150px;
+  z-index:2;
+  width:20px;
+  height:auto;
+}
+.edit_profile_link {
+  position:absolute;
+  top:200px;
+  left: 170px;
+  z-index:2;
+  color: rgb(210, 121, 166);
+  font-size:15px;
+  font-family:chalkboard;
+}
+.myproperty_block {
+  border-width: 2px;
+  border-style: hidden;
+  border-radius: 5px;
+  margin: 10px;
+  margin-top: 10px;
+  margin-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 10px;
+  background-color:rgba(255, 255, 230, 0.6);
+}
+.myproperty_block_row {
+  border-width: 2px;
+  border-style: hidden;
+  border-radius: 5px;
+
+}
+.myproperty_block_coloum_head {
+  width: 300px;
+  padding: 10px;
+  font-size: 18px;
+  font-family:Century Gothic;
+  color: rgb(31,31,20);
+}
+.myproperty_block_coloum {
+  width: 300px;
+  padding: 10px;
+  font-family:chalkboard;
+  font-size: 16px;
+  color: rgb(31,31,20)
+}
+/*=============================== right coloum =================================*/
+  /*================== Star game button + =================*/
+.start_game_image {
+  width: 200px;
+  margin-left: 190%;
+  margin-top: 50px;
+}
+.start_game_link {
+  margin-left: 175%;
+  margin-top: 45px;
+  text-decoration: none;
+  position: absolute;
+  top:75px;
+  left: 115px;
+  z-index:2;
+  color:rgb(102, 102, 153);
+  font-size:40px;
+  font-weight: 800;
+  font-family:chalkboard;
+}
+.start_game_link:hover {
+  color: white;
+}

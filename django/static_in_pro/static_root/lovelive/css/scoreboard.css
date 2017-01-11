@@ -1,0 +1,81 @@
+body {
+  min-height: 1500px;
+  background-image: url(../pictures/home_page.jpg);
+  background-size:cover;
+}
+
+/*--------navbar-------*/
+.navbar {
+  margin:0;
+  padding:0;
+  background-color: rgba(240,248,255,0.3);
+}
+.now_active {
+  background-color: rgba(250,250,270,0.4);
+}
+#navbar li {
+  float:left;
+}
+#navbar li a {
+  display:block;
+  color:rgb(119,136,153);
+  text-align: left;
+  padding: 16px;
+}
+#navbar li a:hover {
+  background-color: rgba(250,250,270,0.4);
+    color:rgb(0, 172, 230);
+}
+#navbar li a:visited {
+  background-color: rgba(250,250,270,0.4);
+}
+#navbar li a:active {
+  background-color: rgba(250,250,270,0.4);
+}
+/*--------navbar_end-------*/
+
+.scoreboard_block {
+  border-width: 2px;
+  border-style: hidden;
+  border-radius: 5px;
+  margin: 100px;
+
+  padding: 20px;
+  padding-top: 30px;
+  background-color:rgba(255, 204, 204,0.5);
+}
+.scoreboard_head {
+  text-align: center;
+  font-size:30px;
+  font-family:Century Gothic;
+  color:rgb(119,136,153);
+  margin-bottom: 30px;
+}
+.scoreboard_profile_image {
+  border-radius: 10%;
+  width:50px;
+  height:auto;
+}
+.scoreboard_block_row {
+  border-width: 2px;
+  border-style: hidden;
+  border-radius: 5px;
+
+}
+.scoreboard_block_coloum_head {
+  width: 400px;
+  padding: 10px;
+  font-family:Century Gothic;
+  color: rgb(128, 128, 128);
+  background-color:rgba(255, 255, 204,0.15);
+  text-align: center;
+}
+.scoreboard_block_coloum {
+  width: 400px;
+  padding: 10px;
+  font-family:chalkboard;
+  font-size: 16px;
+  color: rgb(128, 128, 128);
+  background-color:rgba(255, 255, 204,0.15);
+  text-align: center;
+}

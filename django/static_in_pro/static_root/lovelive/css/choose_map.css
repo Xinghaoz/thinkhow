@@ -1,0 +1,168 @@
+body{
+    background-image: url(../pictures/home_page1.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    min-height:1000px;
+}
+/*--------navbar-------*/
+.navbar {
+  margin:0;
+  padding:0;
+  background-color: rgba(240,248,255,0.6);
+}
+.navbar-brand{
+  font-size: 20px;
+  font-weight: 500;
+}
+.now_active {
+  background-color: rgba(250,250,270,0.4);
+}
+#navbar li {
+  float:left;
+}
+#navbar li a {
+  display:block;
+  color:rgb(119,136,153);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  padding: 16px;
+}
+#navbar li a:hover {
+  background-color: rgba(250,250,270,0.4);
+    color:rgb(0, 172, 230);
+}
+#navbar li a:visited {
+  background-color: rgba(250,250,270,0.4);
+}
+#navbar li a:active {
+  background-color: rgba(250,250,270,0.4);
+}
+/*--------navbar_end-------*/
+
+/*-----------------blur-------*/
+.blur {
+  filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+
+  -webkit-filter: blur(3px); /* Chrome, Opera */
+     -moz-filter: blur(3px);
+      -ms-filter: blur(3px);
+          filter: blur(3px);
+
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
+
+.blur_image {
+  position:absolute;
+  z-index:1;
+  width:310px;
+  height:auto;
+}
+/*-----------------blur_end-------*/
+
+#choose_map_background {
+  padding: 150px;
+}
+.choose_map_block {
+  border-width: 2px;
+  border-style: hidden;
+  border-radius: 5px;
+  height: 500px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 10px;
+  background-color:rgba(204, 204, 255, 0.3);
+}
+.choose_map_map {
+  margin-left:32%;
+  width: 500px;
+}
+.choose_map_block_single {
+  margin: 50px;
+  float: left;
+}
+.blur {
+  filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+
+  -webkit-filter: blur(3px); /* Chrome, Opera */
+     -moz-filter: blur(3px);
+      -ms-filter: blur(3px);
+          filter: blur(3px);
+
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
+/*picture become wait_background after clicking*/
+.wait_background {
+  top: 100px;
+  position: absolute;
+  width: 1200px;
+  z-index: 1;
+}
+.wait_queue_title {
+  top: 80px;
+  font-size:53px;
+  font-family:Century Gothic;
+  color: white;
+  left: 300px;
+  position: absolute;
+  z-index: 2;
+}
+.wait_queue_block {
+  border-width: 2px;
+  border-style: hidden;
+  border-radius: 5px;
+  width: 1000px;
+  height: 350px;
+  margin: 100px;
+  background-color:rgba(255, 255, 230, 0.4);
+  position: absolute;
+  z-index: 2;
+
+}
+.wait_queue_single_block {
+  border-width: 2px;
+  border-style: hidden;
+  border-radius: 5px;
+  height: 100px;
+  margin: 50px;
+  position: relative;
+  float: left;
+  z-index: 2;
+}
+
+.player_in_queue_player_picture {
+  border-radius: 10%;
+  width:auto;
+  height:200px;
+  position: relative;
+  z-index: 2;
+
+}
+.player_in_queue_player_username {
+  margin-top: 10px;
+  font-size:30px;
+  font-family:Century Gothic;
+  color: rgb(128, 128, 128);
+  position:relative;
+  text-align: center;
+  z-index:2;
+}
+.start_game_block {
+  border-width: 2px;
+  border-style: hidden;
+  border-radius: 5px;
+  width: 1000px;
+  height: 350px;
+  margin: 100px;
+  background-color:rgba(255, 204, 204, 0.5);
+  position: absolute;
+  z-index: 3;
+}
+.start_game_title {
+  font-family: chalkboard;
+  font-size: 80px;
+  margin-top: 100px;
+  text-align: center;
+  color: rgb(255, 153, 0);
+}
