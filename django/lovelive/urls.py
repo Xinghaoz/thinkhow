@@ -9,7 +9,7 @@ urlpatterns = [
     # url(r'^error-lovelive', lovelive.views.error_lovelive, name='error-lovelive'),
     # url(r'^home', lovelive.views.home, name='home'),
     # url(r'^channel', lovelive.views.channel, name='channel'),
-    url(r'^game', lovelive.views.game),
+    url(r'^team214', lovelive.views.game, name='team214'),
     # url(r'^edit-profile', lovelive.views.edit_profile, name='edit-profile'),
     # url(r'^get-profile-photo', lovelive.views.get_profile_photo,name='get-profile-photo'),
     # url(r'^get-other-profile-photo/(?P<id>\d+)$', lovelive.views.get_other_profile_photo, name='get-other-profile-photo'),

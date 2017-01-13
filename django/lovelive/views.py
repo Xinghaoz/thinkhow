@@ -79,23 +79,6 @@ from lovelive.forms import *
 #     return redirect(reverse('home'))
 #
 # @login_required
-# @transaction.atomic
-# def change_password_in_profile(request):
-#     changepasswordform = ChangePasswordForm(request.POST)
-#     if not changepasswordform.is_valid():
-#         profile_to_edit = get_object_or_404(Profile, owner=request.user)
-#         profileform = ProfileForm(instance=profile_to_edit)  # Creates form from the
-#         context = {'profileform' : profileform,         # existing profile.
-#                    'changepasswordform' : changepasswordform, }
-#         return render(request, 'lovelive/edit_my_profile.html', context)
-#     user_change_password = request.user
-#     password_to_be_set = changepasswordform.cleaned_data['password1']
-#     user_change_password.set_password(password_to_be_set)
-#     user_change_password.save()
-#     login(request, user_change_password)
-#     return redirect(reverse('home'))
-#
-# @login_required
 # def get_profile_photo(request):
 #     profile_get_photo = get_object_or_404(Profile, owner=request.user)
 #     if not profile_get_photo.picture:
