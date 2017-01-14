@@ -173,53 +173,53 @@ def game(request):
 #     return HttpResponse("")
 # #------------------------------------ WAIT ROOM PART Begin--------------------------
 # @login_required
-# def choose_map(request):
-#     context={ 'username' : request.user.username,
-#
-#     }
-#     return render(request, 'lovelive/choose_map.html', context)
+def choose_map(request):
+    context={ 'username' : request.user.username,
+
+    }
+    return render(request, 'lovelive/choose_map.html', context)
 #
 # @login_required
 # @transaction.atomic
-# def join_room(request):
-#     try:
-#         print("join room")
-#         room_all = Room.objects.all()
-#         i = 0
-#         while(room_all[i].state == 3): # the room is full
-#             i = i + 1
-#             if (i > 30): #maximum room number of 30
-#                 return redirect(reverse('error-lovelive'))
-#         print("i", i)
-#         room_join = room_all[i]
-#         if request.user.property.room == i:
-#             print("user has already join in")
-#             return redirect(reverse('check-if-other-user-join-in'))
-#         else:
-#             request.user.property.room = i
-#             request.user.property.save()
-#             print("request.user.property.room", request.user.property.room)
-#
-#         if room_join.state == 0:
-#             room_join.player_1 = request.user.username
-#             room_join.state = 1
-#         elif room_join.state == 1:
-#             room_join.player_2 = request.user.username
-#             room_join.state = 2
-#         elif room_join.state == 2:
-#             room_join.player_3 = request.user.username
-#             room_join.state = 3
-#             #game should begin now
-#         else:
-#             #something wrong
-#             return redirect(reverse('error-lovelive'))
-#         room_join.save()
-#         print("room_join", room_join)
-#         return redirect(reverse('check-if-other-user-join-in'))
-#     except:
-#         # if the wait queue has no been created
-#         return redirect(reverse('error-lovelive'))
-#     return redirect(reverse('check-if-other-user-join-in'))
+def join_room(request):
+    try:
+        print("join room")
+        room_all = Room.objects.all()
+        i = 0
+        while(room_all[i].state == 3): # the room is full
+            i = i + 1
+            if (i > 30): #maximum room number of 30
+                return redirect(reverse('error-lovelive'))
+        print("i", i)
+        room_join = room_all[i]
+        if request.user.property.room == i:
+            print("user has already join in")
+            return redirect(reverse('check-if-other-user-join-in'))
+        else:
+            request.user.property.room = i
+            request.user.property.save()
+            print("request.user.property.room", request.user.property.room)
+
+        if room_join.state == 0:
+            room_join.player_1 = request.user.username
+            room_join.state = 1
+        elif room_join.state == 1:
+            room_join.player_2 = request.user.username
+            room_join.state = 2
+        elif room_join.state == 2:
+            room_join.player_3 = request.user.username
+            room_join.state = 3
+            #game should begin now
+        else:
+            #something wrong
+            return redirect(reverse('error-lovelive'))
+        room_join.save()
+        print("room_join", room_join)
+        return redirect(reverse('check-if-other-user-join-in'))
+    except:
+        # if the wait queue has no been created
+        return redirect(reverse('error-lovelive'))
+    return redirect(reverse('check-if-other-user-join-in'))
 #
 # @login_required
 # @transaction.atomic

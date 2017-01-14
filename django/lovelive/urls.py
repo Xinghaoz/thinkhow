@@ -18,11 +18,12 @@ urlpatterns = [
     # url(r'^get-my-room-id', lovelive.views.get_my_room_id,name='get-my-room-id'),
     # url(r'^result', lovelive.views.result,name='result'),
     # url(r'^scoreboard', lovelive.views.scoreboard,name='scoreboard'),
+
     # #------------------------------------ WAIT ROOM PART Begin--------------------------
-    # url(r'^choose-map', lovelive.views.choose_map,name='choose-map'),
-    # url(r'^join-room', lovelive.views.join_room,name='join-room'),
-    # url(r'^check-if-other-user-join-in', lovelive.views.check_if_other_user_join_in, name='check-if-other-user-join-in'),
-    # url(r'^wait-queue-full-start-game', lovelive.views.wait_queue_full_start_game, name='wait-queue-full-start-game'),
+    url(r'^choose-map', lovelive.views.choose_map,name='choose-map'),
+    url(r'^join-room', lovelive.views.join_room,name='join-room'),
+    url(r'^check-if-other-user-join-in', lovelive.views.check_if_other_user_join_in, name='check-if-other-user-join-in'),
+    url(r'^wait-queue-full-start-game', lovelive.views.wait_queue_full_start_game, name='wait-queue-full-start-game'),
     # #------------------------------------ WAIT ROOM PART end--------------------------
     #
     # url(r'^photo/(?P<id>\w+)/$', lovelive.views.get_photo,name="photo"),
