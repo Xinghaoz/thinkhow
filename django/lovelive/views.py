@@ -133,8 +133,10 @@ from lovelive.forms import *
 #     return render(request, 'lovelive/waiting.html')
 #
 # @login_required
-def game(request):
-    return render(request, 'lovelive/game.html', {})
+def game(request, room_id):
+    context = {}
+    context['room_id'] = room_id
+    return render(request, 'lovelive/game.html', context)
 # @login_required
 # def get_my_initial_property(request):
 #     try:

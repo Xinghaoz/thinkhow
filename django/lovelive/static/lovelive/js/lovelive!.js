@@ -242,14 +242,16 @@
     var audio = new Audio("/static/lovelive/audio/Final Fantasy IX - Ukulele De Chocobo.mp3");
     var isAudioLoaded = false;
 
-    $.get("/lovelive/get-my-room-id/")
-        .done(function(data1) {
-            if (data1.my_room_id == -1) {
-                window.location = "/lovelive/error-lovelive/";
-            } else {
-                my_room_id = data1.my_room_id;
-            }
-        });
+    my_room_id = $("#room_id").val();
+    console.log("my_room_id = " + my_room_id);
+    // $.get("/lovelive/get-my-room-id/")
+    //     .done(function(data1) {
+    //         if (data1.my_room_id == -1) {
+    //             window.location = "/lovelive/error-lovelive/";
+    //         } else {
+    //             my_room_id = data1.my_room_id;
+    //         }
+    //     });
 
     var game = new Game('canvas');
     for (var i = 0; i < _OWNERS.length; i++) {
