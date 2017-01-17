@@ -7,3 +7,4 @@ scrapy-splash==0.7
 w3lib
 cssselect
 pydispatch
+asgi_redis

@@ -445,3 +445,6 @@ SESSION_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = '0'
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 ``
+
+## Channels requirements
+sudo pip install asgi_redis

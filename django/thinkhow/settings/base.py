@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'registration', #should be immediately above 'django.contrib.auth'
     # Third party apps
     'crispy_forms',
+    'channels',
     # My apps
     'contact',
     'zhihu',
