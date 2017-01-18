@@ -26,7 +26,7 @@ class SignUpForm(forms.ModelForm):
         #exclude = ['full_name']
 
     def clean_email(self):
-        print self.cleaned_data.get('email')
+        # print self.cleaned_data.get('email')
         email = self.cleaned_data.get('email')
         email_base, provider = email.split("@")
         if not ".edu" in provider:

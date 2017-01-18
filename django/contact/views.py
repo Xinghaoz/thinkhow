@@ -9,7 +9,6 @@ from .models import Comment
 
 # Create your views here.
 def contact(request):
-    print "======= contact ======="
     form = CommentForm()
 
     context = {
@@ -21,10 +20,8 @@ def contact(request):
 def comments(request):
     form = CommentForm(request.POST or None)
     if form.is_valid():
-        # print form.cleaned_data
         for key, value in form.cleaned_data.iteritems():
             pass
-            # print "=======", key, value
     else:
         context = {
             "form": form,

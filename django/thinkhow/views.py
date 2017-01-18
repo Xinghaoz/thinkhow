@@ -7,9 +7,6 @@ from update.models import ZhihuTime, ZhihuMLTime, BangumiTime, GameTime
 # Create your views here.
 def home(request):
 
-    if request.method == "POST":
-        print request.POST
-
     title = 'Welcome'
 
     form = SignUpForm(request.POST or None)

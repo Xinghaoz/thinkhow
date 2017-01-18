@@ -15,7 +15,8 @@ def ws_add(message, room):
     print("in ws_add")
     print("[Adding...] username: ", message.user.username)
 
-    room_id = message.user.property.room
+    # room_id = message.user.property.room
+    room_id = room
 
     Group('room-%s' % room_id).add(message.reply_channel)
     message.channel_session['room_id'] = room_id
