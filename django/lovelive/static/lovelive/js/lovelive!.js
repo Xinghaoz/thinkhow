@@ -188,7 +188,7 @@
     _RANDOM_INDEX = 0;
     _M = _DATA.length;
     _N = _DATA[0].length;
-    _NUMBER_OF_USERS = 3;
+    _NUMBER_OF_USERS = 2;
     priceArray = new Array(_N);
     for (var i = 0; i < _N; i++) {
         temp = new Array(_M);
@@ -440,13 +440,15 @@
                         var mes = JSON.parse(message.data);
                         if (mes.type_no == '0') {
                             userCounter++;
+                            console.log("userCounter = " + userCounter);
                         } else if (mes.type_no == '1') {
-                            $.get("/lovelive/get-my-initial-property/")
-                            .done(function(data3) {
-                                console.log("get-my-initial-property");
-                                myUsername = data3.username;
-                                socket.send("2" + "##@##" + data3.username + "##@##" + data3.cash + "##@##" + data3.deposit);
-                            });
+                            // $.get("/lovelive/get-my-initial-property/")
+                            // .done(function(data3) {
+                            //     console.log("get-my-initial-property");
+                            //     myUsername = data3.username;
+                            //     socket.send("2" + "##@##" + data3.username + "##@##" + data3.cash + "##@##" + data3.deposit);
+                            // });
+                            socket.send("2" + "##@##" + mes.username + "##@##" + 20000 + "##@##" + 20000);
                         } else if (mes.type_no == '2') {
                             var newItem = {"username":mes.username,
                                             "cash":parseInt(mes.cash),

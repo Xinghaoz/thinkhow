@@ -28,13 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-# Tutorial 16 setting
-EMAIL_HOST = 'stmp.gmail.com'
-EMAIL_HOST_USER = 'zhou.xinghao.1991@gmail.com'
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
 
 # Application definition
 
@@ -164,6 +157,14 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'zhou.xinghao.1991@gmail.com'
+EMAIL_HOST_PASSWORD = '84124049zf!'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Chnnels settings
 CHANNEL_LAYERS = {
