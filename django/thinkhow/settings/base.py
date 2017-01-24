@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'zhihu',
     'about',
     'bilibili',
-    'update',
     'blog',
     'tools',
     'lovelive',
