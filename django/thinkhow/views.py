@@ -2,7 +2,6 @@ from django.shortcuts import render
 from contact.forms import SignUpForm
 from zhihu.models import Article, ZhihuML, ZhihuCV, ZhihuMath, ZhihuStat
 from bilibili.models import Bangumi, Game
-from update.models import ZhihuTime, ZhihuMLTime, BangumiTime, GameTime
 
 # Create your views here.
 def home(request):
@@ -31,10 +30,6 @@ def home(request):
     game = Game.objects.all()
 
     ''' Changed update_time into each model instead of being a single model '''
-    # zhihu_time = ZhihuTime.objects.last()
-    # zhihu_ml_time = ZhihuMLTime.objects.last()
-    # bangumi_time = BangumiTime.objects.last()
-    # game_time = GameTime.objects.last()
 
     zhihu_time = Article.objects.last()
     zhihu_ml_time = ZhihuML.objects.last()
