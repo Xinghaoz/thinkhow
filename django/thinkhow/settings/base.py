@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'blog',
     'tools',
     'lovelive',
+    'crawler',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -166,12 +167,12 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 # Chnnels settings
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("localhost", 6379)],
-        },
-        "ROUTING": "thinkhow.routing.channel_routing",
-    },
-}
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "asgi_redis.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("localhost", 6379)],
+#         },
+#         "ROUTING": "thinkhow.routing.channel_routing",
+#     },
+# }
