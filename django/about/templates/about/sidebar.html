@@ -2,16 +2,24 @@
 
 <ul class='sidebar'>
     <h2 class='text-align-center'><a href='/about'>About <span style='color: Red;'>Me</span></a></h2>
-    <li>
-        <a class="nav-link" href='/about/resume'><div class="nav-p">Resume</div></a>
-    </li>
-    <li>
-        <a class="nav-link" href='/about/website'><div class="nav-p">This Website</div></a>
-    </li>
-    <li>
-        <a class="nav-link" href='{% url "todo" %}'><div class="nav-p">Hobbies</div></a>
-    </li>
-    <li>
-        <a class="nav-link" href='/contact'><div class="nav-p">Contact Me</div></a>
-    </li>
+    <a class="nav-link" href='/about/resume' target="blank">
+        <li>
+        <div class="nav-p">Resume</div>
+        </li>
+    </a>
+    <a class="nav-link" href='/about/website'>
+        <li>
+            <div class="nav-p">This Website</div>
+        </li>
+    </a>
+    <a class="nav-link" href='{% url "todo" %}'>
+        <li>
+            <div class="nav-p">Hobbies</div>
+        </li>
+    </a>
+    <a class="nav-link" href='/contact'>
+        <li>
+            <div class="nav-p">Contact Me</div>
+        </li>
+    </a>
 </ul>

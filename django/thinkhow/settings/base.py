@@ -47,9 +47,9 @@ INSTALLED_APPS = [
     'channels',
     # My apps
     'contact',
-    'zhihu',
+    # 'zhihu',
     'about',
-    'bilibili',
+    # 'bilibili',
     'blog',
     'tools',
     'lovelive',
