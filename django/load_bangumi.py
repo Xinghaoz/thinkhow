@@ -9,8 +9,7 @@ import django
 django.setup()
 
 def main():
-    from bilibili.models import Bangumi
-    from update.models import BangumiTime
+    from crawler.models import Bangumi
     os.environ["TZ"]="US/Eastern"
 
     bangumi_list = []

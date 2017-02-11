@@ -9,8 +9,7 @@ import django
 django.setup()
 
 def main():
-    from bilibili.models import Game
-    from update.models import GameTime
+    from crawler.models import Game
     os.environ["TZ"]="US/Eastern"
 
     game_list = []

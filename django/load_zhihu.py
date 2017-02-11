@@ -11,8 +11,7 @@ import django
 django.setup()
 
 def main():
-    from zhihu.models import Article, ZhihuML, ZhihuCV, ZhihuMath, ZhihuStat
-    from update.models import ZhihuTime
+    from crawler.models import Article, ZhihuML, ZhihuCV, ZhihuMath, ZhihuStat
 
     zhihu_list = []
     zhihu_ml_list = []

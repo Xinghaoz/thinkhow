@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from contact.forms import SignUpForm
-from zhihu.models import Article, ZhihuML, ZhihuCV, ZhihuMath, ZhihuStat
-from bilibili.models import Bangumi, Game
+from .models import Article, ZhihuML, ZhihuCV, ZhihuMath, ZhihuStat, Bangumi, Game
+# from bilibili.models import Bangumi, Game
 
 # Create your views here.
 def crawler(request):
