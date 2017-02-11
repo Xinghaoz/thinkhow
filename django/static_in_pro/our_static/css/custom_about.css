@@ -31,12 +31,8 @@ body {
     background-color: #888;
 }
 
-.content {
-    /*margin-left: 18%;*/
-}
-
 /* Sidebar */
-ul.sidebar {
+.sidebar {
     background-color: rgba(0,0,0,0);
     list-style-type: none;
     margin-left: 65%;
@@ -62,6 +58,15 @@ ul.sidebar {
     border-radius: 100%;
     box-shadow: 5px 5px 10px black;
     background-color: beige;
+}
+
+.sidebar li:hover {
+    background-color: #cf8a05;
+    -webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    transition: all .3s ease-in;
 }
 
 .sidebar h2 {
@@ -118,12 +123,11 @@ img.my-photo {
 
 .nav-p {
     margin: auto;
-    /*height: 100px;
-    width: 100px;*/
-    padding: 36px 0px 0px 25px;
+    padding: 36px 0px 0px 0px;
     font-size: 18px;
     font-weight: bold;
     display: block;
+    text-align: center;
 }
 
 .nav-link {
