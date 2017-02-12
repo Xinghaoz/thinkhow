@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^contact/', include('contact.urls')),
     url(r'^about/', include('about.urls')),
     url(r'^tools/', include('tools.urls')),
-    url(r'^lovelive/', include('lovelive.urls')),
+    # url(r'^lovelive/', include('lovelive.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^todo/$', views.todo, name='todo'),
