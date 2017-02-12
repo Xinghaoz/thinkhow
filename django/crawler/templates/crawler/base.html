@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 
@@ -10,6 +11,7 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <meta name="description" content="">
         <meta name="author" content="">
+        <link rel="icon" href="{% static 'img/X.jpg' %}">
         <!-- <Font Awesome> -->
         <script src="https://use.fontawesome.com/7ee80f3a1a.js"></script>
 
@@ -19,8 +21,11 @@
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        {% include "head_css.html" %}
+        <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+        <link href="{% static 'css/sticky-footer.css' %}" rel="stylesheet">
 
+        {% block head %}
+        {% endblock %}
     </head>
 
     <body>
@@ -30,10 +35,30 @@
         {% endblock %}
 
 
+        <div class='container'>
+            {% block bilibili %}
+            {% endblock %}
+
+            {% block zhihu %}
+            {% endblock %}
+
+            {% block series %}
+            {% endblock %}
+        </div>
+
+        {% block test %}
+        {% endblock %}
+
         {% block footer %}
         {% endblock %}
 
-        {% block js %}
-        {% endblock %}
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/home.js' %}"></script>
     </body>
 </html>

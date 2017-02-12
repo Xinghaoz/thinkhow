@@ -3,9 +3,6 @@ from django.http import HttpResponse
 from django.conf import settings
 
 # Create your views here.
-def about(request):
-    return render(request, 'about/about.html', {})
-
 def resume(request):
     return render(request, 'about/resume.html', {})
 

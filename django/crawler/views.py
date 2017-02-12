@@ -48,4 +48,4 @@ def crawler(request):
         'bangumi_time': bangumi_time,
         'game_time': game_time,
     }
-    return render(request, "crawler.html", context)
+    return render(request, "crawler/crawler.html", context)

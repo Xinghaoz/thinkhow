@@ -3,6 +3,8 @@ body {
     padding-top: 51px;
     /*min-height: 2000px;*/
     background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .text-align-center {
