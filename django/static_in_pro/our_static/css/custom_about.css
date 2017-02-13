@@ -33,59 +33,6 @@ body {
     background-color: #888;
 }
 
-/* Sidebar */
-.sidebar {
-    background-color: rgba(0,0,0,0);
-    list-style-type: none;
-    margin-left: 65%;
-    margin-top: 100px;
-    padding-top: 60px;
-    width: 18%;
-    height: 100%;
-    position: fixed;
-    /*overflow: auto;*/
-    font-family: "Comic Sans MS", cursive, sans-serif;
-}
-
-.sidebar li a.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.sidebar li {
-    border-style: none;
-    margin: 45px;
-    height: 100px;
-    width: 100px;
-    border-radius: 100%;
-    box-shadow: 5px 5px 10px black;
-    background-color: beige;
-}
-
-.sidebar li:hover {
-    background-color: #cf8a05;
-    -webkit-transition: all .3s ease-in;
-    -moz-transition: all .3s ease-in;
-    -o-transition: all .3s ease-in;
-    -ms-transition: all .3s ease-in;
-    transition: all .3s ease-in;
-}
-
-.sidebar h2 {
-    margin-bottom: 50px;
-    font-size: 36px;
-}
-
-.detail {
-    /*background-color: #FFF;*/
-    background-color: rgba(0,0,0,0);
-    margin-left:25%;
-    margin-right: 71%;
-    margin-top: 80px;
-    height: 100%;
-    /*border-style: groove;*/
-}
-
 .name {
     /*text-align: center;*/
     clear: both;
