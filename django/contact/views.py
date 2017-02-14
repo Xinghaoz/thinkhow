@@ -29,7 +29,7 @@ def comments(request):
         return render(request, "contact/forms.html", context)
 
     data = form.cleaned_data
-    new_one = Comment(email=data['email'], full_name=data['full_name'], comment=data['comment'])
+    new_one = Comment(email=data['email'], full_name=data['full_name'], message=data['message'])
     new_one.save()
 
     comments = Comment.objects.all()

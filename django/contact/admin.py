@@ -18,7 +18,7 @@ from .forms import CommentForm
 # Register your models here.
 class CommentAdmin(admin.ModelAdmin):
     #model = SignUp
-    list_display = ('email', 'full_name', 'comment', 'timestamp')
+    list_display = ('email', 'full_name', 'message', 'timestamp')
     # form = CommentForm
 
 admin.site.register(Comment, CommentAdmin)

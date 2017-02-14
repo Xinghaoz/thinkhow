@@ -3,8 +3,8 @@ from django.http import HttpResponse
 from django.conf import settings
 
 # Create your views here.
-def resume(request):
-    return render(request, 'about/resume.html', {})
+def resume_html(request):
+    return render(request, 'about/resume_html.html', {})
 
 def skills(request):
     return render(request, 'about/skills.html', {})

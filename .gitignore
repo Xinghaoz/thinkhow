@@ -11,3 +11,4 @@ uwsgi.ini
 scrapy/*.txt
 lovelive1/
 old_files/
+db.sqlite3

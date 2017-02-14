@@ -15,7 +15,7 @@ class CommentForm(forms.Form):
     )
     full_name = forms.CharField(required=True)
     email = forms.EmailField()
-    comment = forms.CharField(widget=forms.Textarea)
+    message = forms.CharField(widget=forms.Textarea)
     private = forms.ChoiceField(choices=PUBLICITY_CHOICE, widget=forms.RadioSelect)
 
 

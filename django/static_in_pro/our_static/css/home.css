@@ -6,11 +6,12 @@
 .detail {
     /*background-color: #FFF;*/
     background-color: rgba(0,0,0,0);
-    margin-left:25%;
-    margin-right: 71%;
+    margin-left:18%;
+    /*margin-right: 70%;*/
     margin-top: 100px;
-    height: 100%;
-    width: 40%;
+    height: 325px;
+    width: 60%;
+    position: relative;
     /*border-style: groove;*/
 }
 
@@ -18,8 +19,8 @@
 .sidebar {
     background-color: rgba(0,0,0,0);
     list-style-type: none;
-    margin-left: 65%;
-    margin-top: 100px;
+    margin-left: 75%;
+    margin-top: 66px;
     padding-top: 60px;
     width: 18%;
     height: 100%;
@@ -35,7 +36,7 @@
 
 .sidebar li {
     border-style: none;
-    margin: 45px;
+    margin: 25px 0 25px 0;
     height: 100px;
     width: 100px;
     border-radius: 100%;
@@ -55,4 +56,33 @@
 .sidebar h2 {
     margin-bottom: 50px;
     font-size: 36px;
+}
+
+.my-photo {
+    height: 250px;
+    border-radius: 100%;
+    float: left;
+}
+
+.introduction {
+    font-size: 18px;
+    margin-right: 45px;
+    padding-right: 100px;
+}
+
+.btn-container {
+    /*position: absolute;*/
+    /*top: 300px;*/
+}
+
+.photo-resume {
+    height: 344px;
+    width: 266px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.p-resume {
+    font-weight: bold;
+    margin-bottom: 7px;
 }

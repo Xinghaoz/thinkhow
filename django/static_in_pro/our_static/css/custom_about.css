@@ -60,11 +60,6 @@ body {
 	transition: all .3s ease-in;
 }
 
-img.my-photo {
-    height: 250px;
-    border-radius: 100%;
-}
-
 .name-title {
     font-family: amatic sc,cursive;
     font-size: 75px;
