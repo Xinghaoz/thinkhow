@@ -1,5 +1,4 @@
 .selector {
-    font-size: 36px;
     cursor: pointer;
 }
 
@@ -85,4 +84,15 @@
 .p-resume {
     font-weight: bold;
     margin-bottom: 7px;
+}
+
+.btn-selector {
+    margin: auto;
+    padding: 36px 0px 0px 0px;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    height: 100px;
+    width: 100px;
 }
