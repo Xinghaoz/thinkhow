@@ -1,9 +1,4 @@
-.selector {
-    cursor: pointer;
-}
-
 .detail {
-    /*background-color: #FFF;*/
     background-color: rgba(0,0,0,0);
     margin-left:18%;
     /*margin-right: 70%;*/
@@ -69,11 +64,6 @@
     padding-right: 100px;
 }
 
-.btn-container {
-    /*position: absolute;*/
-    /*top: 300px;*/
-}
-
 .photo-resume {
     height: 344px;
     width: 266px;
@@ -86,13 +76,32 @@
     margin-bottom: 7px;
 }
 
-.btn-selector {
+.selector-container {
     margin: auto;
     padding: 36px 0px 0px 0px;
     font-size: 18px;
     font-weight: bold;
     display: block;
     text-align: center;
-    height: 100px;
-    width: 100px;
+    cursor: pointer;
+}
+
+.selector-view {
+    margin: auto;
+    font-size: 16px;
+    /*font-weight: bold;*/
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 25px;
+}
+
+.ul-view {
+    list-style-type: none;
+    display: inline;
+    text-align: center;
+}
+
+.li-view {
+    float: left;
 }
