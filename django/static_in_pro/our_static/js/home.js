@@ -2,8 +2,8 @@ var data = [
     {
         key: 0,
         text: "Home",
-        link: "/",
-        view: [{jsx: <div>
+        view: [{
+                    jsx: <div>
                         <div className="row">
                             <div className="col-md-4 col-sm-12">
                                 <img className="my-photo" src="static/img/me.jpg"/>
@@ -31,56 +31,66 @@ var data = [
                         <div className='information'>
                             <i className="fa fa-envelope-o fa-4x"><a href='mailto:xinghaoz@andrew.cmu.edu' target='_top'>xinghaoz@andrew.cmu.edu</a></i>
                         </div>
-                    </div>
+                    </div>,
+                    link: "/",
                 },
         ],
     },
     {
         key: 1,
         text: "Resume",
-        link: "/about/resume",
-        view: [{jsx: <div className="row">
-                    <div className="col-md-6 col-sm-12 text-align-center">
-                        <div className="btn-container">
-                            <a href="/about/resume" target="_blank"><img className="photo-resume" src="static/img/pdf1.png"/></a>
-                            <p className="p-resume">
-                                PDF version (Most recent): More formal and suitable for printing.
-                            </p>
-                            <a href="/about/resume" target="_blank"><button type="button" className="btn btn-danger">PDF</button></a>
+        view: [{
+                    jsx: <div className="row">
+                        <div className="col-md-6 col-sm-12 text-align-center">
+                            <div className="btn-container">
+                                <a href="/about/resume" target="_blank"><img className="photo-resume" src="static/img/pdf1.png"/></a>
+                                <p className="p-resume">
+                                    PDF version (Most recent): More formal and suitable for printing.
+                                </p>
+                                <a href="/about/resume" target="_blank"><button type="button" className="btn btn-danger">PDF</button></a>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-md-6 col-sm-12 text-align-center">
-                        <div className="btn-container">
-                            <a href="/about/resume_html" target="_blank"><img className="photo-resume" src="static/img/pdf2.png"/></a>
-                            <p className="p-resume">
-                                HTML version (Old version): Utilize the advantages of HTML and Javascript.
-                            </p>
-                            <a href="/about/resume_html" target="_blank"><button type="button" className="btn btn-danger">HTML</button></a>
+                        <div className="col-md-6 col-sm-12 text-align-center">
+                            <div className="btn-container">
+                                <a href="/about/resume_html" target="_blank"><img className="photo-resume" src="static/img/pdf2.png"/></a>
+                                <p className="p-resume">
+                                    HTML version (Old version): Utilize the advantages of HTML and Javascript.
+                                </p>
+                                <a href="/about/resume_html" target="_blank"><button type="button" className="btn btn-danger">HTML</button></a>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>,
+                    link: "/about/resume",
                 },
         ],
     },
     {
         key: 2,
         text: "My work",
-        link: "/about/website",
         view: [{
-                    jsx: <div className="h1">I am</div>,
+                    jsx:<div>
+                            <img src="/static/img/diagram.png"/>
+                            <div>
+                                In this website, I use some crawlers written by Scrapy to collect the content from the websites that I often visite,
+                                which saves me the trouble visiting them one by one.
+                            </div>
+                        </div>,
                     label: "Crawler",
+                    link: "/crawler",
                 },
                 {
                     jsx: <div className="h1">Xinghao</div>,
                     label: "Crawler",
+                    link: "/crawler",
                 },
         ],
     },
     {
         key: 3,
         text: "Hobbies",
-        link: "/todo",
-        view: [{jsx: <div className="h1">To Do</div>
+        view: [{
+                    jsx: <div className="h1">To Do</div>,
+                    link: "/todo",
                 },
         ],
     },
@@ -177,15 +187,31 @@ var MyView = React.createClass({
         } else {
             var selectors = [];
             for (var i = 0; i < this.props.itemList.length; i++) {
-                selectors.push(<li key={i} className="li-view">
-                                <Selector className="selector-view" id={i} label={this.props.itemList[i].props.label} callbackParent={this.onChildChanged} />
-                                </li>);
+                if (i != this.state.currentItemIndex) {
+                    selectors.push(<li key={i} className="li-view">
+                                    <Selector className="selector-view" id={i} label={this.props.itemList[i].props.label} callbackParent={this.onChildChanged} />
+                                    </li>);
+                } else {
+                    selectors.push(<li key={i} className="li-view">
+                                    <Selector className="selector-view item-active" id={i} label={this.props.itemList[i].props.label} callbackParent={this.onChildChanged} />
+                                    </li>);
+                }
             }
+            console.log(this.props.itemList[this.state.currentItemIndex].props.link);
             return  <div>
-                        <ul className="ul-view">
-                            {selectors}
-                        </ul>
+                        <div className="selector-view-container">
+                            <ul className="ul-view">
+                                {selectors}
+                            </ul>
+                        </div>
+                        <div style={{clear:"both"}}></div>
                         <div>{this.props.itemList[this.state.currentItemIndex]}</div>
+
+                        <div className="text-align-center">
+                            <a className="btn-link" href={this.props.itemList[this.state.currentItemIndex].props.link} target="_blank">
+                                <button className="btn btn-danger">Detail</button>
+                            </a>
+                        </div>
                     </div>
         }
     }
@@ -196,7 +222,7 @@ for (var i = 0; i < data.length; i++) {
     var d = data[i];
     var itemList = [];
     for (var j = 0; j < d.view.length; j++) {
-        itemList.push(<Item key={j} text={d.text} link={d.link} jsx={d.view[j].jsx} label={d.view[j].label} />);
+        itemList.push(<Item key={j} text={d.text} link={d.view[j].link} jsx={d.view[j].jsx} label={d.view[j].label} />);
     }
     if (itemList.length > 1) {
         viewList.push(<MyView itemList={itemList} hasMultipleItems={true} />);
