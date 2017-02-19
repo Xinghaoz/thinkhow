@@ -69,8 +69,10 @@ var data = [
         text: "My work",
         view: [{
                     jsx:<div>
-                            <img src="/static/img/diagram.png"/>
-                            <div>
+                            <div className="text-align-center">
+                                <a href="/static/img/diagram.png" target="_blank"><img className="img-item" src="/static/img/diagram.png"/></a>
+                            </div>
+                            <div style={{margin:"10px 25px 10px 25px"}} className="p-item">
                                 In this website, I use some crawlers written by Scrapy to collect the content from the websites that I often visite,
                                 which saves me the trouble visiting them one by one.
                             </div>
@@ -79,7 +81,7 @@ var data = [
                     link: "/crawler",
                 },
                 {
-                    jsx: <div className="h1">Xinghao</div>,
+                    jsx: <div className="h1">Building</div>,
                     label: "Crawler",
                     link: "/crawler",
                 },
@@ -142,7 +144,6 @@ var Selector = React.createClass({
     },
 
     handleClick(event) {
-        console.log(this.props.id);
         this.props.callbackParent(this.props.id);
     },
 
@@ -197,9 +198,8 @@ var MyView = React.createClass({
                                     </li>);
                 }
             }
-            console.log(this.props.itemList[this.state.currentItemIndex].props.link);
             return  <div>
-                        <div className="selector-view-container">
+                        <div style={{margin:"0 0 25px 0"}} className="selector-view-container">
                             <ul className="ul-view">
                                 {selectors}
                             </ul>

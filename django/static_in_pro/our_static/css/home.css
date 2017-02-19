@@ -3,7 +3,9 @@
     margin-left:18%;
     /*margin-right: 70%;*/
     margin-top: 100px;
-    height: 325px;
+    margin-bottom: 200px;
+    /*height: 325px;*/
+    height: auto;
     width: 60%;
     position: relative;
     /*border-style: groove;*/
@@ -136,4 +138,14 @@
 .btn-link:hover {
     text-decoration: none;
     color: white;
+}
+
+.img-item {
+    height: 450;
+    width: auto;
+}
+
+.p-item {
+    font-size: 15px;
+    font-weight: bold;
 }
