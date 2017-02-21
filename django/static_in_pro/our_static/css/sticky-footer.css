@@ -12,13 +12,6 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  /* Margin bottom by footer height */
-  /*margin-bottom: 60px;*/
-  /*position: relative;*/
-  /*min-height: 100%;*/
-}
-
 .footer {
   position: absolute;
   bottom: 0;
