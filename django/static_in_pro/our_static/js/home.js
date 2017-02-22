@@ -81,8 +81,11 @@ var data = [
                     link: "/crawler",
                 },
                 {
-                    jsx: <div className="h1">Building</div>,
-                    label: "Crawler",
+                    jsx: <div>Group membership and name services: Implemented a naming system as a replacement for DNS within the cluster.
+                              Data publish/subscribe system: Implemented a Kafka-like system, that is to use Znodes to represent the "topics" where the providers can publish to and the consumers can consume from.
+                              Distributed mutexes: Implemented distributed locks which can avoid Herd Effect.
+                         </div>,
+                    label: "Distributed Applications",
                     link: "/crawler",
                 },
         ],
