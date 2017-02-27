@@ -12,3 +12,4 @@ scrapy/*.txt
 lovelive1/
 old_files/
 db.sqlite3
+config.py
