@@ -31,4 +31,5 @@ urlpatterns = [
     url(r'^todo/$', views.todo, name='todo'),
     url(r'^profile/$', views.profile, name='profile'),
     url(r'^', include('crawler.urls')),
+    url(r'^', include('keywords_finder.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
