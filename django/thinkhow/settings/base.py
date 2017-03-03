@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'tools',
     'lovelive',
     'crawler',
+    'keywords_finder',
 ]
 
 MIDDLEWARE_CLASSES = [
