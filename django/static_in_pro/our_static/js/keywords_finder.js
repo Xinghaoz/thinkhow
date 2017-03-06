@@ -18,13 +18,25 @@ class NameForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Url:
-                    <input className="input-form" type="text" value={this.state.value} onChange={this.handleChange} />
-                </label>
-                <input className="btn btn-primary" type="submit" value="Find" />
-            </form>
+            <div className="text-align-center">
+                <div style={{position:"relative", width:"300px", display:"block", margin:"auto"}}>
+                    <form onSubmit={this.handleSubmit}>
+                            <label>Url:</label>
+                            <div>
+                                <input className="input-form" type="text" value={this.state.value} onChange={this.handleChange} />
+                            </div>
+                            <div style={{clear:"both", margin:"7px"}}></div>
+                            <label>Number of word:</label>
+                            <div>
+                                <input className="input-form" type="text" value={this.state.value} onChange={this.handleChange} />
+                            </div>
+                            <div style={{clear:"both", margin:"7px"}}></div>
+                            <div className="text-align-center">
+                                <input className="btn btn-primary" type="submit" value="Find" />
+                            </div>
+                    </form>
+                </div>
+            </div>
         );
     }
 }

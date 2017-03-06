@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from keywords_finder import views
+from . import views
 
 ##url dispatcher
 urlpatterns = [

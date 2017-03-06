@@ -38,10 +38,13 @@ html {
 body {
   /* Margin bottom by footer height */
   background-image: url("img/background.jpg");
-  margin-bottom: 60px;
+  /*margin-bottom: 60px;
   background-repeat: repeat-y;
   background-size: 100% 100%;
-  background-attachment: fixed;
+  background-attachment: fixed;*/
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
 }
 .footer {
   position: absolute;
