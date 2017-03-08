@@ -1,0 +1,4 @@
+{
+  "key" : "{{ keyword.key }}",
+  "count" : "{{ keyword.count }}",
+}

@@ -1,0 +1,5 @@
+{
+  "keywords":[
+    {% for keyword in keywords %}{% include 'keywords_finder/keyword.json' %}{% if not forloop.last %}, {% endif %}{% endfor %}
+  ]
+}

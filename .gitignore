@@ -13,3 +13,4 @@ lovelive1/
 old_files/
 db.sqlite3
 config.py
+django/db.sqlite3

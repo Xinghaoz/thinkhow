@@ -28,10 +28,10 @@ class WordCounter:
 class Assignment:
     def __init__(self, url, n=3):
         self.url = url
-        self.n = n
+        self.n = int(n)
         # Loading stop words into a set
         self.stop_words = set()
-        with open('stop-words.txt', 'r') as f:
+        with open('keywords_finder/stop-words.txt', 'r') as f:
             for line in f:
                 self.stop_words.add(line.strip()) # Need to trim the newline symbol '\n'
 
@@ -152,6 +152,8 @@ class Assignment:
                     print word_counter.word + ',',
                 else:
                     print word_counter.word
+
+            return word_counter_array
         except requests.exceptions.MissingSchema:
             print "Invalid URL!\n"
             print usage
