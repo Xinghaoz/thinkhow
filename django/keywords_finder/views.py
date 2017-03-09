@@ -33,5 +33,6 @@ def get_keywords(request):
                 keyword_container.append(new_keyword)
 
             context['keywords'] = keyword_container
+            print '^^^^^^^', context
         return render(request, 'keywords_finder/keywords.json', context, content_type='application/json')
     return redirect('/')

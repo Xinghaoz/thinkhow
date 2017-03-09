@@ -1,5 +1,11 @@
 {
   "keywords":[
-    {% for keyword in keywords %}{% include 'keywords_finder/keyword.json' %}{% if not forloop.last %}, {% endif %}{% endfor %}
+    {% for keyword in keywords %}
+        {
+            "key" : "{{ keyword.key }}",
+            "count" : "{{ keyword.count }}"
+        }
+        {% if not forloop.last %}, {% endif %}
+    {% endfor %}
   ]
 }

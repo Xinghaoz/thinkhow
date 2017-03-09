@@ -20,6 +20,7 @@ class NameForm extends React.Component {
         this.state = {
             url: 'http://www.cnn.com/2013/06/10/politics/edward-snowden-profile/',
             n: 3,
+            keywords: [],
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -36,7 +37,7 @@ class NameForm extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('A url was submitted: ' + this.state.url);
+        // alert('A url was submitted: ' + this.state.url);
         event.preventDefault();
         var csrftoken = getCookie('csrftoken');
         $.ajaxSetup({
@@ -53,11 +54,19 @@ class NameForm extends React.Component {
             },
             success: function(data) {
                 alert("You've added a new post!");
+                for (var i = 0; i < data.keywords.length; i++) {
+                    var keyword = data.keywords[i];
+                    this.state.keywords.push({'keyword': keyword.key, 'count': keyword.count});
+                }
             },
         });
     }
 
     render() {
+        var keywordArray = []
+        for (var i = 0; i < this.state.keywords.length; i++) {
+            keywordArray.push(<div>this.state.keywords.keyword</div>);
+        }
         return (
             <div className="text-align-center">
                 <div style={{position:"relative", width:"300px", display:"block", margin:"auto"}}>
@@ -76,6 +85,10 @@ class NameForm extends React.Component {
                                 <input className="btn btn-primary" type="submit" value="Find" />
                             </div>
                     </form>
+                </div>
+                <div>
+                    123124
+                    { keywordArray }
                 </div>
             </div>
         );
