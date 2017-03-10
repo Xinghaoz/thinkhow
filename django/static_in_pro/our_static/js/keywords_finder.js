@@ -20,7 +20,7 @@ class NameForm extends React.Component {
         this.state = {
             url: 'http://www.cnn.com/2013/06/10/politics/edward-snowden-profile/',
             n: 3,
-            keywords: [],
+            keywords: [{keyword: "abc", count:5}],
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -52,12 +52,16 @@ class NameForm extends React.Component {
                 url: this.state.url,
                 n: this.state.n,
             },
-            success: function(data) {
-                alert("You've added a new post!");
+            success: (data) => {
+                this.setState({keywords: []});
+                // var newKeywordArray = []; // The other way to do that
                 for (var i = 0; i < data.keywords.length; i++) {
                     var keyword = data.keywords[i];
-                    this.state.keywords.push({'keyword': keyword.key, 'count': keyword.count});
+                    var newKeyword = {keyword: keyword.key, count: keyword.count};
+                    this.setState({keywords: this.state.keywords.concat(newKeyword)});
+                    // newKeywordArray.push({keyword: keyword.key, count: keyword.count});
                 }
+                // this.setState({keywords: newKeywordArray});
             },
         });
     }
@@ -65,7 +69,20 @@ class NameForm extends React.Component {
     render() {
         var keywordArray = []
         for (var i = 0; i < this.state.keywords.length; i++) {
-            keywordArray.push(<div>this.state.keywords.keyword</div>);
+            keywordArray.push(<tr key={i}>
+                                <td>{ this.state.keywords[i].keyword }</td>
+                                <td className="finder-td">{ this.state.keywords[i].count }</td>
+                            </tr>);
+        }
+        var contentToShow = <div></div>
+        if (keywordArray.length != 0) {
+            contentToShow = <table className="finder-table">
+                              <tr>
+                                <th>Keyword</th>
+                                <th className="finder-th">Count</th>
+                              </tr>
+                              { keywordArray }
+                            </table>
         }
         return (
             <div className="text-align-center">
@@ -86,9 +103,8 @@ class NameForm extends React.Component {
                             </div>
                     </form>
                 </div>
-                <div>
-                    123124
-                    { keywordArray }
+                <div className="text-align-center finder-result">
+                    { contentToShow }
                 </div>
             </div>
         );
