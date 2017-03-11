@@ -30,23 +30,6 @@ $(document).ready(function() {
         $(".game-time").show();
     })
 
-    // $("#zhihu-ml-btn").click(function () {
-    //     $(this).addClass("btn-active");
-    //     $(".zhihu-ml").fadeIn(777);
-    //     $("#zhihu-all-btn").removeClass("btn-active");
-    //     $(".zhihu-all").fadeOut(0);
-    //     $(".zhihu-time").hide();
-    //     $(".zhihu-ml-time").show();
-    // })
-    //
-    // $("#zhihu-all-btn").click(function () {
-    //     $(this).addClass("btn-active");
-    //     $(".zhihu-all").fadeIn(777);
-    //     $("#zhihu-ml-btn").removeClass("btn-active");
-    //     $(".zhihu-ml").fadeOut(0);
-    //     $(".zhihu-ml-time").hide();
-    //     $(".zhihu-time").show();
-    // })
     $(".zhihu-btn").click(function () {
         $(".zhihu-btn").removeClass("btn-active");
         $(this).addClass("btn-active");
@@ -62,24 +45,6 @@ $(document).ready(function() {
             $(this).addClass("fa-spinner");
             $(this).removeClass("fa-refresh");
         }
-    });
-
-    $("#bangumi-refresh").click(function () {
-        // $.ajax({
-        //     type:'get',
-        //     url:<YOUR SERVERSIDE PAGE URL>,
-        //     cache:false,
-        //     // data:<if any arguments>,
-        //     async:asynchronous,
-        //     // dataType:json, //if you want json
-        //     success: function(data) {
-        //
-        //     },
-        //     error: function(request, status, error) {
-        //         alert("running python script error");
-        //     }
-        //
-        // });
     });
 
     $(".tv-list li a img").hover(function() {
