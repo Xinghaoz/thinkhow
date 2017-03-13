@@ -149,3 +149,34 @@
     font-size: 15px;
     font-weight: bold;
 }
+
+.outer-container {
+    margin-top: 100px;
+}
+
+.input-form {
+    width: 225px;
+    margin: 0px 7px 0px 7px;
+}
+
+.finder-result {
+    /*margin: auto;*/
+}
+
+.finder-td {
+    padding-left: 14px;
+    text-align: center;
+}
+
+.finder-th {
+    padding-left: 14px;
+}
+
+.finder-table {
+    margin: auto;
+    margin-top: 25px;
+}
+
+.btn-detail {
+    margin-top: 100px;
+}

@@ -20,11 +20,11 @@ class NameForm extends React.Component {
         this.state = {
             url: 'http://www.cnn.com/2013/06/10/politics/edward-snowden-profile/',
             n: 3,
-            keywords: [{keyword: "abc", count:5}],
+            keywords: [],
         };
 
         this.handleChange = this.handleChange.bind(this);
-        // this.handleChange = this.handleNChange.bind(this);
+        this.handleNChange = this.handleNChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -35,6 +35,7 @@ class NameForm extends React.Component {
     handleNChange(event) {
         this.setState({n: event.target.value});
     }
+
 
     handleSubmit(event) {
         // alert('A url was submitted: ' + this.state.url);

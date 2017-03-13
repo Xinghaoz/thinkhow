@@ -19,9 +19,6 @@ def get_keywords(request):
             # Finding 3-gram topics by default.
             n = request.POST.get('n')
 
-            print '$$$$$$$ ' + url
-            print '$$$$$$$ ' + n
-
             assignment = Assignment(url, n)
             word_counter_array = assignment.find_keywords()
             keyword_container = []
@@ -33,6 +30,5 @@ def get_keywords(request):
                 keyword_container.append(new_keyword)
 
             context['keywords'] = keyword_container
-            print '^^^^^^^', context
         return render(request, 'keywords_finder/keywords.json', context, content_type='application/json')
     return redirect('/')
