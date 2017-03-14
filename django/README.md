@@ -1,3 +1,14 @@
+## Command reminder
+Run uWSGI in background:
+```bash
+uwsgi --ini uwsgi.ini &
+```
+
+If we want to Stop uWSGI:
+```bash
+killall -9 uwsgi
+```
+
 ## Some tips for Django
 
 1. It’s important to add __str__() methods to your models, not only for your own convenience when dealing with the interactive prompt, but also because objects’ representations are used throughout Django’s automatically-generated admin.
