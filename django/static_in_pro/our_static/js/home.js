@@ -203,9 +203,18 @@ var data = [
                     link: "/crawler",
                 },
                 {
-                    jsx: <div>Group membership and name services: Implemented a naming system as a replacement for DNS within the cluster.
-                              Data publish/subscribe system: Implemented a Kafka-like system, that is to use Znodes to represent the "topics" where the providers can publish to and the consumers can consume from.
-                              Distributed mutexes: Implemented distributed locks which can avoid Herd Effect.
+                    jsx: <div className="container-mywork">
+                            <ul className="ul-mywork">
+                                <li>
+                                    Group membership and name services: Implemented a naming system as a replacement for DNS within the cluster. Joined nodes are recorded in a group path. Nodes that go down are automatically removed from the list, thus cluster always has an up-to-date directory of the active nodes.
+                                </li>
+                                <li>
+                                    Centralized configuration manager: Use ZooKeeper to manage the cluster’s configuration. Whenever the cluster’s configuration changes, nodes in the cluster can be notified immediately thus they can update the configuration in real time.
+                                </li>
+                                <li>
+                                    Distributed mutexes: Implemented distributed locks which can avoid Herd Effect.
+                                </li>
+                            </ul>
                          </div>,
                     label: "Distributed Applications",
                     link: "/crawler",

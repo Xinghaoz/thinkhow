@@ -180,3 +180,13 @@
 .btn-detail {
     margin-top: 100px;
 }
+
+.container-mywork {
+    margin: 0px 75px 0px 75px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+ul.ul-mywork li {
+    margin-top: 7px;
+}
