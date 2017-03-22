@@ -315,29 +315,32 @@ var MyView = React.createClass({
     propTypes: {
         itemList: React.PropTypes.array.isRequired,
         hasMultipleItems: React.PropTypes.bool,
-        autoPlay:React.PropTypes.bool,
+        // autoPlay:React.PropTypes.bool,
         activeIndex:React.PropTypes.number,
         defaultActiveIndex:React.PropTypes.number,
-        direction:React.PropTypes.oneOf['right','left'],
+        direction:React.PropTypes.string,
     },
     getDefaultProps(){
-    return{
-          interval:3000,
-          autoPlay:true,
-          defaultActiveIndex:0,
-          direction:'right',
+        return{
+            interval:2500,
+            // autoPlay:true,
+            defaultActiveIndex:0,
+            direction:'right',
         }
     },
     getInitialState: function () {
         return {
-            currentItemIndex: 0,
-            activeIndex:this.props.defaultActiveIndex?this.props.defaultActiveIndex:0,
-            direction:this.props.direction?this.props.direction:'right',
+            // currentItemIndex: 0,
+            activeIndex:this.props.defaultActiveIndex ? this.props.defaultActiveIndex : 0,
+            // currentItemIndex :this.props.defaultActiveIndex ? this.props.defaultActiveIndex : 0,
+            direction:this.props.direction ? this.props.direction:'right',
+            isAutoPlay:true,
         };
     },
     onChildChanged: function (newState) {
         this.setState({
-            currentItemIndex: newState,
+            // currentItemIndex: newState,
+            activeIndex: newState,
         });
     },
     componentDidMount(){
@@ -346,8 +349,20 @@ var MyView = React.createClass({
     componentWillUnmount(){
         clearInterval(this.timeOuter);
     },
+    onMouseOver() {
+        clearInterval(this.timeOuter);
+        // this.setState({
+        //     isAutoPlay: false,
+        // });
+        // console.log("state" + this.state.isAutoPlay);
+    },
+    onMouseOut() {
+        this.autoPlay();
+    },
     autoPlay(){
-        if(this.props.autoPlay){
+        // Only get in once!
+        // console.log("Inside autoPlay " + this.state.isAutoPlay);
+        if (this.state.isAutoPlay){
             if(this.props.direction==="right"){
                 this.timeOuter = setInterval(this.playRight,this.props.interval);
             } else if (this.props.direction==="left"){
@@ -356,10 +371,10 @@ var MyView = React.createClass({
         }
     },
     playRight(indexIn){
-        let index=indexIn?indexIn:this.state.activeIndex+1;
-        console.log(index);
-        if(index>this.props.number-1){
-            index=0;
+        let index = indexIn ? indexIn : this.state.activeIndex + 1;
+        // console.log(index);
+        if(index > this.props.itemList.length - 1){
+            index = 0;
         }
         this.setState({
             activeIndex:index
@@ -367,9 +382,9 @@ var MyView = React.createClass({
     },
     playLeft(indexIn){
         let index=indexIn?indexIn:this.state.activeIndex-1;
-        console.log(index);
-        if(index<0){
-            index=this.props.number-1;
+        // console.log(index);
+        if(index < 0){
+            index = this.props.itemList.length - 1;
         }
         this.setState({
             activeIndex:index
@@ -395,7 +410,7 @@ var MyView = React.createClass({
         } else {
             var selectors = [];
             for (var i = 0; i < this.props.itemList.length; i++) {
-                if (i != this.state.currentItemIndex) {
+                if (i != this.state.activeIndex) {
                     selectors.push(<li key={i} className="li-view">
                                     <Selector className="selector-view" id={i} label={this.props.itemList[i].props.label} callbackParent={this.onChildChanged} />
                                     </li>);
@@ -405,17 +420,17 @@ var MyView = React.createClass({
                                     </li>);
                 }
             }
-            return  <div>
+            return  <div onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut}>
                         <div style={{margin:"0 0 25px 0"}} className="selector-view-container">
                             <ul className="ul-view">
                                 {selectors}
                             </ul>
                         </div>
                         <div style={{clear:"both"}}></div>
-                        <div>{this.props.itemList[this.state.currentItemIndex]}</div>
+                        <div>{this.props.itemList[this.state.activeIndex]}</div>
 
                         <div className="text-align-center">
-                            <a className="btn-link" href={this.props.itemList[this.state.currentItemIndex].props.link} target="_blank">
+                            <a className="btn-link" href={this.props.itemList[this.state.activeIndex].props.link} target="_blank">
                                 <button className="btn btn-danger btn-detail">Detail</button>
                             </a>
                         </div>
