@@ -236,7 +236,12 @@ var data = [
         key: 3,
         text: "Hobbies",
         view: [{
-                    jsx: <div className="h1">To Do</div>,
+                    jsx: <div text-align-center>
+                            <img className="img-photo" src="/static/img/diagram.png"/>
+                            <img className="img-photo" src="/static/img/diagram.png"/>
+                            <img className="img-photo" src="/static/img/diagram.png"/>
+                            <img className="img-photo" src="/static/img/diagram.png"/>
+                        </div>,
                     link: "/todo",
                 },
         ],

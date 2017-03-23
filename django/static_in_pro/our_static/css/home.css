@@ -141,7 +141,12 @@
 }
 
 .img-item {
-    height: 450;
+    /*height: 450;*/
+    width: auto;
+}
+
+.img-photo {
+    height: 450px;
     width: auto;
 }
 
