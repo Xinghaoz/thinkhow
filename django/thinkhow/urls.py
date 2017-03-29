@@ -32,4 +32,5 @@ urlpatterns = [
     url(r'^profile/$', views.profile, name='profile'),
     url(r'^', include('crawler.urls')),
     url(r'^', include('keywords_finder.urls')),
+    url(r'^', include('lovelive.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
